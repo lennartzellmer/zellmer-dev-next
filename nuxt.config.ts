@@ -14,7 +14,7 @@ export default defineNuxtConfig({
   ],
 
   build: {
-    transpile: ['prismjs'],
+    transpile: ['@highlightjs/vue-plugin'],
     postcss: {
       postcssOptions: {
         plugins: {
