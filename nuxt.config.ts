@@ -13,6 +13,12 @@ export default defineNuxtConfig({
     ],
   ],
 
+  vite: {
+    optimizeDeps: {
+      include: ['@highlightjs/vue-plugin'],
+    },
+  },
+
   build: {
     transpile: ['@highlightjs/vue-plugin'],
     postcss: {
