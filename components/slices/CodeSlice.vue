@@ -8,14 +8,13 @@
 
 <script lang="ts">
 import 'highlight.js/styles/github.css'
-import 'highlight.js/lib/common'
-import hljsVuePlugin from '@highlightjs/vue-plugin'
+import highlightjs from '../highlightjs'
 import { defineComponent } from '#imports'
 
 export default defineComponent({
   name: 'CodeSlice',
   components: {
-    highlightjs: hljsVuePlugin.component,
+    highlightjs,
   },
   props: {
     slice: {

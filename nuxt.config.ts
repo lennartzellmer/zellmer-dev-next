@@ -20,7 +20,6 @@ export default defineNuxtConfig({
   },
 
   build: {
-    transpile: ['@highlightjs/vue-plugin'],
     postcss: {
       postcssOptions: {
         plugins: {
