@@ -1,8 +1,9 @@
 <template>
-  <pre
+  <highlightjs
     class="rounded-lg overflow-hidden"
-  ><highlightjs :language="slice.primary.language" :code="$prismic.asText(slice.primary.code)" />
-  </pre>
+    :language="slice.primary.language"
+    :code="$prismic.asText(slice.primary.code)"
+  />
 </template>
 
 <script lang="ts">
