@@ -7,13 +7,13 @@ module.exports = {
     './layouts/**/*.vue',
     './pages/**/*.vue',
     './plugins/**/*.{js,ts}',
-    './nuxt.config.{js,ts}'
+    './nuxt.config.{js,ts}',
   ],
   safelist: ['line-through'],
   theme: {
     fontFamily: {
       sans: ['Inter', ...defaultTheme.fontFamily.sans],
-      mono: ['JetBrains Mono', ...defaultTheme.fontFamily.mono]
+      mono: ['JetBrains Mono', ...defaultTheme.fontFamily.mono],
     },
     extend: {
       typography: {
@@ -23,11 +23,11 @@ module.exports = {
               color: '#11181c',
               fontFamily: ['JetBrains Mono', ...defaultTheme.fontFamily.mono],
               '&:hover': {
-                color: '#687076'
-              }
-            }
-          }
-        }
+                color: '#687076',
+              },
+            },
+          },
+        },
       },
       colors: {
         gray: colors.stone,
@@ -42,7 +42,7 @@ module.exports = {
           600: '#565C43',
           700: '#424733',
           800: '#2C3022',
-          900: '#161811'
+          900: '#161811',
         },
         slate: {
           1: '#fbfcfd',
@@ -56,16 +56,16 @@ module.exports = {
           9: '#889096',
           10: '#7e868c',
           11: '#687076',
-          12: '#11181c'
+          12: '#11181c',
         },
         action: {
-          red: '#F34616'
-        }
-      }
-    }
+          red: '#F34616',
+        },
+      },
+    },
   },
   variants: {
-    extend: {}
+    extend: {},
   },
-  plugins: [require('@tailwindcss/typography')]
+  plugins: [require('@tailwindcss/typography')],
 }

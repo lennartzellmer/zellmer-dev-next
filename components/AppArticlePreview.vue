@@ -57,6 +57,7 @@ export default defineComponent({
 .AppArticlePreview__picture {
   display: flex;
   object-fit: cover;
+  width: 100%;
   img {
     @apply object-cover;
   }
