@@ -38,7 +38,7 @@
       </div>
     </div>
     <footer class="flex justify-center py-12 mx-auto max-w-7xl">
-      <nav v-if="footerNavigation.data.menu_links">
+      <nav v-if="footerNavigation">
         <PrismicLink
           v-for="(linkObject, id) in footerNavigation.data.menu_links"
           :key="id"
