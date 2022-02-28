@@ -13,6 +13,8 @@
 </template>
 
 <script lang="ts" setup>
+import { useMeta } from '#meta'
+import { asText } from '@prismicio/helpers'
 import { usePrismic, useAsyncData, useRoute } from '#imports'
 
 const { client } = usePrismic()
@@ -21,6 +23,10 @@ const route = useRoute()
 const { data: page } = useAsyncData(route.params.uid.toString(), () =>
   client.getByUID('default_page', route.params.uid.toString())
 )
+
+useMeta(() => {
+  return { title: `${asText(page.value?.data?.title || '')} - Zellmer.dev` }
+})
 </script>
 
 <style lang="scss">

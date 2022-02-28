@@ -10,8 +10,9 @@
   </main>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { usePrismic } from '@prismicio/vue'
+import { useMeta } from '#meta'
 import { useAsyncData } from '#imports'
 
 const { client } = usePrismic()
@@ -22,4 +23,6 @@ const { data: posts } = useAsyncData('blog-posts', () =>
     ],
   })
 )
+
+useMeta({ title: 'Blog - Zellmer.dev' })
 </script>
