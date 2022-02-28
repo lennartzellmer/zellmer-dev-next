@@ -14,6 +14,7 @@
 import { usePrismic } from '@prismicio/vue'
 import { useMeta } from '#meta'
 import { useAsyncData } from '#imports'
+import AppArticlePreview from '~/components/AppArticlePreview.vue'
 
 const { client } = usePrismic()
 const { data: posts } = useAsyncData('blog-posts', () =>

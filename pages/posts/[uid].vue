@@ -10,10 +10,12 @@
         >
           <AppSkeleton max-width="100" class="text-4xl sm:text-6xl" />
           <AppSkeleton max-width="75" class="mt-4 text-4xl sm:text-6xl" />
-          <div v-for="index in blocks" class="mt-8 text-lg">
-            <template v-for="n in index">
-              <AppSkeleton />
-            </template>
+          <div
+            v-for="(number, indexOuter) in blocks"
+            :key="indexOuter"
+            class="mt-8 text-lg"
+          >
+            <AppSkeleton v-for="(n, indexInner) in number" :key="indexInner" />
           </div>
         </div>
         <template v-if="post">
