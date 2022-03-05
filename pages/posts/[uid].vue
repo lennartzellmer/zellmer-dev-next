@@ -51,7 +51,7 @@
 <script lang="ts" setup>
 import { asText } from '@prismicio/helpers'
 import { useMeta } from '#meta'
-import { usePrismic, useRoute, useAsyncData, computed } from '#imports'
+import { usePrismic, useRoute, useAsyncData } from '#imports'
 import AppSkeleton from '~/components/AppSkeleton.vue'
 const { client } = usePrismic()
 const route = useRoute()
