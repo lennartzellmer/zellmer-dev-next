@@ -4,35 +4,7 @@
       <section
         class="gap-8 px-4 pb-12 mx-auto w-full max-w-6xl md:grid md:grid-cols-12 md:auto-rows-max md:px-6"
       >
-        <div
-          v-if="pending"
-          class="col-span-12 md:col-span-10 lg:col-span-8 pt-16"
-        >
-          <AppSkeleton max-width="100" class="text-4xl sm:text-6xl" />
-          <AppSkeleton max-width="75" class="mt-4 text-4xl sm:text-6xl" />
-          <div class="mt-8 text-lg">
-            <AppSkeleton />
-            <AppSkeleton />
-            <AppSkeleton />
-            <AppSkeleton />
-            <AppSkeleton />
-            <AppSkeleton />
-          </div>
-          <div class="mt-8 text-lg">
-            <AppSkeleton />
-            <AppSkeleton />
-            <AppSkeleton />
-            <AppSkeleton />
-          </div>
-          <div class="mt-8 text-lg">
-            <AppSkeleton />
-            <AppSkeleton />
-            <AppSkeleton />
-            <AppSkeleton />
-            <AppSkeleton />
-          </div>
-        </div>
-        <template v-if="false">
+        <template v-if="post">
           <h1
             class="col-span-12 pt-16 text-4xl font-bold leading-tight sm:text-6xl md:col-span-10 lg:col-span-8"
           >
@@ -52,7 +24,6 @@
 import { asText } from '@prismicio/helpers'
 import { useMeta } from '#meta'
 import { usePrismic, useRoute, useAsyncData } from '#imports'
-import AppSkeleton from '~/components/AppSkeleton.vue'
 const { client } = usePrismic()
 const route = useRoute()
 
