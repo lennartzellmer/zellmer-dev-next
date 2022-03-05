@@ -32,7 +32,7 @@
             <AppSkeleton />
           </div>
         </div>
-        <template v-if="post">
+        <template v-if="false">
           <h1
             class="col-span-12 pt-16 text-4xl font-bold leading-tight sm:text-6xl md:col-span-10 lg:col-span-8"
           >
@@ -56,7 +56,7 @@ import AppSkeleton from '~/components/AppSkeleton.vue'
 const { client } = usePrismic()
 const route = useRoute()
 
-const { data: post, pending } = useAsyncData(route.params.uid.toString(), () =>
+const { data: post } = useAsyncData(route.params.uid.toString(), () =>
   client.getByUID('blog-post', route.params.uid.toString())
 )
 
