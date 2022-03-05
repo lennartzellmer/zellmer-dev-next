@@ -10,12 +10,26 @@
         >
           <AppSkeleton max-width="100" class="text-4xl sm:text-6xl" />
           <AppSkeleton max-width="75" class="mt-4 text-4xl sm:text-6xl" />
-          <div
-            v-for="(number, indexOuter) in blocks"
-            :key="indexOuter"
-            class="mt-8 text-lg"
-          >
-            <AppSkeleton v-for="(n, indexInner) in number" :key="indexInner" />
+          <div class="mt-8 text-lg">
+            <AppSkeleton />
+            <AppSkeleton />
+            <AppSkeleton />
+            <AppSkeleton />
+            <AppSkeleton />
+            <AppSkeleton />
+          </div>
+          <div class="mt-8 text-lg">
+            <AppSkeleton />
+            <AppSkeleton />
+            <AppSkeleton />
+            <AppSkeleton />
+          </div>
+          <div class="mt-8 text-lg">
+            <AppSkeleton />
+            <AppSkeleton />
+            <AppSkeleton />
+            <AppSkeleton />
+            <AppSkeleton />
           </div>
         </div>
         <template v-if="post">
@@ -48,10 +62,6 @@ const { data: post, pending } = useAsyncData(route.params.uid.toString(), () =>
 
 useMeta(() => {
   return { title: `${asText(post.value?.data?.headline || '')} - Zellmer.dev` }
-})
-
-const blocks = computed(() => {
-  return [4, 5, 2, 6, 7]
 })
 </script>
 
