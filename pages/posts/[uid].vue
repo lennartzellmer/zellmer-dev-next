@@ -23,9 +23,10 @@
 <script lang="ts" setup>
 import { asText } from '@prismicio/helpers'
 import { useMeta } from '#meta'
-import { usePrismic, useRoute, useAsyncData } from '#imports'
-const { client } = usePrismic()
+import { useRoute, useAsyncData } from '#imports'
+
 const route = useRoute()
+const { client } = usePrismic()
 
 const { data: post } = useAsyncData(route.params.uid.toString(), () =>
   client.getByUID('blog-post', route.params.uid.toString())
