@@ -56,7 +56,7 @@
 <script lang="ts" setup>
 import { asText } from '@prismicio/helpers'
 import linkResolver from '@/helper/linkResolver'
-import { useAsyncData } from '#imports'
+import { useAsyncData, usePrismic } from '#imports'
 
 const { client } = usePrismic()
 const { data: footerNavigation } = useAsyncData('footerNavigation', () =>

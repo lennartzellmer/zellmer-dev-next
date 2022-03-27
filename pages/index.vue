@@ -12,7 +12,7 @@
 
 <script setup lang="ts">
 import { useMeta } from '#meta'
-import { useAsyncData } from '#imports'
+import { useAsyncData, usePrismic } from '#imports'
 import AppArticlePreview from '~/components/AppArticlePreview.vue'
 
 const { client } = usePrismic()

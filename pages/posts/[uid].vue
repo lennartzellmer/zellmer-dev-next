@@ -23,7 +23,7 @@
 <script lang="ts" setup>
 import { asText } from '@prismicio/helpers'
 import { useMeta } from '#meta'
-import { useRoute, useAsyncData } from '#imports'
+import { useRoute, useAsyncData, usePrismic } from '#imports'
 
 const route = useRoute()
 const { client } = usePrismic()
