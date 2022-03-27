@@ -11,7 +11,6 @@
 </template>
 
 <script setup lang="ts">
-import { useMeta } from '#meta'
 import { useAsyncData, usePrismic } from '#imports'
 import AppArticlePreview from '~/components/AppArticlePreview.vue'
 
@@ -23,6 +22,4 @@ const { data: posts } = useAsyncData('blog-posts', () =>
     ],
   })
 )
-
-useMeta({ title: 'Blog - Zellmer.dev' })
 </script>

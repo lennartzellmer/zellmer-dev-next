@@ -22,7 +22,6 @@
 
 <script lang="ts" setup>
 import { asText } from '@prismicio/helpers'
-import { useMeta } from '#meta'
 import { useRoute, useAsyncData, usePrismic } from '#imports'
 
 const route = useRoute()
@@ -31,10 +30,6 @@ const { client } = usePrismic()
 const { data: post } = useAsyncData(route.params.uid.toString(), () =>
   client.getByUID('blog-post', route.params.uid.toString())
 )
-
-useMeta(() => {
-  return { title: `${asText(post.value?.data?.headline || '')} - Zellmer.dev` }
-})
 </script>
 
 <style lang="scss">
