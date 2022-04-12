@@ -10,10 +10,8 @@
         >
           <AppSkeleton max-width="100" class="text-4xl sm:text-6xl" />
           <AppSkeleton max-width="75" class="mt-4 text-4xl sm:text-6xl" />
-          <div v-for="index in blocks" class="mt-8 text-lg">
-            <template v-for="n in index">
-              <AppSkeleton />
-            </template>
+          <div v-for="index in blocks" :key="index" class="mt-8 text-lg">
+            <AppSkeleton v-for="n in index" :key="`${{ n }}-${{ index }}`" />
           </div>
         </div>
         <template v-if="post">
@@ -33,25 +31,17 @@
 </template>
 
 <script lang="ts" setup>
-import { asText } from '@prismicio/helpers'
-import {
-  usePrismic,
-  useRoute,
-  useAsyncData,
-  computed,
-  definePageMeta,
-  reactive,
-} from '#imports'
+import { usePrismic, useRoute, useAsyncData, computed, useHead } from '#imports'
 import AppSkeleton from '~/components/AppSkeleton.vue'
-const { client } = usePrismic()
+const { client, asText } = usePrismic()
 const route = useRoute()
 
 const { data: post, pending } = useAsyncData(route.params.uid.toString(), () =>
   client.getByUID('blog-post', route.params.uid.toString())
 )
 
-definePageMeta({
-  title: 'Post',
+useHead({
+  title: computed(() => `${asText(post.value.data.headline)} - Zellmer.dev`),
 })
 
 const blocks = computed(() => {

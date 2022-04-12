@@ -11,7 +11,7 @@
 </template>
 
 <script setup lang="ts">
-import { definePageMeta, useAsyncData, usePrismic } from '#imports'
+import { useAsyncData, usePrismic } from '#imports'
 import AppArticlePreview from '~/components/AppArticlePreview.vue'
 
 const { client } = usePrismic()
@@ -22,8 +22,4 @@ const { data: posts } = useAsyncData('blog-posts', () =>
     ],
   })
 )
-
-definePageMeta({
-  title: 'Blog',
-})
 </script>

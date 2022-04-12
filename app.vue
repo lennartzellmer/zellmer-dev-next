@@ -9,12 +9,10 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, useHead, useRoute } from '#imports'
-
-const route = useRoute()
+import { computed, useHead } from '#imports'
 
 useHead({
-  title: computed(() => `${route.meta.title} - Zellmer.dev`),
+  title: computed(() => `Blog - Zellmer.dev`),
   meta: [
     {
       name: 'description',
