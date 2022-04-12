@@ -44,7 +44,6 @@
           :key="id"
           class="p-3 font-mono text-slate-9 hover:text-slate-5 transition"
           :field="linkObject.link"
-          :link-resolver="linkResolver"
         >
           {{ asText(linkObject.label) }}
         </PrismicLink>
@@ -54,11 +53,9 @@
 </template>
 
 <script lang="ts" setup>
-import { asText } from '@prismicio/helpers'
-import linkResolver from '@/helper/linkResolver'
 import { useAsyncData, usePrismic } from '#imports'
 
-const { client } = usePrismic()
+const { client, asText } = usePrismic()
 const { data: footerNavigation } = useAsyncData('footerNavigation', () =>
   client.getSingle('footer_navigation')
 )
