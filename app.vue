@@ -9,12 +9,12 @@
 </template>
 
 <script lang="ts" setup>
-import { useHead, useRoute } from '#imports'
+import { computed, useHead, useRoute } from '#imports'
 
 const route = useRoute()
 
 useHead({
-  title: `${route.meta.title} - Zellmer.dev`,
+  title: computed(() => `${route.meta.title} - Zellmer.dev`),
   meta: [
     {
       name: 'description',
