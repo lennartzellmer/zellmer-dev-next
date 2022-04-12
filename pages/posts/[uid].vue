@@ -8,8 +8,8 @@
           v-if="pending"
           class="col-span-12 md:col-span-10 lg:col-span-8 pt-16"
         >
-          <AppSkeleton max-width="100" class="text-4xl sm:text-6xl" />
-          <AppSkeleton max-width="75" class="mt-4 text-4xl sm:text-6xl" />
+          <AppSkeleton :max-width="100" class="text-4xl sm:text-6xl" />
+          <AppSkeleton :max-width="75" class="mt-4 text-4xl sm:text-6xl" />
           <div v-for="index in blocks" :key="index" class="mt-8 text-lg">
             <AppSkeleton v-for="n in index" :key="`${{ n }}-${{ index }}`" />
           </div>
@@ -41,7 +41,9 @@ const { data: post, pending } = useAsyncData(route.params.uid.toString(), () =>
 )
 
 useHead({
-  title: computed(() => `${asText(post.value.data.headline)} - Zellmer.dev`),
+  title: computed(
+    () => `${asText(post.value?.data.headline) || ''} - Zellmer.dev`
+  ),
 })
 
 const blocks = computed(() => {
