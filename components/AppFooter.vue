@@ -1,8 +1,8 @@
 <template>
-  <section class="bg-slate-12">
-    <div class="pt-12 bg-slate-2">
+  <section class="bg-slate-12 dark:bg-black">
+    <div class="pt-12 bg-slate-2 dark:bg-slate-dark-1/50">
       <svg
-        class="w-full h-16 text-slate-12 md:h-24 lg:h-32"
+        class="w-full h-16 text-slate-12 dark:text-black md:h-24 lg:h-32"
         viewBox="0 0 1440 166"
         preserveAspectRatio="none"
         height="1440"

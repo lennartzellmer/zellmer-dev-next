@@ -32,16 +32,16 @@ useHead({
 <style lang="scss">
 .prismic-text {
   h1 {
-    @apply text-slate-12 font-bold text-5xl mb-3 mt-12;
+    @apply text-slate-12 dark:text-slate-dark-12 font-bold text-5xl mb-3 mt-12;
   }
   h3 {
-    @apply text-slate-12 font-semibold text-2xl mb-3 mt-12;
+    @apply dark:text-slate-dark-12 text-slate-12 font-semibold text-2xl mb-3 mt-12;
   }
   p {
-    @apply text-slate-11 leading-relaxed;
+    @apply text-slate-11 dark:text-slate-dark-11 leading-relaxed;
   }
   a {
-    @apply text-slate-8 underline hover:text-slate-5 leading-relaxed font-mono;
+    @apply text-slate-8 dark:text-slate-dark-8 underline hover:text-slate-5 leading-relaxed font-mono;
   }
 }
 </style>

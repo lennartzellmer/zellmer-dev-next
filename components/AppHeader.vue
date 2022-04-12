@@ -1,5 +1,7 @@
 <template>
-  <header class="bg-slate-2">
+  <header
+    class="bg-slate-2 dark:bg-sage-dark-1/50 dark:border-b dark:border-slate-dark-1"
+  >
     <nav class="flex justify-between px-4 mx-auto max-w-6xl sm:px-6 lg:px-8">
       <NuxtLink
         class="group flex justify-center items-center space-x-3 text-lg focus:outline-none sm:text-2xl"
@@ -12,7 +14,7 @@
           height="100"
           fill="none"
           viewBox="0 0 100 100"
-          class="overflow-visible w-12 h-auto text-gray-900 group-hover:text-green-400 transition sm:w-16"
+          class="overflow-visible w-12 h-auto text-slate-12 dark:text-slate-dark-12 dark:group-hover:text-blue-2 group-hover:text-green-500 transition sm:w-16"
         >
           <path
             id="morphing-path"
@@ -22,15 +24,24 @@
             stroke-width="4"
             :d="svgPath.path"
           />
+          <path
+            id="morphing-path"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="4"
+            :d="svgPath.path"
+            class="hidden dark:block group-hover:blur text-green-11 transition-opacity opacity-0 group-hover:opacity-100"
+          />
         </svg>
         <span
-          class="font-mono text-gray-900 group-hover:text-green-400 transition ease-in-out"
-          >zellmer.dev</span
+          class="font-mono text-slate-12 dark:text-slate-dark-11 group-hover:text-green-400 dark:group-hover:text-slate-dark-8 transition ease-in-out"
+          >zellmer</span
         >
       </NuxtLink>
       <div class="flex items-center py-9">
         <a
-          class="flex items-center p-1.5 hover:text-green-400 focus:bg-gray-100 focus:rounded-full focus:outline-none focus:ring-2 ring-green-300 transition hover:scale-105 hover:-rotate-6 sm:p-2.5"
+          class="flex items-center p-1.5 hover:text-green-400 dark:text-slate-dark-11 dark:hover:text-green-500 focus:bg-gray-100 focus:rounded-full focus:outline-none focus:ring-2 ring-green-300 transition hover:scale-105 hover:-rotate-6 sm:p-2.5"
           href="mailto:lennart+blog@zellmer.dev"
           subject="Hej,%20what's%20up?"
           target="_blank"
@@ -53,7 +64,7 @@
           </svg>
         </a>
         <a
-          class="flex items-center p-1.5 hover:text-green-400 focus:bg-gray-100 focus:rounded-full focus:outline-none focus:ring-2 ring-green-300 transition hover:scale-105 hover:rotate-6 sm:p-2.5"
+          class="flex items-center p-1.5 hover:text-green-400 dark:text-slate-dark-11 dark:hover:text-green-500 focus:bg-gray-100 focus:rounded-full focus:outline-none focus:ring-2 ring-green-300 transition hover:scale-105 hover:rotate-6 sm:p-2.5"
           href="https://github.com/lennartzellmer"
           target="_blank"
           rel="noreferrer"
@@ -77,7 +88,7 @@
           </svg>
         </a>
         <a
-          class="flex items-center p-1.5 h-full hover:text-green-400 focus:bg-gray-100 focus:rounded-full focus:outline-none focus:ring-2 ring-green-300 transition hover:scale-105 hover:-rotate-6 sm:p-2.5"
+          class="flex items-center p-1.5 h-full hover:text-green-400 dark:text-slate-dark-11 dark:hover:text-green-500 focus:bg-gray-100 focus:rounded-full focus:outline-none focus:ring-2 ring-green-300 transition hover:scale-105 hover:-rotate-6 sm:p-2.5"
           href="https://twitter.com/ZuTeilen"
           target="_blank"
           rel="noreferrer"

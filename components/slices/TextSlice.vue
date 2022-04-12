@@ -1,6 +1,9 @@
 <template>
   <div>
-    <prismic-rich-text class="mt-8 break-words" :field="slice.primary.text" />
+    <prismic-rich-text
+      class="mt-8 break-words prose-a:text-black dark:prose-a:text-white prose-a:font-mono prose-a:hover:text-green-500"
+      :field="slice.primary.text"
+    />
   </div>
 </template>
 

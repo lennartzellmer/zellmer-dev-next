@@ -34,9 +34,11 @@ module.exports = {
     './components/**/*.{js,vue,ts}',
     './layouts/**/*.vue',
     './pages/**/*.vue',
+    './**/*.vue',
+    './*.vue',
     './plugins/**/*.{js,ts}',
   ],
-  darkMode: 'class',
+  darkMode: 'media',
   safelist: ['line-through'],
   theme: {
     fontFamily: {
@@ -44,19 +46,6 @@ module.exports = {
       mono: ['JetBrains Mono', ...defaultTheme.fontFamily.mono],
     },
     extend: {
-      typography: {
-        DEFAULT: {
-          css: {
-            a: {
-              color: '#11181c',
-              fontFamily: ['JetBrains Mono', ...defaultTheme.fontFamily.mono],
-              '&:hover': {
-                color: '#687076',
-              },
-            },
-          },
-        },
-      },
       colors: {
         yellow: mappedRadixColors.amber,
         'yellow-dark': mappedRadixColors.amberDark,
@@ -66,6 +55,7 @@ module.exports = {
         'blue-dark': mappedRadixColors.blueDark,
         slate: mappedRadixColors.slate,
         'slate-dark': mappedRadixColors.slateDark,
+        'sage-dark': mappedRadixColors.sageDark,
         gray: {
           100: mappedRadixColors.slate[1],
           200: mappedRadixColors.slate[3],

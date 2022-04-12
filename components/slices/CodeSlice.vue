@@ -7,7 +7,7 @@
 </template>
 
 <script lang="ts">
-import 'highlight.js/styles/github.css'
+import 'highlight.js/styles/github-dark.css'
 import highlightjs from '../highlightjs'
 import { defineComponent } from '#imports'
 

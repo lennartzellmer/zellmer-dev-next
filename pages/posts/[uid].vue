@@ -1,6 +1,6 @@
 <template>
   <div>
-    <main class="bg-slate-2">
+    <main class="bg-slate-2 dark:bg-transparent">
       <section
         class="gap-8 px-4 pb-12 mx-auto w-full max-w-6xl md:grid md:grid-cols-12 md:auto-rows-max md:px-6"
       >
@@ -16,7 +16,7 @@
         </div>
         <template v-if="post">
           <h1
-            class="col-span-12 pt-16 text-4xl font-bold leading-tight sm:text-6xl md:col-span-10 lg:col-span-8"
+            class="col-span-12 pt-16 text-4xl font-bold leading-tight sm:text-6xl md:col-span-10 lg:col-span-8 text-black dark:text-slate-dark-12"
           >
             {{ asText(post.data.headline) }}
           </h1>

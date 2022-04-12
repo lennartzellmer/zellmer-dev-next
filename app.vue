@@ -1,9 +1,9 @@
 <template>
   <div
-    class="flex flex-col min-h-screen bg-slate-2 antialiased w-screen overflow-x-hidden"
+    class="flex flex-col min-h-screen bg-slate-2 dark:bg-black antialiased w-screen overflow-x-hidden"
   >
-    <AppHeader class="bg-slate-2" />
-    <NuxtPage class="grow" />
+    <AppHeader />
+    <NuxtPage class="grow dark:bg-sage-dark-1/50" />
     <AppFooter />
   </div>
 </template>
