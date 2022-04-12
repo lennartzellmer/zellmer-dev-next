@@ -13,7 +13,7 @@
 </template>
 
 <script lang="ts" setup>
-import { useAsyncData, useRoute, usePrismic } from '#imports'
+import { useAsyncData, useRoute, usePrismic, definePageMeta } from '#imports'
 
 const { client } = usePrismic()
 const route = useRoute()
@@ -21,6 +21,10 @@ const route = useRoute()
 const { data: page } = useAsyncData(route.params.uid.toString(), () =>
   client.getByUID('default_page', route.params.uid.toString())
 )
+
+definePageMeta({
+  title: '💬',
+})
 </script>
 
 <style lang="scss">

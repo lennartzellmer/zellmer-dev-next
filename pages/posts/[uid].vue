@@ -22,7 +22,7 @@
 
 <script lang="ts" setup>
 import { asText } from '@prismicio/helpers'
-import { useRoute, useAsyncData, usePrismic } from '#imports'
+import { useRoute, useAsyncData, usePrismic, definePageMeta } from '#imports'
 
 const route = useRoute()
 const { client } = usePrismic()
@@ -30,6 +30,10 @@ const { client } = usePrismic()
 const { data: post } = useAsyncData(route.params.uid.toString(), () =>
   client.getByUID('blog-post', route.params.uid.toString())
 )
+
+definePageMeta({
+  title: 'Post',
+})
 </script>
 
 <style lang="scss">
