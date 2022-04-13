@@ -2,7 +2,7 @@
   <section>
     <div class="bg-slate-2 dark:bg-transparent">
       <svg
-        class="w-full h-16 text-slate-12 dark:text-slate-dark-1 md:h-24 lg:h-32"
+        class="w-full h-16 md:h-24 lg:h-32"
         viewBox="0 0 1440 166"
         preserveAspectRatio="none"
         height="1440"
@@ -12,11 +12,11 @@
       >
         <path
           d="M1440 166.709C883.5 150 262.088 58.4152 0 0V166.709H1440Z"
-          fill="currentColor"
+          fill="#101212"
         />
       </svg>
     </div>
-    <div class="dark:bg-slate-dark-1 bg-slate-12 pt-12">
+    <div class="bg-[#101212] pt-12">
       <div
         v-if="bio"
         class="grid grid-cols-12 mx-auto max-w-5xl sm:pb-24 md:gap-8 md:px-4"
