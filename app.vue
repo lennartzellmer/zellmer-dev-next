@@ -1,9 +1,9 @@
 <template>
   <div
-    class="flex flex-col min-h-screen bg-slate-2 dark:bg-black antialiased w-screen overflow-x-hidden"
+    class="flex flex-col min-h-screen bg-slate-2 dark:bg-sage-dark-1/50 antialiased w-screen overflow-x-hidden"
   >
     <AppHeader />
-    <NuxtPage class="grow dark:bg-sage-dark-1/50" />
+    <NuxtPage class="grow" />
     <AppFooter />
   </div>
 </template>
@@ -20,5 +20,8 @@ useHead({
         'Lennart here. Sharing thoughts and concepts around Product, Design and Development',
     },
   ],
+  bodyAttrs: {
+    class: 'bg-black',
+  },
 })
 </script>

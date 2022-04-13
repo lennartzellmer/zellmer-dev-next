@@ -1,6 +1,6 @@
 <template>
   <main>
-    <section class="px-4 pt-12 lg:px-8">
+    <section class="px-4 py-12 lg:px-8">
       <ul v-if="posts" class="mx-auto space-y-12 max-w-5xl">
         <li v-for="post in posts.results" :key="post.id">
           <AppArticlePreview :post="post" />

@@ -51,11 +51,10 @@ module.exports = {
         'yellow-dark': mappedRadixColors.amberDark,
         red: mappedRadixColors.red,
         'red-dark': mappedRadixColors.redDark,
-        blue: mappedRadixColors.blue,
-        'blue-dark': mappedRadixColors.blueDark,
+        mint: mappedRadixColors.mint,
+        'mint-dark': mappedRadixColors.mintDark,
         slate: mappedRadixColors.slate,
         'slate-dark': mappedRadixColors.slateDark,
-        'sage-dark': mappedRadixColors.sageDark,
         gray: {
           100: mappedRadixColors.slate[1],
           200: mappedRadixColors.slate[3],

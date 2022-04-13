@@ -4,7 +4,7 @@
     :to="'/posts/' + post.uid"
   >
     <div
-      class="flex overflow-hidden relative z-20 shrink-0 w-full h-36 bg-gray-400 rounded-lg transition-all sm:w-48 sm:group-hover:w-52 sm:group-focus:w-52 sm:h-auto"
+      class="flex overflow-hidden relative z-20 shrink-0 w-full h-36 bg-slate-1 dark:bg-slate-dark-1 rounded-lg transition-all sm:w-48 sm:group-hover:w-52 sm:group-focus:w-52 sm:h-auto"
     >
       <PrismicImage
         :imgix-params="{ fit: 'crop', h: 400, w: 400 }"

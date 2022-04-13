@@ -42,7 +42,7 @@ export default {
   position: relative;
   vertical-align: middle;
   overflow: hidden;
-  background-color: theme('colors.slate.8');
+  @apply dark:bg-slate-dark-8 bg-slate-8;
   &::after {
     position: absolute;
     top: 0;
