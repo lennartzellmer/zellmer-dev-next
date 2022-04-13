@@ -38,7 +38,7 @@ module.exports = {
     './*.vue',
     './plugins/**/*.{js,ts}',
   ],
-  darkMode: 'media',
+  darkMode: 'class',
   safelist: ['line-through'],
   theme: {
     fontFamily: {
