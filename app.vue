@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex flex-col min-h-screen bg-slate-2 dark:bg-sage-dark-1/50 antialiased w-screen overflow-x-hidden"
+    class="flex flex-col min-h-screen bg-slate-2 dark:bg-slate-dark-1/50 antialiased w-screen overflow-x-hidden"
   >
     <AppHeader />
     <NuxtPage class="grow" />
