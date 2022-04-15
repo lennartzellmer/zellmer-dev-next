@@ -2,17 +2,20 @@
   <section>
     <div class="bg-slate-2 dark:bg-transparent">
       <svg
-        class="w-full h-16 md:h-24 lg:h-32"
-        viewBox="0 0 1440 166"
-        preserveAspectRatio="none"
-        height="1440"
-        width="166"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1440 167"
+        class="w-full h-16 md:h-24 lg:h-32"
+        preserveAspectRatio="none"
       >
         <path
-          d="M1440 166.709C883.5 150 262.088 58.4152 0 0V166.709H1440Z"
+          d="M1440 167.709C883.5 151 262.088 59.415 0 1v166.709h1440Z"
           fill="#101212"
+        />
+        <path
+          d="M1440 167.709C883.5 151 262.088 59.415 0 1"
+          class="stroke-slate-dark-3"
+          stroke-linecap="round"
         />
       </svg>
     </div>
