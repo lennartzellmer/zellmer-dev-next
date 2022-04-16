@@ -37,7 +37,7 @@ const { client, asText } = usePrismic()
 const route = useRoute()
 
 const { data: post, pending } = useAsyncData(route.params.uid.toString(), () =>
-  client.getByUID('blog-post', route.params.uid.toString())
+  client.getByUID('blog-post', route.params.uid.toString(), { lang: 'en-de' })
 )
 
 useHead({

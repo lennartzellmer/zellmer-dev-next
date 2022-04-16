@@ -17,6 +17,7 @@ import AppArticlePreview from '~/components/AppArticlePreview.vue'
 const { client } = usePrismic()
 const { data: posts } = useAsyncData('blog-posts', () =>
   client.getByType('blog-post', {
+    lang: 'en-de',
     orderings: [
       { field: 'document.first_publication_date', direction: 'desc' },
     ],
