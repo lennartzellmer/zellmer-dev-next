@@ -19,6 +19,10 @@ useHead({
       content:
         'Lennart here. Sharing thoughts and concepts around Product, Design and Development',
     },
+    {
+      name: 'theme-color',
+      content: '#687076',
+    },
   ],
   bodyAttrs: {
     class: 'bg-black',

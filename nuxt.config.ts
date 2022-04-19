@@ -20,7 +20,6 @@ export default defineNuxtConfig({
 
   tailwindcss: {
     jit: true,
-    exposeConfig: true,
   },
 
   colorMode: {
