@@ -16,7 +16,7 @@
           class="p-2 pl-3 w-9 h-auto transition-colors"
           :class="[
             checked
-              ? 'text-slate-12 dark:text-green-500'
+              ? 'text-slate-12'
               : 'text-slate-9 dark:text-slate-dark-9 hover:text-slate-12 dark:hover:text-slate-dark-12',
             active ? 'bg-slate-4 rounded-full' : '',
           ]"
@@ -46,7 +46,7 @@
           class="p-2 pr-3 w-9 h-auto transition-colors"
           :class="[
             checked
-              ? 'text-slate-12 dark:text-green-500'
+              ? 'text-slate-12 dark:text-slate-dark-12'
               : 'text-slate-9 dark:text-slate-dark-9 hover:text-slate-12 dark:hover:text-slate-dark-12',
             active ? 'bg-slate-4 dark:bg-slate-dark-4 rounded-full' : '',
           ]"

@@ -1,6 +1,6 @@
 <template>
   <header
-    class="bg-slate-2 dark:bg-slate-dark-1/50 dark:border-b dark:border-slate-dark-1"
+    class="bg-slate-3 dark:bg-slate-dark-1/50 border-b dark:border-slate-dark-1 border-slate-4"
   >
     <nav
       class="flex flex-col sm:flex-row justify-center items-center p-4 mx-auto max-w-6xl sm:px-6 sm:py-8 sm:justify-between lg:px-8"
