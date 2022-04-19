@@ -21,7 +21,7 @@ useHead({
     },
     {
       name: 'theme-color',
-      content: '#687076',
+      content: '#151718',
     },
   ],
   bodyAttrs: {
