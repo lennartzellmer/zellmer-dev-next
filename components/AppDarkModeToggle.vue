@@ -23,7 +23,11 @@
         />
       </div>
     </RadioGroupOption>
-    <RadioGroupOption v-slot="{ active, checked }" value="dark">
+    <RadioGroupOption
+      v-slot="{ active, checked }"
+      value="dark"
+      class="focus:outline-none group"
+    >
       <div
         class="focus:z-40 border-y-2 border-slate-12 dark:border-slate-dark-7 focus:outline-none"
       >
@@ -38,9 +42,13 @@
         />
       </div>
     </RadioGroupOption>
-    <RadioGroupOption v-slot="{ active, checked }" value="system">
+    <RadioGroupOption
+      v-slot="{ active, checked }"
+      value="system"
+      class="focus:outline-none group"
+    >
       <div
-        class="focus:z-40 hover:text-slate-12 hover:dark:text-slate-dark-12 rounded-r-full border-y-2 border-r-2 border-slate-12 dark:border-slate-dark-7 focus:outline-none focus:ring focus:ring-green-9"
+        class="focus:z-40 hover:text-slate-12 hover:dark:text-slate-dark-12 rounded-r-full border-y-2 border-r-2 border-slate-12 dark:border-slate-dark-7 focus:outline-none"
       >
         <PhDesktop
           class="p-2 pr-3 w-9 h-auto transition-colors"
