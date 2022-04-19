@@ -20,7 +20,7 @@ const route = useRoute()
 
 const { data: page } = useAsyncData(route.params.uid.toString(), () =>
   client.getByUID('default_page', route.params.uid.toString(), {
-    lang: 'en-de',
+    lang: 'en-eu',
   })
 )
 

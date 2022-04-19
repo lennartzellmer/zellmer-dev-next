@@ -62,11 +62,11 @@ import { useAsyncData, usePrismic } from '#imports'
 
 const { client, asText } = usePrismic()
 const { data: footerNavigation } = useAsyncData('footerNavigation', () =>
-  client.getSingle('footer_navigation', { lang: 'en-de' })
+  client.getSingle('footer_navigation', { lang: 'en-eu' })
 )
 
 const { data: bio } = useAsyncData('bio', () =>
-  client.getSingle('bio', { lang: 'en-de' })
+  client.getSingle('bio', { lang: 'en-eu' })
 )
 </script>
 
