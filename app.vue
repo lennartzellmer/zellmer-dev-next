@@ -9,7 +9,7 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, useHead, useColorMode } from '#imports'
+import { computed, useHead } from '#imports'
 
 useHead({
   title: computed(() => `Blog - Zellmer.dev`),
