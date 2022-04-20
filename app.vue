@@ -11,8 +11,6 @@
 <script lang="ts" setup>
 import { computed, useHead, useColorMode } from '#imports'
 
-const colorMode = useColorMode()
-
 useHead({
   title: computed(() => `Blog - Zellmer.dev`),
   meta: [
