@@ -1,4 +1,4 @@
-import { defineNuxtConfig } from 'nuxt3'
+import { defineNuxtConfig } from 'nuxt'
 import Icons from 'unplugin-icons/vite'
 import { FileSystemIconLoader } from 'unplugin-icons/loaders'
 
@@ -17,10 +17,6 @@ export default defineNuxtConfig({
       },
     ],
   ],
-
-  tailwindcss: {
-    jit: true,
-  },
 
   colorMode: {
     classSuffix: '',
