@@ -28,6 +28,7 @@
     "@types/prismjs": "^1.26.0",
     "animejs": "^3.2.1",
     "blobshape": "^1.0.0",
+    "blurhash": "^1.1.5",
     "eslint-config-prettier": "^8.5.0",
     "highlight.js": "^11.5.1",
     "nuxt": "3.0.0-rc.4",

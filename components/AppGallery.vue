@@ -52,18 +52,11 @@
           />
         </svg>
       </button>
-      <div
+      <AppGalleryImg
         v-if="images"
-        class="flex overflow-x-hidden z-[998] w-full max-w-full h-full bg-black sm:rounded-lg md:max-w-7xl gallery__image_container"
-        @click.stop="onNext"
-      >
-        <PrismicImage
-          class="flex w-full h-auto gallery__nuxt_picture"
-          :imgix-params="{ w: 2300 }"
-          :field="selectedImage"
-          @click.stop="onNext"
-        />
-      </div>
+        :key="selectedImage.url"
+        :selected-image="selectedImage"
+      />
       <button
         v-if="isMultiple"
         type="button"
@@ -121,8 +114,10 @@
 import { PropType } from '@vue/runtime-core'
 import { ImageField } from '@prismicio/types'
 import { defineComponent } from '#imports'
+import AppGalleryImg from '~/components/AppGalleryImg.vue'
 
 export default defineComponent({
+  components: { AppGalleryImg },
   props: {
     images: {
       type: Array as PropType<ImageField[]>,
