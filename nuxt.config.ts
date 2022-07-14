@@ -13,7 +13,6 @@ export default defineNuxtConfig({
       '@nuxtjs/prismic',
       {
         endpoint: 'https://zellmer-dev.cdn.prismic.io/api/v2',
-        preview: false,
       },
     ],
   ],
