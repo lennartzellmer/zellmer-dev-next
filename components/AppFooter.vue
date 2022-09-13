@@ -32,7 +32,7 @@
             :field="bio.data.bio_text"
           />
           <div
-            class="order-first aspect-square max-w-sm rotate-3 px-2.5 lg:max-w-none lg:pl-20"
+            class="order-first aspect-square max-w-xs rotate-3 px-2.5 lg:max-w-none lg:pl-20"
           >
             <PrismicImage
               :imgix-params="{ fit: 'crop', h: 800, w: 800 }"

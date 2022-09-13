@@ -2,11 +2,11 @@
   <div>
     <main class="bg-slate-2 dark:bg-transparent">
       <section
-        class="gap-8 px-4 pb-12 mx-auto w-full max-w-6xl md:grid md:grid-cols-12 md:auto-rows-max md:px-6"
+        class="mx-auto w-full max-w-5xl gap-8 px-4 pb-12 md:grid md:auto-rows-max md:grid-cols-12 md:px-6"
       >
         <div
           v-if="pending"
-          class="col-span-12 md:col-span-10 lg:col-span-8 pt-16"
+          class="col-span-12 pt-16 md:col-span-10 lg:col-span-10"
         >
           <AppSkeleton :max-width="100" class="text-4xl sm:text-6xl" />
           <AppSkeleton :max-width="75" class="mt-4 text-4xl sm:text-6xl" />
@@ -16,7 +16,7 @@
         </div>
         <template v-if="post">
           <h1
-            class="col-span-12 pt-16 text-4xl font-bold leading-tight sm:text-6xl md:col-span-10 lg:col-span-8 text-black dark:text-slate-dark-12"
+            class="col-span-12 pt-16 text-4xl font-bold leading-tight text-black dark:text-slate-dark-12 sm:text-6xl md:col-span-10 lg:col-span-8"
           >
             {{ asText(post.data.headline) }}
           </h1>
