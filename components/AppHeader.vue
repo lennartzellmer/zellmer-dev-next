@@ -3,7 +3,7 @@
     class="wlg:px-0 border-b border-slate-2 bg-slate-2 px-4 dark:border-slate-dark-1 dark:bg-slate-dark-1/50"
   >
     <nav
-      class="mx-auto flex max-w-5xl flex-col items-center justify-center py-4 sm:flex-row sm:justify-between sm:py-8"
+      class="mx-auto flex max-w-5xl flex-row items-center justify-between py-4 sm:py-8"
     >
       <NuxtLink
         class="group flex items-center justify-center space-x-2.5 text-lg focus:outline-none sm:text-2xl"
@@ -32,7 +32,7 @@
           >Zellmer</span
         >
       </NuxtLink>
-      <div class="mt-4 flex items-center justify-center sm:mt-0">
+      <div class="flex items-center justify-center">
         <AppDarkModeToggle class="ml-3" />
       </div>
     </nav>

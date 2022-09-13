@@ -5,7 +5,7 @@
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 1440 167"
-        class="w-full h-16 md:h-24 lg:h-32 text-slate-3 dark:text-slate-dark-1"
+        class="h-16 w-full text-slate-3 dark:text-slate-dark-1 md:h-24 lg:h-32"
         preserveAspectRatio="none"
       >
         <path
@@ -19,34 +19,37 @@
         />
       </svg>
     </div>
-    <div class="bg-slate-3 dark:bg-slate-dark-1 pt-12">
+    <div class="bg-slate-3 pt-12 dark:bg-slate-dark-1">
       <div
         v-if="bio"
-        class="grid grid-cols-12 mx-auto max-w-5xl sm:pb-24 md:gap-16 md:px-4 mt-8"
+        class="relative mx-auto max-w-2xl px-4 sm:px-8 lg:max-w-5xl lg:px-12"
       >
         <div
-          class="flex items-center md:col-span-7 md:col-start-auto col-span-10 col-start-2"
+          class="grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-12"
         >
-          <div class="prismic-text-dark">
-            <PrismicRichText :field="bio.data.bio_text" />
+          <PrismicRichText
+            class="prismic-text-dark lg:order-first lg:row-span-2"
+            :field="bio.data.bio_text"
+          />
+          <div
+            class="order-first aspect-square max-w-sm rotate-3 px-2.5 lg:max-w-none lg:pl-20"
+          >
+            <PrismicImage
+              :imgix-params="{ fit: 'crop', h: 800, w: 800 }"
+              :pixel-densities="[1, 2]"
+              :field="bio.data.profile_image"
+              class="self-start rounded-xl object-contain"
+            />
+            <AppSocialLinks class="mt-2" />
           </div>
         </div>
-        <div class="flex flex-col col-span-10 md:col-span-5 rotate-3">
-          <PrismicImage
-            :imgix-params="{ fit: 'crop', h: 800, w: 800 }"
-            :pixel-densities="[1, 2]"
-            :field="bio.data.profile_image"
-            class="object-contain opacity-100 bg-black rounded-xl self-start"
-          />
-          <AppSocialLinks class="mt-2" />
-        </div>
       </div>
-      <footer class="flex justify-center py-12 mx-auto max-w-7xl">
+      <footer class="mx-auto flex max-w-7xl justify-center py-12">
         <nav v-if="footerNavigation">
           <PrismicLink
             v-for="(linkObject, id) in footerNavigation.data.menu_links"
             :key="id"
-            class="p-3 font-mono text-slate-9 hover:text-slate-5 transition"
+            class="p-3 font-mono text-slate-9 transition hover:text-slate-5"
             :field="linkObject.link"
           >
             {{ asText(linkObject.label) }}
@@ -74,13 +77,13 @@ const { data: bio } = useAsyncData('bio', () =>
 <style lang="scss">
 .prismic-text-dark {
   h3 {
-    @apply text-slate-12 font-bold text-5xl mb-3 dark:text-slate-dark-12;
+    @apply mb-3 text-5xl font-bold text-slate-12 dark:text-slate-dark-12;
   }
   p {
-    @apply text-slate-11 leading-relaxed text-base pt-6 dark:text-slate-dark-11;
+    @apply pt-6 text-base leading-relaxed text-slate-11 dark:text-slate-dark-11;
   }
   a {
-    @apply text-slate-12 dark:text-slate-dark-11 dark:hover:text-slate-dark-10 hover:text-slate-11 leading-relaxed font-mono;
+    @apply font-mono leading-relaxed text-slate-12 hover:text-slate-11 dark:text-slate-dark-11 dark:hover:text-slate-dark-10;
   }
 }
 </style>
