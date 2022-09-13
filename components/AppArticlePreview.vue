@@ -1,6 +1,6 @@
 <template>
   <NuxtLink
-    class="group flex overflow-hidden flex-col rounded-lg focus:outline-none cursor-pointer sm:flex-row"
+    class="group flex flex-col focus:outline-none cursor-pointer sm:flex-row border-b border-slate-4 dark:border-slate-dark-2 py-8"
     :to="'/posts/' + post.uid"
   >
     <div

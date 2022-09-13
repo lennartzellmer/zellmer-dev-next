@@ -31,13 +31,14 @@
             <PrismicRichText :field="bio.data.bio_text" />
           </div>
         </div>
-        <div class="flex col-span-10 md:col-span-5 rotate-3">
+        <div class="flex flex-col col-span-10 md:col-span-5 rotate-3">
           <PrismicImage
             :imgix-params="{ fit: 'crop', h: 800, w: 800 }"
             :pixel-densities="[1, 2]"
             :field="bio.data.profile_image"
             class="object-contain opacity-100 bg-black rounded-xl self-start"
           />
+          <AppSocialLinks class="mt-2" />
         </div>
       </div>
       <footer class="flex justify-center py-12 mx-auto max-w-7xl">
@@ -58,6 +59,7 @@
 
 <script lang="ts" setup>
 import { useAsyncData, usePrismic } from '#imports'
+import AppSocialLinks from '~/components/AppSocialLinks.vue'
 
 const { client, asText } = usePrismic()
 const { data: footerNavigation } = useAsyncData('footerNavigation', () =>
@@ -75,7 +77,7 @@ const { data: bio } = useAsyncData('bio', () =>
     @apply text-slate-12 font-bold text-5xl mb-3 dark:text-slate-dark-12;
   }
   p {
-    @apply text-slate-10 leading-relaxed pt-6 dark:text-slate-dark-10;
+    @apply text-slate-11 leading-relaxed text-base pt-6 dark:text-slate-dark-11;
   }
   a {
     @apply text-slate-12 dark:text-slate-dark-11 dark:hover:text-slate-dark-10 hover:text-slate-11 leading-relaxed font-mono;
