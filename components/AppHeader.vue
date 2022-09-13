@@ -1,7 +1,5 @@
 <template>
-  <header
-    class="wlg:px-0 border-b border-slate-2 bg-slate-2 px-4 dark:border-slate-dark-1 dark:bg-slate-dark-1/50"
-  >
+  <header class="wlg:px-0 px-4">
     <nav
       class="mx-auto flex max-w-5xl flex-row items-center justify-between py-4 sm:py-8"
     >
@@ -16,7 +14,7 @@
           height="100"
           fill="none"
           viewBox="0 0 100 100"
-          class="h-auto w-14 overflow-visible text-slate-12 transition group-hover:text-green-500 dark:text-slate-dark-12 dark:group-hover:text-mint-1 sm:w-12"
+          class="h-auto w-14 overflow-visible text-slate-12 transition group-hover:text-green-500 dark:text-slate-dark-12 dark:group-hover:text-green-500 sm:w-12"
         >
           <path
             id="morphing-path"
