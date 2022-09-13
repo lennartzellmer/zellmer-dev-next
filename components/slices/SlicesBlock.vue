@@ -19,16 +19,12 @@
 </template>
 
 <script lang="ts" setup>
-import { PropType } from '@vue/runtime-core'
 import { Slice } from '@prismicio/types'
 import TextSlice from '@/components/slices/TextSlice.vue'
 import ImageSlice from '@/components/slices/ImageSlice.vue'
 import CodeSlice from '@/components/slices/CodeSlice.vue'
 
-const props = defineProps({
-  slices: {
-    required: true,
-    type: Array as PropType<Slice<any>[]>,
-  },
-})
+const props = defineProps<{
+  slices: Slice<any>[]
+}>()
 </script>

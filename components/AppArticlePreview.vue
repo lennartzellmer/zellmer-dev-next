@@ -1,3 +1,16 @@
+<script lang="ts" setup>
+const props = defineProps<{
+  post: any
+}>()
+
+const formattedDate = new Date(
+  props.post.first_publication_date
+).toLocaleDateString('en-EN', {
+  year: 'numeric',
+  month: 'long',
+})
+</script>
+
 <template>
   <NuxtLink
     class="group flex cursor-pointer flex-col py-8 focus:outline-none sm:flex-row"
@@ -32,18 +45,6 @@
     </article>
   </NuxtLink>
 </template>
-
-<script type="ts" setup>
-
-const props = defineProps<{post: Object}>()
-
-const formattedDate = new Date(
-  post.first_publication_date
-).toLocaleDateString('en-EN', {
-  year: 'numeric',
-  month: 'long',
-})
-</script>
 
 <style lang="scss">
 .AppArticlePreview__picture {
