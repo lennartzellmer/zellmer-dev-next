@@ -72,9 +72,9 @@
     <section class="mx-auto mt-28 max-w-5xl px-4 lg:px-0">
       <ul v-if="posts" class="">
         <li
-          class="border-b border-slate-4 last:border-0 dark:border-slate-dark-2"
           v-for="post in posts.results"
           :key="post.id"
+          class="border-b border-slate-4 last:border-0 dark:border-slate-dark-2"
         >
           <AppArticlePreview :post="post" />
         </li>

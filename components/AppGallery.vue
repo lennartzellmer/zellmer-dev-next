@@ -1,15 +1,15 @@
 <template>
   <transition name="modal">
     <div
-      class="flex fixed inset-0 z-[9998] flex-col justify-center items-center px-0 sm:p-8"
+      class="fixed inset-0 z-[9998] flex flex-col items-center justify-center px-0 sm:p-8"
       @click="close"
     >
       <span
-        class="absolute inset-0 z-[997] bg-gray-900 bg-opacity-95 gallery__background"
+        class="gallery__background absolute inset-0 z-[997] bg-gray-900 bg-opacity-95"
       />
       <button
         type="button"
-        class="absolute top-2 right-2 z-[999] p-2 w-12 h-12 text-gray-400 hover:text-green-400 bg-gray-800 rounded-md focus:outline-none opacity-0 hover:scale-110 gallery__navigation_button"
+        class="gallery__navigation_button absolute top-2 right-2 z-[999] h-12 w-12 rounded-md bg-gray-800 p-2 text-gray-400 opacity-0 hover:scale-110 hover:text-green-400 focus:outline-none"
         @click="close"
       >
         <svg class="w-full" fill="none" viewBox="0 0 24 24">
@@ -32,7 +32,7 @@
       <button
         v-if="isMultiple"
         type="button"
-        class="absolute bottom-4 left-2 hover:left-1.5 z-[999] p-2 w-12 h-12 text-gray-400 hover:text-green-400 bg-gray-800 rounded-md focus:outline-none opacity-0 transition-all cursor-pointer sm:bottom-1/2 sm:translate-y-1/2 gallery__navigation_button"
+        class="gallery__navigation_button absolute bottom-4 left-2 z-[999] h-12 w-12 cursor-pointer rounded-md bg-gray-800 p-2 text-gray-400 opacity-0 transition-all hover:left-1.5 hover:text-green-400 focus:outline-none sm:bottom-1/2 sm:translate-y-1/2"
         @click.stop="onPrev"
       >
         <svg class="w-full" fill="none" viewBox="0 0 24 24">
@@ -60,7 +60,7 @@
       <button
         v-if="isMultiple"
         type="button"
-        class="absolute right-2 hover:right-1.5 bottom-4 z-[999] p-2 w-12 h-12 text-gray-400 hover:text-green-400 bg-gray-800 rounded-md focus:outline-none opacity-0 transition-all cursor-pointer sm:bottom-1/2 sm:translate-y-1/2 gallery__navigation_button"
+        class="gallery__navigation_button absolute right-2 bottom-4 z-[999] h-12 w-12 cursor-pointer rounded-md bg-gray-800 p-2 text-gray-400 opacity-0 transition-all hover:right-1.5 hover:text-green-400 focus:outline-none sm:bottom-1/2 sm:translate-y-1/2"
         @click.stop="onNext"
       >
         <svg class="w-full" fill="none" viewBox="0 0 24 24">
@@ -83,20 +83,20 @@
       <div
         v-if="isMultiple"
         ref="gallery"
-        class="hidden z-[999] mt-4 w-full max-w-7xl whitespace-nowrap sm:flex sm:flex-col sm:justify-center"
+        class="z-[999] mt-4 hidden w-full max-w-7xl whitespace-nowrap sm:flex sm:flex-col sm:justify-center"
       >
         <span
           v-if="images"
-          class="mb-2 font-mono text-gray-400 gallery__navigation_index"
+          class="gallery__navigation_index mb-2 font-mono text-gray-400"
         >
           {{ imgIndex + 1 }} / {{ images.length }}
         </span>
-        <div v-if="images" class="flex justify-start items-stretch space-x-4">
+        <div v-if="images" class="flex items-stretch justify-start space-x-4">
           <button
             v-for="(img, i) in images"
             :key="i"
-            class="object-cover overflow-hidden grow-0 shrink w-20 h-20 rounded-md focus:outline-none opacity-60 hover:opacity-100 cursor-pointer navigation__image__container"
-            :class="{ 'ring ring-gray-300 opacity-100': i === imgIndex }"
+            class="navigation__image__container h-20 w-20 shrink grow-0 cursor-pointer overflow-hidden rounded-md object-cover opacity-60 hover:opacity-100 focus:outline-none"
+            :class="{ 'opacity-100 ring ring-gray-300': i === imgIndex }"
             @click.stop="onClickThumb(i)"
           >
             <PrismicImage

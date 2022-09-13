@@ -3,7 +3,8 @@
   "scripts": {
     "dev": "nuxi dev",
     "build": "nuxi build",
-    "start": "node .output/server/index.mjs"
+    "start": "node .output/server/index.mjs",
+    "lintfix": "eslint --ext .js,.vue,.ts --ignore-path .gitignore --fix ."
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^11.0.0",

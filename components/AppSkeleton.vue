@@ -42,7 +42,7 @@ export default {
   position: relative;
   vertical-align: middle;
   overflow: hidden;
-  @apply dark:bg-slate-dark-8 bg-slate-8;
+  @apply bg-slate-8 dark:bg-slate-dark-8;
   &::after {
     position: absolute;
     top: 0;

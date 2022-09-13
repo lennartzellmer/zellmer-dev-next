@@ -1,7 +1,7 @@
 <template>
   <NuxtLink
     class="group flex cursor-pointer flex-col py-8 focus:outline-none sm:flex-row"
-    :to="'/posts/' + post.uid"
+    :to="'/posts/' + props.post.uid"
   >
     <div
       class="relative z-20 hidden h-36 w-full shrink-0 overflow-hidden rounded-lg bg-slate-1 transition-all dark:bg-slate-dark-1 sm:flex sm:h-auto sm:w-48 sm:group-hover:w-52 sm:group-focus:w-52"
@@ -9,7 +9,7 @@
       <PrismicImage
         :imgix-params="{ fit: 'crop', h: 400, w: 400 }"
         :pixel-densities="[1, 2]"
-        :field="post.data.thumbnail"
+        :field="props.post.data.thumbnail"
         class="AppArticlePreview__picture transition-all group-hover:brightness-100 dark:brightness-75"
       />
     </div>
@@ -22,36 +22,26 @@
       <h2
         class="mb-3 text-2xl font-bold text-slate-12 dark:text-slate-dark-12 sm:text-2xl"
       >
-        {{ $prismic.asText(post.data.headline) }}
+        {{ $prismic.asText(props.post.data.headline) }}
       </h2>
       <p
         class="overflow-hidden text-ellipsis text-base leading-7 text-slate-11 dark:text-slate-dark-11"
       >
-        {{ $prismic.asText(post.data.description) }}
+        {{ $prismic.asText(props.post.data.description) }}
       </p>
     </article>
   </NuxtLink>
 </template>
 
-<script type="ts">
-import { defineComponent } from '#imports'
+<script type="ts" setup>
 
-export default defineComponent({
-  props: {
-    post: {
-      type: Object,
-      required: true,
-    },
-  },
-  setup({ post }) {
-    const formattedDate = new Date(
-      post.first_publication_date
-    ).toLocaleDateString('en-EN', {
-      year: 'numeric',
-      month: 'long',
-    })
-    return { formattedDate }
-  },
+const props = defineProps<{post: Object}>()
+
+const formattedDate = new Date(
+  post.first_publication_date
+).toLocaleDateString('en-EN', {
+  year: 'numeric',
+  month: 'long',
 })
 </script>
 

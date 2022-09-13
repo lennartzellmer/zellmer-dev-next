@@ -2,9 +2,9 @@
   <main class="bg-slate-2">
     <section
       v-if="page"
-      class="grid-cols-12 gap-8 px-4 pt-12 mx-auto max-w-6xl sm:grid sm:px-6 lg:px-8"
+      class="mx-auto max-w-6xl grid-cols-12 gap-8 px-4 pt-12 sm:grid sm:px-6 lg:px-8"
     >
-      <article class="col-span-7 pb-12 prismic-text">
+      <article class="prismic-text col-span-7 pb-12">
         <PrismicRichText class="my-8" :field="page.data.title" />
         <PrismicRichText class="my-8" :field="page.data.text" />
       </article>
@@ -34,16 +34,16 @@ useHead({
 <style lang="scss">
 .prismic-text {
   h1 {
-    @apply text-slate-12 dark:text-slate-dark-12 font-bold text-5xl mb-3 mt-12;
+    @apply mb-3 mt-12 text-5xl font-bold text-slate-12 dark:text-slate-dark-12;
   }
   h3 {
-    @apply dark:text-slate-dark-12 text-slate-12 font-semibold text-2xl mb-3 mt-12;
+    @apply mb-3 mt-12 text-2xl font-semibold text-slate-12 dark:text-slate-dark-12;
   }
   p {
-    @apply text-slate-11 dark:text-slate-dark-11 leading-relaxed;
+    @apply leading-relaxed text-slate-11 dark:text-slate-dark-11;
   }
   a {
-    @apply text-slate-8 dark:text-slate-dark-8 underline hover:text-slate-5 leading-relaxed font-mono;
+    @apply font-mono leading-relaxed text-slate-8 underline hover:text-slate-5 dark:text-slate-dark-8;
   }
 }
 </style>

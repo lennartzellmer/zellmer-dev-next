@@ -7,18 +7,18 @@
     <RadioGroupOption
       v-slot="{ active, checked }"
       value="light"
-      class="focus:outline-none group"
+      class="group focus:outline-none"
     >
       <div
-        class="focus:z-40 hover:text-slate-12 hover:dark:text-slate-dark-12 rounded-l-full border-y-2 border-l-2 border-slate-12 dark:border-slate-dark-7 focus:outline-none"
+        class="rounded-l-full border-y-2 border-l-2 border-slate-12 hover:text-slate-12 focus:z-40 focus:outline-none dark:border-slate-dark-7 hover:dark:text-slate-dark-12"
       >
         <PhSun
-          class="p-2 pl-3 w-9 h-auto transition-colors"
+          class="h-auto w-9 p-2 pl-3 transition-colors"
           :class="[
             checked
               ? 'text-slate-12'
-              : 'text-slate-9 dark:text-slate-dark-9 hover:text-slate-12 dark:hover:text-slate-dark-12',
-            active ? 'bg-slate-4 rounded-full' : '',
+              : 'text-slate-9 hover:text-slate-12 dark:text-slate-dark-9 dark:hover:text-slate-dark-12',
+            active ? 'rounded-full bg-slate-4' : '',
           ]"
         />
       </div>
@@ -26,18 +26,18 @@
     <RadioGroupOption
       v-slot="{ active, checked }"
       value="dark"
-      class="focus:outline-none group"
+      class="group focus:outline-none"
     >
       <div
-        class="focus:z-40 border-y-2 border-slate-12 dark:border-slate-dark-7 focus:outline-none"
+        class="border-y-2 border-slate-12 focus:z-40 focus:outline-none dark:border-slate-dark-7"
       >
         <PhMoonStars
-          class="p-2 w-8 h-auto transition-colors"
+          class="h-auto w-8 p-2 transition-colors"
           :class="[
             checked
               ? 'text-white'
-              : 'text-slate-9 dark:text-slate-dark-11 hover:text-slate-12 hover:dark:text-slate-dark-12',
-            active ? 'bg-slate-dark-4 rounded-full' : '',
+              : 'text-slate-9 hover:text-slate-12 dark:text-slate-dark-11 hover:dark:text-slate-dark-12',
+            active ? 'rounded-full bg-slate-dark-4' : '',
           ]"
         />
       </div>
@@ -45,18 +45,18 @@
     <RadioGroupOption
       v-slot="{ active, checked }"
       value="system"
-      class="focus:outline-none group"
+      class="group focus:outline-none"
     >
       <div
-        class="focus:z-40 hover:text-slate-12 hover:dark:text-slate-dark-12 rounded-r-full border-y-2 border-r-2 border-slate-12 dark:border-slate-dark-7 focus:outline-none"
+        class="rounded-r-full border-y-2 border-r-2 border-slate-12 hover:text-slate-12 focus:z-40 focus:outline-none dark:border-slate-dark-7 hover:dark:text-slate-dark-12"
       >
         <PhDesktop
-          class="p-2 pr-3 w-9 h-auto transition-colors"
+          class="h-auto w-9 p-2 pr-3 transition-colors"
           :class="[
             checked
               ? 'text-slate-12 dark:text-slate-dark-12'
-              : 'text-slate-9 dark:text-slate-dark-9 hover:text-slate-12 dark:hover:text-slate-dark-12',
-            active ? 'bg-slate-4 dark:bg-slate-dark-4 rounded-full' : '',
+              : 'text-slate-9 hover:text-slate-12 dark:text-slate-dark-9 dark:hover:text-slate-dark-12',
+            active ? 'rounded-full bg-slate-4 dark:bg-slate-dark-4' : '',
           ]"
         />
       </div>

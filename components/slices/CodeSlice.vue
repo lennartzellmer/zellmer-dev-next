@@ -1,6 +1,6 @@
 <template>
   <highlightjs
-    class="rounded-lg overflow-hidden"
+    class="overflow-hidden rounded-lg"
     :language="slice.primary.language"
     :code="$prismic.asText(slice.primary.code)"
   />

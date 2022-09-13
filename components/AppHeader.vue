@@ -43,7 +43,6 @@
 import blobshape from 'blobshape'
 import AppDarkModeToggle from '~/components/AppDarkModeToggle.vue'
 import { useNuxtApp } from '#imports'
-import AppSocialLinks from '~/components/AppSocialLinks.vue'
 
 const { $anime } = useNuxtApp()
 const svgPath = blobshape({

@@ -1,7 +1,7 @@
 <template>
   <div>
     <prismic-rich-text
-      class="mt-8 break-words prose-a:text-black dark:prose-a:text-white prose-a:font-mono prismic-rich-text"
+      class="prismic-rich-text mt-8 break-words prose-a:font-mono prose-a:text-black dark:prose-a:text-white"
       :field="slice.primary.text"
     />
   </div>
@@ -24,7 +24,7 @@ export default defineComponent({
 <style lang="scss">
 .prismic-rich-text {
   img {
-    @apply rounded-lg overflow-hidden;
+    @apply overflow-hidden rounded-lg;
   }
 }
 </style>

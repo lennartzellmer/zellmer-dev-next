@@ -5,7 +5,7 @@
     <button
       v-for="(item, i) in slice.items"
       :key="i"
-      class="overflow-hidden col-span-1 rounded-lg focus:outline-none hover:ring-2 focus:ring ring-slate-7 transition"
+      class="col-span-1 overflow-hidden rounded-lg ring-slate-7 transition hover:ring-2 focus:outline-none focus:ring"
       @click="index = i"
     >
       <PrismicImage

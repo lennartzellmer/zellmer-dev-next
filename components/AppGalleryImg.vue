@@ -23,7 +23,7 @@ const onLoaded = () => {
 
 <template>
   <div
-    class="flex relative overflow-x-hidden z-[998] w-full max-w-full h-full bg-black sm:rounded-lg md:max-w-7xl gallery__image_container"
+    class="gallery__image_container relative z-[998] flex h-full w-full max-w-full overflow-x-hidden bg-black sm:rounded-lg md:max-w-7xl"
     @click.stop="$emit('click')"
   >
     <AppBlurHash
@@ -34,7 +34,7 @@ const onLoaded = () => {
       class="block"
     />
     <PrismicImage
-      class="flex w-full h-auto gallery__nuxt_picture"
+      class="gallery__nuxt_picture flex h-auto w-full"
       :imgix-params="{ w: 2000 }"
       :field="selectedImage"
       @click.stop="$emit('click')"

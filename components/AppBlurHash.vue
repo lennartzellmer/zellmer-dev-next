@@ -37,9 +37,7 @@ const draw = () => {
     )
     imageData.data.set(pixels)
     ctx.putImageData(imageData, 0, 0)
-  } catch (e) {
-    console.log(e)
-  }
+  } catch (e) {}
 }
 
 onMounted(() => {

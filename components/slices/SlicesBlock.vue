@@ -1,10 +1,10 @@
 <template>
   <article>
-    <template v-for="(slice, index) in slices">
+    <template v-for="(slice, index) in props.slices">
       <template v-if="slice.slice_type === 'text'">
         <TextSlice
           :key="'slice-' + index"
-          class="max-w-none prose prose-lg dark:prose-invert prose-slate"
+          class="prose prose-lg prose-slate max-w-none dark:prose-invert"
           :slice="slice"
         />
       </template>
@@ -25,7 +25,7 @@ import TextSlice from '@/components/slices/TextSlice.vue'
 import ImageSlice from '@/components/slices/ImageSlice.vue'
 import CodeSlice from '@/components/slices/CodeSlice.vue'
 
-const { slices } = defineProps({
+const props = defineProps({
   slices: {
     required: true,
     type: Array as PropType<Slice<any>[]>,
