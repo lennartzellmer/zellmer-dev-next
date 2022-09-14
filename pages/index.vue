@@ -72,11 +72,36 @@
     <section class="mx-auto mt-28 max-w-5xl px-4 lg:px-0">
       <ul v-if="posts" class="">
         <li
-          v-for="post in posts.results"
+          v-for="post in posts.results.slice(0, 3)"
           :key="post.id"
           class="border-b border-slate-4 last:border-0 dark:border-slate-dark-2"
         >
           <AppArticlePreview :post="post" />
+        </li>
+        <li>
+          <NuxtLink
+            class="group flex cursor-pointer flex-row items-center py-8 focus:outline-none"
+            :to="'/articles'"
+          >
+            <div
+              v-for="post in posts.results.slice(3, posts.results.length)"
+              :key="post.id"
+              class="relative z-20 -mr-6 flex h-auto w-12 shrink-0 overflow-hidden rounded-xl bg-slate-1 shadow-md ring ring-slate-1 transition-all dark:bg-slate-dark-1 dark:ring-slate-dark-5 sm:-mr-8 sm:w-16 sm:group-hover:-mr-7"
+            >
+              <PrismicImage
+                :imgix-params="{ fit: 'crop', h: 400, w: 400 }"
+                :pixel-densities="[1, 2]"
+                :field="post.data.thumbnail"
+                class="AppArticlePreview__picture"
+              />
+            </div>
+            <span
+              class="ml-12 flex items-center space-x-1 rounded-lg px-4 py-3 text-green-500 group-hover:bg-slate-3 dark:group-hover:bg-slate-dark-3"
+            >
+              <p>Discover all articles</p>
+              <PhCaretRight class="h-auto w-4" />
+            </span>
+          </NuxtLink>
         </li>
       </ul>
     </section>
@@ -87,11 +112,13 @@
 import { useAsyncData, usePrismic } from '#imports'
 import AppArticlePreview from '~/components/AppArticlePreview.vue'
 import AppSocialLinks from '~/components/AppSocialLinks.vue'
+import PhCaretRight from 'virtual:icons/ph/caret-right-bold'
 
 const { client } = usePrismic()
-const { data: posts } = useAsyncData('blog-posts', () =>
+const { data: posts } = useAsyncData('blog-posts-preview', () =>
   client.getByType('blog-post', {
     lang: 'en-eu',
+    pageSize: 6,
     orderings: [
       { field: 'document.first_publication_date', direction: 'desc' },
     ],

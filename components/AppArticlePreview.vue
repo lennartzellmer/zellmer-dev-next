@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+import PhCaretRight from 'virtual:icons/ph/caret-right-bold'
+
 const props = defineProps<{
   post: any
 }>()
@@ -42,6 +44,10 @@ const formattedDate = new Date(
       >
         {{ $prismic.asText(props.post.data.description) }}
       </p>
+      <div class="mt-4 flex items-center space-x-1 text-green-500">
+        <p>Read article</p>
+        <PhCaretRight class="h-auto w-4" />
+      </div>
     </article>
   </NuxtLink>
 </template>
