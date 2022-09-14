@@ -28,7 +28,7 @@
             >
               <path
                 id="morphing-path"
-                class="text-transparent transition-colors group-hover:text-slate-3"
+                class="text-transparent transition-colors group-hover:text-slate-3 dark:group-hover:text-slate-dark-1"
                 fill="currentColor"
                 stroke-linecap="round"
                 stroke-linejoin="round"

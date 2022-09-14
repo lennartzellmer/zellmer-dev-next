@@ -1,5 +1,5 @@
 <template>
-  <main class="bg-slate-2 dark:bg-slate-dark-1/25">
+  <main class="bg-slate-2 dark:bg-transparent">
     <section
       v-if="page"
       class="mx-auto max-w-5xl grid-cols-12 gap-8 px-4 pt-12 sm:grid sm:px-6 lg:px-4"
