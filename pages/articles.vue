@@ -1,5 +1,5 @@
 <template>
-  <section class="mx-auto mt-8 max-w-5xl px-4 lg:px-0">
+  <section class="mx-auto mt-8 mt-16 max-w-5xl px-4 sm:mt-32 lg:px-0">
     <header class="max-w-2xl">
       <h1
         class="text-4xl font-bold tracking-tight text-slate-12 dark:text-slate-dark-12 sm:text-5xl"
