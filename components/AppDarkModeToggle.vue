@@ -1,7 +1,7 @@
 <template>
   <RadioGroup
     v-model="$colorMode.preference"
-    class="flex flex-initial cursor-pointer"
+    class="flex flex-initial cursor-pointer ring-2 rounded-full ring-slate-12 dark:ring-slate-dark-7"
   >
     <RadioGroupLabel class="sr-only">Dark mode</RadioGroupLabel>
     <RadioGroupOption
@@ -10,7 +10,7 @@
       class="group focus:outline-none"
     >
       <div
-        class="rounded-l-full border-y-2 border-l-2 border-slate-12 hover:text-slate-12 focus:z-40 focus:outline-none dark:border-slate-dark-7 hover:dark:text-slate-dark-12"
+        class="rounded-l-full hover:text-slate-12 focus:z-40 focus:outline-none hover:dark:text-slate-dark-12"
       >
         <PhSun
           class="h-auto w-9 p-2 pl-3 transition-colors"
@@ -29,7 +29,7 @@
       class="group focus:outline-none"
     >
       <div
-        class="border-y-2 border-slate-12 focus:z-40 focus:outline-none dark:border-slate-dark-7"
+        class="focus:z-40 focus:outline-none"
       >
         <PhMoonStars
           class="h-auto w-8 p-2 transition-colors"
@@ -45,10 +45,10 @@
     <RadioGroupOption
       v-slot="{ active, checked }"
       value="system"
-      class="group focus:outline-none"
+      class="group focus:outline-none hidden sm:flex"
     >
       <div
-        class="rounded-r-full border-y-2 border-r-2 border-slate-12 hover:text-slate-12 focus:z-40 focus:outline-none dark:border-slate-dark-7 hover:dark:text-slate-dark-12"
+        class="rounded-r-full hover:text-slate-12 focus:z-40 focus:outline-none hover:dark:text-slate-dark-12"
       >
         <PhDesktop
           class="h-auto w-9 p-2 pr-3 transition-colors"
