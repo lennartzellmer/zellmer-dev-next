@@ -1,5 +1,6 @@
 const defaultTheme = require('tailwindcss/defaultTheme')
 const radixColors = require('@radix-ui/colors')
+import tailwindTypography from '@tailwindcss/typography'
 
 function colorKey(name, step) {
   return `${name.replace('Dark', '')}${step}`
@@ -31,12 +32,13 @@ const mappedRadixColors = Object.fromEntries(
 
 module.exports = {
   content: [
-    './components/**/*.{js,vue,ts}',
-    './layouts/**/*.vue',
-    './pages/**/*.vue',
-    './**/*.vue',
-    './*.vue',
-    './plugins/**/*.{js,ts}',
+    `components/**/*.{vue,js}`,
+    `layouts/**/*.vue`,
+    `pages/**/*.vue`,
+    `composables/**/*.{js,ts}`,
+    `plugins/**/*.{js,ts}`,
+    `App.{js,ts,vue}`,
+    `app.{js,ts,vue}`,
   ],
   darkMode: 'class',
   safelist: ['line-through'],
@@ -51,8 +53,6 @@ module.exports = {
         'yellow-dark': mappedRadixColors.amberDark,
         red: mappedRadixColors.red,
         'red-dark': mappedRadixColors.redDark,
-        mint: mappedRadixColors.mint,
-        'mint-dark': mappedRadixColors.mintDark,
         slate: mappedRadixColors.sand,
         'slate-dark': mappedRadixColors.slateDark,
         gray: {
@@ -72,5 +72,5 @@ module.exports = {
   variants: {
     extend: {},
   },
-  plugins: [require('@tailwindcss/typography')],
+  plugins: [tailwindTypography],
 }

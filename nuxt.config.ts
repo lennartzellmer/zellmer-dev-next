@@ -4,11 +4,9 @@ import { FileSystemIconLoader } from 'unplugin-icons/loaders'
 
 // https://v3.nuxtjs.org/docs/directory-structure/nuxt.config
 export default defineNuxtConfig({
-  css: ['@/assets/css/main.css'],
-
   modules: [
     '@nuxtjs/color-mode',
-    '@nuxtjs/tailwindcss',
+    ['@nuxtjs/tailwindcss', { cssPath: '~/assets/css/tailwind.css' }],
     [
       '@nuxtjs/prismic',
       {

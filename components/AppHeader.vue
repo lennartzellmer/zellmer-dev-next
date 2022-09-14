@@ -7,11 +7,7 @@
         class="mr-auto flex items-center space-x-0 rounded-full text-sm font-medium sm:ml-3 sm:text-base"
       >
         <li>
-          <NuxtLink
-            class="group flex items-center justify-center space-x-2.5 text-lg focus:outline-none sm:text-2xl"
-            to="/"
-            @click="animate"
-          >
+          <NuxtLink class="group focus:outline-none" to="/" @click="animate">
             <svg
               id="morphing"
               width="100"
