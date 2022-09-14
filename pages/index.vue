@@ -1,6 +1,6 @@
 <template>
   <main>
-    <section class="mx-auto mt-20 max-w-5xl px-4 md:mt-28 lg:px-0">
+    <section class="mx-auto mt-20 max-w-5xl px-4 md:mt-28">
       <div class="flex max-w-2xl flex-col">
         <prismic-rich-text
           class="text-3xl font-bold leading-tight text-slate-12 dark:text-slate-dark-12 md:text-5xl"
@@ -69,7 +69,7 @@
         </div>
       </div>
     </section>
-    <section class="mx-auto mt-4 sm:mt-8 md:mt-28 max-w-5xl px-4 lg:px-0">
+    <section class="mx-auto mt-4 sm:mt-8 md:mt-28 max-w-5xl px-4">
       <ul v-if="posts" class="">
         <li
           v-for="post in posts.results.slice(0, 3)"

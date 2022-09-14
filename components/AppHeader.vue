@@ -1,7 +1,7 @@
 <template>
-  <header class="wlg:px-0 px-4">
+  <header class="px-4">
     <nav
-      class="mx-auto flex max-w-5xl flex-row items-center justify-between py-4 sm:py-8"
+      class="mx-auto flex max-w-5xl flex-row items-center justify-between py-4 mt-3 sm:mt-8"
     >
       <ul
         class="mr-auto flex items-center space-x-0 rounded-full text-sm font-medium sm:ml-3 sm:text-base"
