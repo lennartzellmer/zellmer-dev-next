@@ -24,30 +24,21 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from '#imports'
+<script lang="ts" setup>
+import { Slice } from '@prismicio/types'
+import { computed, ref } from '#imports'
 
-export default defineComponent({
-  name: 'ImageSlice',
-  props: {
-    slice: {
-      required: true,
-      type: Object,
-    },
-  },
-  data() {
-    return {
-      index: null,
-    }
-  },
-  computed: {
-    images() {
-      const images: string[] = []
-      this.slice.items.forEach((item: any) => {
-        images.push(item.image)
-      })
-      return images
-    },
-  },
+const props = defineProps<{
+  slice: Slice<any>
+}>()
+
+const index = ref(null)
+
+const images = computed(() => {
+  const images: string[] = []
+  props.slice.items.forEach((item: any) => {
+    images.push(item.image)
+  })
+  return images
 })
 </script>
