@@ -30,7 +30,7 @@
         <li v-for="menuItem in menuItems" :key="menuItem.path">
           <NuxtLink
             :to="menuItem.path"
-            class="ml-3 rounded-md py-3 px-1.5 text-slate-12 hover:bg-slate-3 dark:text-slate-dark-12 dark:hover:hover:bg-slate-dark-3 sm:px-3"
+            class="ml-1 sm:ml-3 rounded-md py-3 px-1.5 text-slate-12 hover:bg-slate-3 dark:text-slate-dark-12 dark:hover:hover:bg-slate-dark-3 sm:px-3"
             >{{ menuItem.name }}</NuxtLink
           >
         </li>

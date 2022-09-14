@@ -69,7 +69,7 @@
         </div>
       </div>
     </section>
-    <section class="mx-auto mt-28 max-w-5xl px-4 lg:px-0">
+    <section class="mx-auto mt-4 sm:mt-8 md:mt-28 max-w-5xl px-4 lg:px-0">
       <ul v-if="posts" class="">
         <li
           v-for="post in posts.results.slice(0, 3)"
