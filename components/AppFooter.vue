@@ -7,7 +7,7 @@
       <PrismicLink
         v-for="(linkObject, id) in footerNavigation.data.menu_links"
         :key="id"
-        class="p-3 font-mono text-slate-9 transition hover:text-slate-12 dark:hover:text-slate-dark-12"
+        class="p-3 text-sm text-slate-9 transition hover:text-slate-12 dark:hover:text-slate-dark-12"
         :field="linkObject.link"
       >
         {{ asText(linkObject.label) }}
