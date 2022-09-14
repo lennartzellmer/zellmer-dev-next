@@ -1,7 +1,7 @@
 <template>
-  <li class="group relative flex flex-col items-start">
+  <li class="group relative flex flex-col items-start pb-1">
     <h2
-      class="mt-4 text-base font-semibold text-slate-12 dark:text-slate-dark-12"
+      class="mt-2 text-base font-semibold text-slate-12 dark:text-slate-dark-12"
     >
       <div
         class="absolute -inset-y-3 -inset-x-4 z-0 scale-95 bg-slate-3 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 dark:bg-slate-dark-2 sm:-inset-x-6 sm:rounded-2xl"
