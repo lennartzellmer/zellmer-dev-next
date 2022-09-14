@@ -29,7 +29,7 @@ const formattedDate = new Date(
       />
     </div>
     <article
-      class="z-10 mt-6 mb-3 w-full rounded-r-lg transition-all sm:mt-3 sm:py-8 sm:pr-10 sm:pl-8 sm:group-hover:bg-slate-3 sm:group-hover:pr-6 sm:group-hover:pl-8 sm:group-focus:bg-gray-100 sm:group-focus:pr-6 sm:group-focus:pl-8 dark:sm:group-hover:bg-slate-dark-1 dark:sm:group-focus:bg-slate-dark-1"
+      class="z-10 mt-6 mb-3 w-full rounded-r-lg transition-all sm:mt-3 sm:py-8 sm:pr-10 sm:pl-8 sm:group-hover:bg-slate-3 sm:group-hover:pr-6 sm:group-hover:pl-8 sm:group-focus:bg-slate-3 sm:group-focus:pr-6 sm:group-focus:pl-8 dark:sm:group-hover:bg-slate-dark-1 dark:sm:group-focus:bg-slate-dark-1"
     >
       <span class="font-mono text-sm text-slate-11 dark:text-slate-dark-11">
         {{ formattedDate }}

@@ -1,13 +1,18 @@
 <template>
   <header class="px-4">
     <nav
-      class="mx-auto flex max-w-5xl flex-row items-center justify-between py-4 mt-3 sm:mt-8"
+      class="mx-auto mt-3 flex max-w-5xl flex-row items-center justify-between py-4 sm:mt-8"
     >
       <ul
         class="mr-auto flex items-center space-x-0 rounded-full text-sm font-medium sm:ml-3 sm:text-base"
       >
         <li>
-          <NuxtLink class="group focus:outline-none" to="/" @click="animate">
+          <NuxtLink
+            v-slot="{ isActive }"
+            class="group focus:outline-none"
+            to="/"
+            @click="animate"
+          >
             <svg
               id="morphing"
               width="100"
@@ -15,6 +20,11 @@
               fill="none"
               viewBox="0 0 100 100"
               class="h-auto w-10 overflow-visible text-slate-12 transition group-hover:text-green-500 dark:text-slate-dark-12 dark:group-hover:text-green-500 sm:w-14"
+              :class="[
+                isActive
+                  ? 'text-green-500'
+                  : 'text-slate-12 dark:text-slate-dark-12',
+              ]"
             >
               <path
                 id="morphing-path"
@@ -30,7 +40,7 @@
         <li v-for="menuItem in menuItems" :key="menuItem.path">
           <NuxtLink
             :to="menuItem.path"
-            class="ml-1 sm:ml-3 rounded-md py-3 px-1.5 text-slate-12 hover:bg-slate-3 dark:text-slate-dark-12 dark:hover:hover:bg-slate-dark-3 sm:px-3"
+            class="ml-1 rounded-md py-3 px-1.5 text-slate-12 hover:bg-slate-3 dark:text-slate-dark-12 dark:hover:bg-slate-dark-3 sm:ml-3 sm:px-3"
             >{{ menuItem.name }}</NuxtLink
           >
         </li>
@@ -76,3 +86,9 @@ const menuItems = [
   { name: 'Work', path: 'https://read.cv/lennartzellmer' },
 ]
 </script>
+
+<style scoped lang="scss">
+.router-link-active {
+  @apply text-green-500;
+}
+</style>

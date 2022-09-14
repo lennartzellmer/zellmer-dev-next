@@ -1,10 +1,7 @@
 <template>
   <section>
     <div class="py-12">
-      <div
-        v-if="bio"
-        class="relative mx-auto max-w-2xl px-4 lg:max-w-5xl"
-      >
+      <div v-if="bio" class="relative mx-auto max-w-2xl px-4 lg:max-w-5xl">
         <div
           class="grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-12"
         >

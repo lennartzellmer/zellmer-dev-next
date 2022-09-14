@@ -1,7 +1,7 @@
 <template>
   <RadioGroup
     v-model="$colorMode.preference"
-    class="flex flex-initial cursor-pointer ring-2 rounded-full ring-slate-12 dark:ring-slate-dark-7"
+    class="flex flex-initial cursor-pointer rounded-full ring-2 ring-slate-12 dark:ring-slate-dark-7"
   >
     <RadioGroupLabel class="sr-only">Dark mode</RadioGroupLabel>
     <RadioGroupOption
@@ -28,11 +28,9 @@
       value="dark"
       class="group focus:outline-none"
     >
-      <div
-        class="focus:z-40 focus:outline-none"
-      >
+      <div class="focus:z-40 focus:outline-none">
         <PhMoonStars
-          class="h-auto w-8 p-2 transition-colors"
+          class="h-auto w-9 p-2 pr-3 transition-colors sm:w-8 sm:pr-2"
           :class="[
             checked
               ? 'text-white'
@@ -45,7 +43,7 @@
     <RadioGroupOption
       v-slot="{ active, checked }"
       value="system"
-      class="group focus:outline-none hidden sm:flex"
+      class="group hidden focus:outline-none sm:flex"
     >
       <div
         class="rounded-r-full hover:text-slate-12 focus:z-40 focus:outline-none hover:dark:text-slate-dark-12"

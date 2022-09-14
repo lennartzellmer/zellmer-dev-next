@@ -1,8 +1,8 @@
 <template>
   <footer class="mx-auto flex w-full max-w-5xl px-4 lg:px-0">
     <nav
-      class="w-full border-t border-slate-5 py-12 dark:border-slate-dark-5"
       v-if="footerNavigation"
+      class="w-full border-t border-slate-5 py-12 dark:border-slate-dark-5"
     >
       <PrismicLink
         v-for="(linkObject, id) in footerNavigation.data.menu_links"

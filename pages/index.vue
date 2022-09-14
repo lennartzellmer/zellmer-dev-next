@@ -69,7 +69,7 @@
         </div>
       </div>
     </section>
-    <section class="mx-auto mt-4 sm:mt-8 md:mt-28 max-w-5xl px-4">
+    <section class="mx-auto mt-4 max-w-5xl px-4 sm:mt-8 md:mt-28">
       <ul v-if="posts" class="">
         <li
           v-for="post in posts.results.slice(0, 3)"
@@ -86,7 +86,7 @@
             <div
               v-for="post in posts.results.slice(3, posts.results.length)"
               :key="post.id"
-              class="relative z-20 -mr-6 flex h-auto w-12 shrink-0 overflow-hidden rounded-xl bg-slate-1 shadow-md ring ring-slate-1 transition-all dark:bg-slate-dark-1 dark:ring-slate-dark-5 sm:-mr-8 sm:w-16 sm:group-hover:-mr-7"
+              class="relative z-20 -mr-6 flex h-auto w-12 shrink-0 overflow-hidden rounded-xl bg-slate-1 shadow-md ring ring-slate-1 transition-all dark:bg-slate-dark-1 dark:ring-slate-dark-4 sm:-mr-8 sm:w-16 sm:group-hover:-mr-7"
             >
               <PrismicImage
                 :imgix-params="{ fit: 'crop', h: 400, w: 400 }"
@@ -96,9 +96,9 @@
               />
             </div>
             <span
-              class="ml-12 flex items-center space-x-1 rounded-lg px-4 py-3 text-green-500 group-hover:bg-slate-3 dark:group-hover:bg-slate-dark-3"
+              class="ml-8 flex items-center space-x-1 rounded-lg px-3 py-3 text-green-500 group-hover:bg-slate-3 dark:group-hover:bg-slate-dark-1 sm:ml-12 sm:px-4"
             >
-              <p>Discover all articles</p>
+              <p>See more articles</p>
               <PhCaretRight class="h-auto w-4" />
             </span>
           </NuxtLink>
@@ -109,10 +109,10 @@
 </template>
 
 <script setup lang="ts">
+import PhCaretRight from 'virtual:icons/ph/caret-right-bold'
 import { useAsyncData, usePrismic } from '#imports'
 import AppArticlePreview from '~/components/AppArticlePreview.vue'
 import AppSocialLinks from '~/components/AppSocialLinks.vue'
-import PhCaretRight from 'virtual:icons/ph/caret-right-bold'
 
 const { client } = usePrismic()
 const { data: posts } = useAsyncData('blog-posts-preview', () =>

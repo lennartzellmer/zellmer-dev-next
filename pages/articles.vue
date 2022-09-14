@@ -4,7 +4,7 @@
       <h1
         class="text-4xl font-bold tracking-tight text-slate-12 dark:text-slate-dark-12 sm:text-5xl"
       >
-        Writing on product, web design & development, and everything around.
+        Sharing thoughts and concepts around Product, Design and Development.
       </h1>
       <p class="mt-6 text-base text-slate-11 dark:text-slate-dark-11">
         Some of my long-form thoughts on programming, leadership, product

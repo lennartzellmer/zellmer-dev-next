@@ -1,6 +1,5 @@
 const defaultTheme = require('tailwindcss/defaultTheme')
 const radixColors = require('@radix-ui/colors')
-import tailwindTypography from '@tailwindcss/typography'
 
 function colorKey(name, step) {
   return `${name.replace('Dark', '')}${step}`
@@ -54,7 +53,7 @@ module.exports = {
         red: mappedRadixColors.red,
         'red-dark': mappedRadixColors.redDark,
         slate: mappedRadixColors.sand,
-        'slate-dark': mappedRadixColors.slateDark,
+        'slate-dark': mappedRadixColors.sageDark,
         gray: {
           100: mappedRadixColors.sand[1],
           200: mappedRadixColors.sand[3],
@@ -72,5 +71,5 @@ module.exports = {
   variants: {
     extend: {},
   },
-  plugins: [tailwindTypography],
+  plugins: [require('@tailwindcss/typography')],
 }
