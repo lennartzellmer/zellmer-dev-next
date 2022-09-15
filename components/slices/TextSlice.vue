@@ -1,3 +1,7 @@
+<script lang="ts" setup>
+const props = defineProps<{ slice: any }>()
+</script>
+
 <template>
   <div>
     <prismic-rich-text
@@ -6,20 +10,6 @@
     />
   </div>
 </template>
-
-<script lang="ts">
-import { defineComponent } from '#imports'
-
-export default defineComponent({
-  name: 'TextSlice',
-  props: {
-    slice: {
-      required: true,
-      type: Object,
-    },
-  },
-})
-</script>
 
 <style lang="scss">
 .prismic-rich-text {

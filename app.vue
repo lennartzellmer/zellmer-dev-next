@@ -9,16 +9,13 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, useHead } from '#imports'
+import { useHead } from '#imports'
 
 useHead({
-  title: computed(() => `Blog - Zellmer.dev`),
+  titleTemplate: (titleChunk) => {
+    return titleChunk ? `${titleChunk} - Zellmer.dev` : 'Zellmer.dev'
+  },
   meta: [
-    {
-      name: 'description',
-      content:
-        'Lennart here. Sharing thoughts and concepts around Product, Design and Development',
-    },
     {
       name: 'theme-color',
       content: '#121314',

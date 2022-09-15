@@ -22,7 +22,5 @@ export default defineComponent({
       type: Object,
     },
   },
-  setup() {},
-  mounted() {},
 })
 </script>

@@ -110,9 +110,13 @@
 
 <script setup lang="ts">
 import PhCaretRight from 'virtual:icons/ph/caret-right-bold'
-import { useAsyncData, usePrismic } from '#imports'
+import { useAsyncData, useHead, usePrismic } from '#imports'
 import AppArticlePreview from '~/components/AppArticlePreview.vue'
 import AppSocialLinks from '~/components/AppSocialLinks.vue'
+
+useHead({
+  title: 'Intro',
+})
 
 const { client } = usePrismic()
 const { data: posts } = useAsyncData('blog-posts-preview', () =>

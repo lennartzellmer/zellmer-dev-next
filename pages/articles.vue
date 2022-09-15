@@ -24,7 +24,11 @@
 </template>
 
 <script lang="ts" setup>
-import { useAsyncData, usePrismic } from '#imports'
+import { useAsyncData, useHead, usePrismic } from '#imports'
+
+useHead({
+  title: 'Articles',
+})
 
 const { client } = usePrismic()
 const { data: posts } = useAsyncData('blog-posts', () =>

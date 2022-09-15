@@ -25,9 +25,7 @@ const { data: page } = useAsyncData(route.params.uid.toString(), () =>
 )
 
 useHead({
-  title: computed(
-    () => `${asText(page.value?.data.title) || ''} - Zellmer.dev`
-  ),
+  title: computed(() => `${asText(page.value?.data.title) || ''}`),
 })
 </script>
 

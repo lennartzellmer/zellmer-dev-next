@@ -27,8 +27,12 @@
 </template>
 
 <script lang="ts" setup>
-import { useAsyncData, usePrismic } from '#imports'
+import { useAsyncData, useHead, usePrismic } from '#imports'
 import AppSocialLinks from '~/components/AppSocialLinks.vue'
+
+useHead({
+  title: 'About',
+})
 
 const { client } = usePrismic()
 
