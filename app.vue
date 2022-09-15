@@ -17,6 +17,23 @@ useHead({
   },
   meta: [
     {
+      hid: 'description',
+      name: 'description',
+      content:
+        'Lennart here. Sharing thoughts and concepts around Product, Design and Development.',
+    },
+    {
+      hid: 'keywords',
+      name: 'keywords',
+      content: 'Product, Blog, Design, Development, Maker',
+    },
+    { name: 'og:title', content: `Zellmer.dev` },
+    {
+      name: 'og:description',
+      content: `Lennart here. Sharing thoughts and concepts around Product, Design and Development.`,
+    },
+    { name: 'og:image', content: '/og-image.jpeg' },
+    {
       name: 'theme-color',
       content: '#121314',
       media: '(prefers-color-scheme: dark)',
