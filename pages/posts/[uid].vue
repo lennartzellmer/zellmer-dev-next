@@ -41,9 +41,7 @@ const { data: post, pending } = useAsyncData(route.params.uid.toString(), () =>
 )
 
 useHead({
-  title: computed(
-    () => `${asText(post.value?.data.headline) || ''} - Zellmer.dev`
-  ),
+  title: computed(() => `${asText(post.value?.data.headline) || ''}`),
 })
 
 const blocks = computed(() => {
