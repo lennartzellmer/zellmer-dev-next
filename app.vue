@@ -78,5 +78,8 @@ useHead({
   bodyAttrs: {
     class: 'bg-black',
   },
+  htmlAttrs: {
+    lang: 'en',
+  },
 })
 </script>

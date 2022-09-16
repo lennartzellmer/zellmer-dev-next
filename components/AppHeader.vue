@@ -44,6 +44,7 @@
                 :d="svgPath.path"
               />
             </svg>
+            <p class="sr-only">Home</p>
           </NuxtLink>
         </li>
         <li v-for="menuItem in menuItems" :key="menuItem.path">

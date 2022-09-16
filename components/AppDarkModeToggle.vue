@@ -9,7 +9,7 @@
       value="light"
       class="group focus:outline-none"
     >
-      <div
+      <RadioGroupLabel
         class="rounded-l-full hover:text-slate-12 focus:z-40 focus:outline-none hover:dark:text-slate-dark-12"
       >
         <PhSun
@@ -21,14 +21,15 @@
             active ? 'rounded-full bg-slate-4' : '',
           ]"
         />
-      </div>
+        <p class="sr-only">Light</p>
+      </RadioGroupLabel>
     </RadioGroupOption>
     <RadioGroupOption
       v-slot="{ active, checked }"
       value="dark"
       class="group focus:outline-none"
     >
-      <div class="focus:z-40 focus:outline-none">
+      <RadioGroupLabel class="focus:z-40 focus:outline-none">
         <PhMoonStars
           class="h-auto w-9 p-2 pr-3 transition-colors sm:w-8 sm:pr-2"
           :class="[
@@ -38,14 +39,15 @@
             active ? 'rounded-full bg-slate-dark-4' : '',
           ]"
         />
-      </div>
+        <p class="sr-only">Dark</p>
+      </RadioGroupLabel>
     </RadioGroupOption>
     <RadioGroupOption
       v-slot="{ active, checked }"
       value="system"
       class="group hidden focus:outline-none sm:flex"
     >
-      <div
+      <RadioGroupLabel
         class="rounded-r-full hover:text-slate-12 focus:z-40 focus:outline-none hover:dark:text-slate-dark-12"
       >
         <PhDesktop
@@ -57,7 +59,8 @@
             active ? 'rounded-full bg-slate-4 dark:bg-slate-dark-4' : '',
           ]"
         />
-      </div>
+        <p class="sr-only">System</p>
+      </RadioGroupLabel>
     </RadioGroupOption>
   </RadioGroup>
 </template>
