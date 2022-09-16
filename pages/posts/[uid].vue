@@ -54,6 +54,11 @@ useHead({
       property: MetaTagKeys.OG_TYPE,
       content: 'article',
     },
+    {
+      hid: MetaTagKeys.OG_DESCRIPTION,
+      property: MetaTagKeys.OG_DESCRIPTION,
+      content: computed(() => `${asText(post.value?.data.description) || ''}`),
+    },
   ],
 })
 
