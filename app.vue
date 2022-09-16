@@ -9,7 +9,8 @@
 </template>
 
 <script lang="ts" setup>
-import { useHead } from '#imports'
+import { useHead, useRoute } from '#imports'
+import { MetaTagKeys } from '~/types/metaTagKeys'
 
 useHead({
   titleTemplate: (titleChunk) => {
@@ -17,22 +18,46 @@ useHead({
   },
   meta: [
     {
-      hid: 'description',
-      name: 'description',
+      hid: MetaTagKeys.DESCRIPTION,
+      name: MetaTagKeys.DESCRIPTION,
       content:
         'Lennart here. Sharing thoughts and concepts around Product, Design and Development.',
     },
     {
-      hid: 'keywords',
-      name: 'keywords',
+      hid: MetaTagKeys.KEYWORDS,
+      name: MetaTagKeys.KEYWORDS,
       content: 'Product, Blog, Design, Development, Maker',
     },
-    { name: 'og:title', content: `Zellmer.dev` },
     {
-      name: 'og:description',
+      hid: MetaTagKeys.OG_TITLE,
+      property: MetaTagKeys.OG_TITLE,
+      content: `Zellmer.dev`,
+    },
+    {
+      hid: MetaTagKeys.OG_DESCRIPTION,
+      property: MetaTagKeys.OG_DESCRIPTION,
       content: `Lennart here. Sharing thoughts and concepts around Product, Design and Development.`,
     },
-    { name: 'og:image', content: '/og-image.jpeg' },
+    {
+      hid: MetaTagKeys.OG_IMAGE,
+      property: MetaTagKeys.OG_IMAGE,
+      content: '/og-image.jpeg',
+    },
+    {
+      hid: MetaTagKeys.OG_LOCALE,
+      property: MetaTagKeys.OG_LOCALE,
+      content: 'en_GB',
+    },
+    {
+      hid: MetaTagKeys.OG_TYPE,
+      property: MetaTagKeys.OG_TYPE,
+      content: 'website',
+    },
+    {
+      hid: MetaTagKeys.TWITTER_CARD,
+      name: MetaTagKeys.TWITTER_CARD,
+      content: 'summary_large_image',
+    },
     {
       name: 'theme-color',
       content: '#121314',

@@ -33,6 +33,7 @@
 <script lang="ts" setup>
 import { usePrismic, useRoute, useAsyncData, computed, useHead } from '#imports'
 import AppSkeleton from '~/components/AppSkeleton.vue'
+import { MetaTagKeys } from '~/types/metaTagKeys'
 const { client, asText } = usePrismic()
 const route = useRoute()
 
@@ -42,6 +43,18 @@ const { data: post, pending } = useAsyncData(route.params.uid.toString(), () =>
 
 useHead({
   title: computed(() => `${asText(post.value?.data.headline) || ''}`),
+  meta: [
+    {
+      hid: MetaTagKeys.DESCRIPTION,
+      name: MetaTagKeys.DESCRIPTION,
+      content: computed(() => `${asText(post.value?.data.description) || ''}`),
+    },
+    {
+      hid: MetaTagKeys.OG_TYPE,
+      property: MetaTagKeys.OG_TYPE,
+      content: 'article',
+    },
+  ],
 })
 
 const blocks = computed(() => {
