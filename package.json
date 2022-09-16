@@ -9,6 +9,7 @@
   "devDependencies": {
     "@nuxtjs/eslint-config": "^11.0.0",
     "@nuxtjs/eslint-module": "^3.1.0",
+    "@nuxtjs/google-fonts": "^3.0.0-0",
     "@nuxtjs/prismic": "^3.0.0-alpha.10",
     "@nuxtjs/tailwindcss": "^5.2.0",
     "eslint": "^8.19.0",

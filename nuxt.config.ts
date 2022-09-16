@@ -6,6 +6,16 @@ import { FileSystemIconLoader } from 'unplugin-icons/loaders'
 export default defineNuxtConfig({
   modules: [
     '@nuxtjs/color-mode',
+    [
+      '@nuxtjs/google-fonts',
+      {
+        families: {
+          'JetBrains+Mono': {
+            wght: [200, 300, 400, 500, 600, 700, 800],
+          },
+        },
+      },
+    ],
     ['@nuxtjs/tailwindcss', { cssPath: '~/assets/css/tailwind.css' }],
     [
       '@nuxtjs/prismic',
