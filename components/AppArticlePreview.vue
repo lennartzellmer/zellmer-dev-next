@@ -23,7 +23,7 @@ const formattedDate = new Date(
     >
       <PrismicImage
         :imgix-params="{ fit: 'crop', h: 250, w: 250 }"
-        :pixel-densities="[1, 2]"
+        pixel-densities="defaults"
         :field="props.post.data.thumbnail"
         class="AppArticlePreview__picture transition-all group-hover:brightness-100 dark:brightness-75"
       />

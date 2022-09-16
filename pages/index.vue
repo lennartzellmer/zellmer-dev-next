@@ -22,7 +22,7 @@
         >
           <PrismicImage
             :imgix-params="{ fit: 'crop', h: 330, w: 300 }"
-            :pixel-densities="[1, 2]"
+            :pixel-densities="'defaults'"
             :field="intro.data.gallery[0].image_1"
             class="AppArticlePreview__picture"
           />
@@ -32,7 +32,7 @@
         >
           <PrismicImage
             :imgix-params="{ fit: 'crop', h: 330, w: 300 }"
-            :pixel-densities="[1, 2]"
+            :pixel-densities="'defaults'"
             :field="intro.data.gallery[0].image_2"
             class="AppArticlePreview__picture"
           />
@@ -42,7 +42,7 @@
         >
           <PrismicImage
             :imgix-params="{ fit: 'crop', h: 330, w: 300 }"
-            :pixel-densities="[1, 2]"
+            :pixel-densities="'defaults'"
             :field="intro.data.gallery[0].image_3"
             class="AppArticlePreview__picture"
           />
@@ -52,7 +52,7 @@
         >
           <PrismicImage
             :imgix-params="{ fit: 'crop', h: 330, w: 300 }"
-            :pixel-densities="[1, 2]"
+            :pixel-densities="'defaults'"
             :field="intro.data.gallery[0].image_4"
             class="AppArticlePreview__picture"
           />
@@ -62,7 +62,7 @@
         >
           <PrismicImage
             :imgix-params="{ fit: 'crop', h: 330, w: 300 }"
-            :pixel-densities="[1, 2]"
+            :pixel-densities="'defaults'"
             :field="intro.data.gallery[0].image_5"
             class="AppArticlePreview__picture"
           />
