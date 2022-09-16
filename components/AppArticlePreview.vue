@@ -22,7 +22,7 @@ const formattedDate = new Date(
       class="relative z-20 hidden h-36 w-full shrink-0 overflow-hidden rounded-lg bg-slate-1 transition-all dark:bg-slate-dark-1 sm:flex sm:h-auto sm:w-48 sm:group-hover:w-52 sm:group-focus:w-52"
     >
       <PrismicImage
-        :imgix-params="{ fit: 'crop', h: 400, w: 400 }"
+        :imgix-params="{ fit: 'crop', h: 250, w: 250 }"
         :pixel-densities="[1, 2]"
         :field="props.post.data.thumbnail"
         class="AppArticlePreview__picture transition-all group-hover:brightness-100 dark:brightness-75"
