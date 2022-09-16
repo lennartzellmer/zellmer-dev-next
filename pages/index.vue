@@ -21,8 +21,7 @@
           class="relative aspect-[9/10] w-44 flex-none rotate-2 overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:w-72 sm:rounded-2xl"
         >
           <PrismicImage
-            :imgix-params="{ fit: 'crop', h: 330, w: 300 }"
-            :pixel-densities="'defaults'"
+            :widths="'thumbnails'"
             :field="intro.data.gallery[0].image_1"
             class="AppArticlePreview__picture"
           />
@@ -31,8 +30,7 @@
           class="relative aspect-[9/10] w-44 flex-none -rotate-2 overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:w-72 sm:rounded-2xl"
         >
           <PrismicImage
-            :imgix-params="{ fit: 'crop', h: 330, w: 300 }"
-            :pixel-densities="'defaults'"
+            :widths="[200, 600]"
             :field="intro.data.gallery[0].image_2"
             class="AppArticlePreview__picture"
           />
@@ -41,8 +39,7 @@
           class="relative aspect-[9/10] w-44 flex-none rotate-2 overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:w-72 sm:rounded-2xl"
         >
           <PrismicImage
-            :imgix-params="{ fit: 'crop', h: 330, w: 300 }"
-            :pixel-densities="'defaults'"
+            :widths="[200, 600]"
             :field="intro.data.gallery[0].image_3"
             class="AppArticlePreview__picture"
           />
@@ -51,8 +48,7 @@
           class="relative aspect-[9/10] w-44 flex-none rotate-2 overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:w-72 sm:rounded-2xl"
         >
           <PrismicImage
-            :imgix-params="{ fit: 'crop', h: 330, w: 300 }"
-            :pixel-densities="'defaults'"
+            :widths="[200, 600]"
             :field="intro.data.gallery[0].image_4"
             class="AppArticlePreview__picture"
           />
@@ -61,8 +57,7 @@
           class="relative aspect-[9/10] w-44 flex-none -rotate-2 overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:w-72 sm:rounded-2xl"
         >
           <PrismicImage
-            :imgix-params="{ fit: 'crop', h: 330, w: 300 }"
-            :pixel-densities="'defaults'"
+            :widths="[200, 600, 800]"
             :field="intro.data.gallery[0].image_5"
             class="AppArticlePreview__picture"
           />
