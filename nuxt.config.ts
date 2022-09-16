@@ -1,4 +1,4 @@
-import { defineNuxtConfig } from 'nuxt'
+import { defineNuxtConfig } from 'nuxt/config'
 import Icons from 'unplugin-icons/vite'
 import { FileSystemIconLoader } from 'unplugin-icons/loaders'
 
@@ -9,10 +9,9 @@ export default defineNuxtConfig({
     [
       '@nuxtjs/google-fonts',
       {
+        download: true,
         families: {
-          'JetBrains+Mono': {
-            wght: [200, 300, 400, 500, 600, 700, 800],
-          },
+          'JetBrains Mono': [400, 600, 800],
         },
       },
     ],
@@ -20,6 +19,8 @@ export default defineNuxtConfig({
     [
       '@nuxtjs/prismic',
       {
+        toolbar: false,
+        preview: false,
         endpoint: 'https://zellmer-dev.cdn.prismic.io/api/v2',
       },
     ],
