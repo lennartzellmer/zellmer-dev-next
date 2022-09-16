@@ -21,7 +21,7 @@
           class="relative aspect-[9/10] w-44 flex-none rotate-2 overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:w-72 sm:rounded-2xl"
         >
           <PrismicImage
-            :imgix-params="{ fit: 'crop', h: 660, w: 600 }"
+            :imgix-params="{ fit: 'crop', h: 330, w: 300 }"
             :pixel-densities="[1, 2]"
             :field="intro.data.gallery[0].image_1"
             class="AppArticlePreview__picture"
@@ -31,7 +31,7 @@
           class="relative aspect-[9/10] w-44 flex-none -rotate-2 overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:w-72 sm:rounded-2xl"
         >
           <PrismicImage
-            :imgix-params="{ fit: 'crop', h: 660, w: 600 }"
+            :imgix-params="{ fit: 'crop', h: 330, w: 300 }"
             :pixel-densities="[1, 2]"
             :field="intro.data.gallery[0].image_2"
             class="AppArticlePreview__picture"
@@ -41,7 +41,7 @@
           class="relative aspect-[9/10] w-44 flex-none rotate-2 overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:w-72 sm:rounded-2xl"
         >
           <PrismicImage
-            :imgix-params="{ fit: 'crop', h: 660, w: 600 }"
+            :imgix-params="{ fit: 'crop', h: 330, w: 300 }"
             :pixel-densities="[1, 2]"
             :field="intro.data.gallery[0].image_3"
             class="AppArticlePreview__picture"
@@ -51,7 +51,7 @@
           class="relative aspect-[9/10] w-44 flex-none rotate-2 overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:w-72 sm:rounded-2xl"
         >
           <PrismicImage
-            :imgix-params="{ fit: 'crop', h: 660, w: 600 }"
+            :imgix-params="{ fit: 'crop', h: 330, w: 300 }"
             :pixel-densities="[1, 2]"
             :field="intro.data.gallery[0].image_4"
             class="AppArticlePreview__picture"
@@ -61,7 +61,7 @@
           class="relative aspect-[9/10] w-44 flex-none -rotate-2 overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:w-72 sm:rounded-2xl"
         >
           <PrismicImage
-            :imgix-params="{ fit: 'crop', h: 660, w: 600 }"
+            :imgix-params="{ fit: 'crop', h: 330, w: 300 }"
             :pixel-densities="[1, 2]"
             :field="intro.data.gallery[0].image_5"
             class="AppArticlePreview__picture"
@@ -89,7 +89,7 @@
               class="relative z-20 -mr-6 flex h-auto w-12 shrink-0 overflow-hidden rounded-xl bg-slate-1 shadow-md ring ring-slate-1 transition-all dark:bg-slate-dark-1 dark:ring-slate-dark-4 sm:-mr-8 sm:w-16 sm:group-hover:-mr-7"
             >
               <PrismicImage
-                :imgix-params="{ fit: 'crop', h: 400, w: 400 }"
+                :imgix-params="{ fit: 'crop', h: 64, w: 64 }"
                 :pixel-densities="[1, 2]"
                 :field="post.data.thumbnail"
                 class="AppArticlePreview__picture"
