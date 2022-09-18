@@ -24,6 +24,8 @@
             :widths="'thumbnails'"
             :field="intro.data.gallery[0].image_1"
             class="AppArticlePreview__picture"
+            height="330"
+            width="300"
           />
         </div>
         <div
@@ -33,6 +35,8 @@
             :widths="'thumbnails'"
             :field="intro.data.gallery[0].image_2"
             class="AppArticlePreview__picture"
+            height="330"
+            width="300"
           />
         </div>
         <div
@@ -42,6 +46,8 @@
             :widths="'thumbnails'"
             :field="intro.data.gallery[0].image_3"
             class="AppArticlePreview__picture"
+            height="330"
+            width="300"
           />
         </div>
         <div
@@ -51,6 +57,8 @@
             :widths="'thumbnails'"
             :field="intro.data.gallery[0].image_4"
             class="AppArticlePreview__picture"
+            height="330"
+            width="300"
           />
         </div>
         <div
@@ -60,6 +68,8 @@
             :widths="'thumbnails'"
             :field="intro.data.gallery[0].image_5"
             class="AppArticlePreview__picture"
+            height="330"
+            width="300"
           />
         </div>
       </div>
@@ -81,13 +91,15 @@
             <div
               v-for="post in posts.results.slice(3, posts.results.length)"
               :key="post.id"
-              class="relative z-20 -mr-6 flex h-auto w-12 shrink-0 overflow-hidden rounded-xl bg-slate-1 shadow-md ring ring-slate-1 transition-all dark:bg-slate-dark-1 dark:ring-slate-dark-4 sm:-mr-8 sm:w-16 sm:group-hover:-mr-7"
+              class="relative z-20 -mr-6 flex h-auto w-12 shrink-0 overflow-hidden rounded-xl bg-slate-6 shadow-md ring ring-slate-1 transition-all dark:bg-slate-dark-6 dark:ring-slate-dark-4 sm:-mr-8 sm:w-16 sm:group-hover:-mr-7"
             >
               <PrismicImage
                 :imgix-params="{ fit: 'crop', h: 64, w: 64 }"
                 :pixel-densities="[1, 2]"
                 :field="post.data.thumbnail"
                 class="AppArticlePreview__picture"
+                height="64"
+                width="64"
               />
             </div>
             <span
