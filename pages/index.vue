@@ -22,6 +22,7 @@
         >
           <nuxt-picture
             fit="crop"
+            alt="Portrait Lennart"
             loading="lazy"
             :src="intro.data.gallery[0].image_1.url"
             height="330"
@@ -36,6 +37,7 @@
           <nuxt-picture
             fit="crop"
             loading="lazy"
+            alt="Portrait Lennart"
             :src="intro.data.gallery[0].image_2.url"
             height="330"
             width="300"
@@ -51,6 +53,7 @@
             loading="lazy"
             :src="intro.data.gallery[0].image_3.url"
             height="330"
+            alt="Portrait Lennart"
             width="300"
             class="AppArticlePreview__picture"
             sizes="xs:150px sm:180px md:230px lg:600 xl:800"
@@ -62,6 +65,7 @@
           <nuxt-picture
             fit="crop"
             loading="lazy"
+            alt="Portrait Lennart"
             :src="intro.data.gallery[0].image_4.url"
             height="330"
             width="300"
@@ -75,6 +79,7 @@
           <nuxt-picture
             fit="crop"
             loading="lazy"
+            alt="Portrait Lennart"
             :src="intro.data.gallery[0].image_5.url"
             height="330"
             width="300"
