@@ -28,7 +28,7 @@ const formattedDate = new Date(
         height="250"
         width="250"
         class="AppArticlePreview__picture transition-all group-hover:brightness-100 dark:brightness-75"
-        sizes="sm:180px md:200px lg:md:300px"
+        sizes="xs:150px sm:250px lg:400px"
       />
     </div>
     <article

@@ -6,12 +6,7 @@ import { FileSystemIconLoader } from 'unplugin-icons/loaders'
 export default defineNuxtConfig({
   modules: [
     '@nuxtjs/color-mode',
-    [
-      '@nuxt/image-edge',
-      {
-        prismic: {},
-      },
-    ],
+    '@nuxt/image-edge',
     [
       '@nuxtjs/google-fonts',
       {
@@ -34,6 +29,10 @@ export default defineNuxtConfig({
 
   colorMode: {
     classSuffix: '',
+  },
+
+  image: {
+    provider: 'prismic',
   },
 
   vite: {

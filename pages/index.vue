@@ -20,61 +20,66 @@
         <div
           class="relative flex aspect-[9/10] w-44 flex-none rotate-2 overflow-hidden rounded-xl bg-zinc-100 object-cover dark:bg-zinc-800 sm:w-72 sm:rounded-2xl"
         >
-          <nuxt-picture
+          <nuxt-img
+            fit="crop"
             loading="lazy"
             :src="intro.data.gallery[0].image_1.url"
             height="330"
             width="300"
             class="AppArticlePreview__picture"
-            sizes="sm:400px md:600px"
+            sizes="xs:150px sm:250px md:400px lg:600 xl:800"
           />
         </div>
         <div
           class="relative flex aspect-[9/10] w-44 flex-none -rotate-2 overflow-hidden rounded-xl bg-zinc-100 object-cover dark:bg-zinc-800 sm:w-72 sm:rounded-2xl"
         >
-          <nuxt-picture
+          <nuxt-img
+            fit="crop"
             loading="lazy"
             :src="intro.data.gallery[0].image_2.url"
             height="330"
             width="300"
             class="AppArticlePreview__picture"
-            sizes="sm:400px md:600px"
+            sizes="xs:150px sm:250px md:400px lg:600 xl:800"
           />
         </div>
         <div
           class="relative flex aspect-[9/10] w-44 flex-none rotate-2 overflow-hidden rounded-xl bg-zinc-100 object-cover dark:bg-zinc-800 sm:w-72 sm:rounded-2xl"
         >
-          <nuxt-picture
+          <nuxt-img
+            fit="crop"
             loading="lazy"
             :src="intro.data.gallery[0].image_3.url"
             height="330"
             width="300"
             class="AppArticlePreview__picture"
-            sizes="sm:400px md:600px"
+            sizes="xs:150px sm:250px md:400px lg:600 xl:800"
           />
         </div>
         <div
           class="relative flex aspect-[9/10] w-44 flex-none rotate-2 overflow-hidden rounded-xl bg-zinc-100 object-cover dark:bg-zinc-800 sm:w-72 sm:rounded-2xl"
         >
-          <nuxt-picture
+          <nuxt-img
+            fit="crop"
             loading="lazy"
             :src="intro.data.gallery[0].image_4.url"
             height="330"
             width="300"
             class="AppArticlePreview__picture"
-            sizes="sm:400px md:600px"
+            sizes="xs:150px sm:250px md:400px lg:600 xl:800"
           />
         </div>
         <div
           class="relative flex aspect-[9/10] w-44 flex-none -rotate-2 overflow-hidden rounded-xl bg-zinc-100 object-cover dark:bg-zinc-800 sm:w-72 sm:rounded-2xl"
         >
-          <nuxt-picture
+          <nuxt-img
+            fit="crop"
             loading="lazy"
             :src="intro.data.gallery[0].image_5.url"
             height="330"
             width="300"
             class="AppArticlePreview__picture"
-            sizes="sm:400px md:600px"
+            sizes="xs:150px sm:250px md:400px lg:600 xl:800"
           />
         </div>
       </div>
