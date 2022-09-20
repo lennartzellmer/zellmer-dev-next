@@ -20,56 +20,61 @@
         <div
           class="relative flex aspect-[9/10] w-44 flex-none rotate-2 overflow-hidden rounded-xl bg-zinc-100 object-cover dark:bg-zinc-800 sm:w-72 sm:rounded-2xl"
         >
-          <PrismicImage
-            :widths="'thumbnails'"
-            :field="intro.data.gallery[0].image_1"
-            class="AppArticlePreview__picture"
+          <nuxt-picture
+            loading="lazy"
+            :src="intro.data.gallery[0].image_1.url"
             height="330"
             width="300"
+            class="AppArticlePreview__picture"
+            sizes="sm:400px md:600px"
           />
         </div>
         <div
           class="relative flex aspect-[9/10] w-44 flex-none -rotate-2 overflow-hidden rounded-xl bg-zinc-100 object-cover dark:bg-zinc-800 sm:w-72 sm:rounded-2xl"
         >
-          <PrismicImage
-            :widths="'thumbnails'"
-            :field="intro.data.gallery[0].image_2"
-            class="AppArticlePreview__picture"
+          <nuxt-picture
+            loading="lazy"
+            :src="intro.data.gallery[0].image_2.url"
             height="330"
             width="300"
+            class="AppArticlePreview__picture"
+            sizes="sm:400px md:600px"
           />
         </div>
         <div
           class="relative flex aspect-[9/10] w-44 flex-none rotate-2 overflow-hidden rounded-xl bg-zinc-100 object-cover dark:bg-zinc-800 sm:w-72 sm:rounded-2xl"
         >
-          <PrismicImage
-            :widths="'thumbnails'"
-            :field="intro.data.gallery[0].image_3"
-            class="AppArticlePreview__picture"
+          <nuxt-picture
+            loading="lazy"
+            :src="intro.data.gallery[0].image_3.url"
             height="330"
             width="300"
+            class="AppArticlePreview__picture"
+            sizes="sm:400px md:600px"
           />
         </div>
         <div
           class="relative flex aspect-[9/10] w-44 flex-none rotate-2 overflow-hidden rounded-xl bg-zinc-100 object-cover dark:bg-zinc-800 sm:w-72 sm:rounded-2xl"
         >
-          <PrismicImage
-            :widths="'thumbnails'"
-            :field="intro.data.gallery[0].image_4"
-            class="AppArticlePreview__picture"
+          <nuxt-picture
+            loading="lazy"
+            :src="intro.data.gallery[0].image_4.url"
             height="330"
             width="300"
+            class="AppArticlePreview__picture"
+            sizes="sm:400px md:600px"
           />
         </div>
         <div
           class="relative flex aspect-[9/10] w-44 flex-none -rotate-2 overflow-hidden rounded-xl bg-zinc-100 object-cover dark:bg-zinc-800 sm:w-72 sm:rounded-2xl"
         >
-          <PrismicImage
-            :widths="'thumbnails'"
-            :field="intro.data.gallery[0].image_5"
-            class="AppArticlePreview__picture"
+          <nuxt-picture
+            loading="lazy"
+            :src="intro.data.gallery[0].image_5.url"
             height="330"
             width="300"
+            class="AppArticlePreview__picture"
+            sizes="sm:400px md:600px"
           />
         </div>
       </div>

@@ -7,6 +7,12 @@ export default defineNuxtConfig({
   modules: [
     '@nuxtjs/color-mode',
     [
+      '@nuxt/image-edge',
+      {
+        prismic: {},
+      },
+    ],
+    [
       '@nuxtjs/google-fonts',
       {
         download: true,
