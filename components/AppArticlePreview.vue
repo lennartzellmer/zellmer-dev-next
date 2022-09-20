@@ -24,6 +24,7 @@ const formattedDate = new Date(
       <nuxt-picture
         loading="lazy"
         :src="props.post.data.thumbnail.url"
+        :alt="props.post.data.thumbnail.alt"
         fit="crop"
         height="250"
         width="250"
