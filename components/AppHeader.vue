@@ -11,7 +11,7 @@
             v-slot="{ isActive }"
             class="group focus:outline-none"
             to="/"
-            @click="animate"
+            @click="animatePath"
           >
             <svg
               id="morphing"
@@ -27,7 +27,7 @@
               ]"
             >
               <path
-                id="morphing-path"
+                ref="morphingPath1"
                 class="text-transparent transition-colors group-hover:text-slate-3 dark:group-hover:text-slate-dark-1"
                 fill="currentColor"
                 stroke-linecap="round"
@@ -36,7 +36,7 @@
                 :d="svgPath.path"
               />
               <path
-                id="morphing-path"
+                ref="morphingPath2"
                 stroke="currentColor"
                 stroke-linecap="round"
                 stroke-linejoin="round"
@@ -73,9 +73,18 @@
 <script lang="ts" setup>
 import blobshape from 'blobshape'
 import AppDarkModeToggle from '~/components/AppDarkModeToggle.vue'
-import { useNuxtApp } from '#imports'
+import { ref } from '#imports'
 
-const { $anime } = useNuxtApp()
+const morphingPath1 = ref<HTMLElement | null>(null)
+const morphingPath2 = ref<HTMLElement | null>(null)
+
+const getSvgPath = () =>
+  blobshape({
+    size: 100,
+    growth: 5,
+    edges: 10,
+    seed: null,
+  }).path
 
 const svgPath = blobshape({
   size: 100,
@@ -84,18 +93,9 @@ const svgPath = blobshape({
   seed: null,
 })
 
-const animate = () => {
-  const newSvgPath = blobshape({
-    size: 100,
-    growth: 5,
-    edges: 10,
-    seed: null,
-  })
-  $anime({
-    targets: '#morphing-path',
-    d: [{ value: newSvgPath.path }],
-    easing: 'spring(1, 80, 15, 20)',
-  })
+const animatePath = () => {
+  morphingPath1.value.setAttribute('d', getSvgPath())
+  morphingPath2.value.setAttribute('d', getSvgPath())
 }
 
 const menuItems = [
@@ -104,3 +104,9 @@ const menuItems = [
   { name: 'Projects', path: '/projects' },
 ]
 </script>
+
+<style>
+svg path {
+  transition: 0.2s all cubic-bezier(0.69, 1.61, 0.81, 1.01);
+}
+</style>
