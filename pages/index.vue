@@ -18,73 +18,20 @@
         class="-my-4 flex justify-center gap-5 overflow-hidden py-4 sm:gap-8"
       >
         <div
-          class="relative flex aspect-[9/10] w-44 flex-none rotate-2 overflow-hidden rounded-xl bg-zinc-100 object-cover dark:bg-zinc-800 sm:w-72 sm:rounded-2xl"
+          v-for="media in introMedia"
+          :key="media.image.url"
+          :class="media.classes"
+          class="relative flex aspect-[9/10] w-44 flex-none overflow-hidden rounded-xl bg-zinc-100 object-cover dark:bg-zinc-800 sm:w-72 sm:rounded-2xl"
         >
           <nuxt-picture
             fit="crop"
             alt="Portrait Lennart"
             loading="lazy"
-            :src="intro.data.gallery[0].image_1.url"
+            :src="media.image.url"
             height="330"
             width="300"
             class="AppArticlePreview__picture"
-            sizes="xs:150px sm:180px md:230px lg:600 xl:800"
-          />
-        </div>
-        <div
-          class="relative flex aspect-[9/10] w-44 flex-none -rotate-2 overflow-hidden rounded-xl bg-zinc-100 object-cover dark:bg-zinc-800 sm:w-72 sm:rounded-2xl"
-        >
-          <nuxt-picture
-            fit="crop"
-            loading="lazy"
-            alt="Portrait Lennart"
-            :src="intro.data.gallery[0].image_2.url"
-            height="330"
-            width="300"
-            class="AppArticlePreview__picture"
-            sizes="xs:150px sm:180px md:230px lg:600 xl:800"
-          />
-        </div>
-        <div
-          class="relative flex aspect-[9/10] w-44 flex-none rotate-2 overflow-hidden rounded-xl bg-zinc-100 object-cover dark:bg-zinc-800 sm:w-72 sm:rounded-2xl"
-        >
-          <nuxt-picture
-            fit="crop"
-            loading="lazy"
-            :src="intro.data.gallery[0].image_3.url"
-            height="330"
-            alt="Portrait Lennart"
-            width="300"
-            class="AppArticlePreview__picture"
-            sizes="xs:150px sm:180px md:230px lg:600 xl:800"
-          />
-        </div>
-        <div
-          class="relative flex aspect-[9/10] w-44 flex-none rotate-2 overflow-hidden rounded-xl bg-zinc-100 object-cover dark:bg-zinc-800 sm:w-72 sm:rounded-2xl"
-        >
-          <nuxt-picture
-            fit="crop"
-            loading="lazy"
-            alt="Portrait Lennart"
-            :src="intro.data.gallery[0].image_4.url"
-            height="330"
-            width="300"
-            class="AppArticlePreview__picture"
-            sizes="xs:150px sm:180px md:230px lg:600 xl:800"
-          />
-        </div>
-        <div
-          class="relative flex aspect-[9/10] w-44 flex-none -rotate-2 overflow-hidden rounded-xl bg-zinc-100 object-cover dark:bg-zinc-800 sm:w-72 sm:rounded-2xl"
-        >
-          <nuxt-picture
-            fit="crop"
-            loading="lazy"
-            alt="Portrait Lennart"
-            :src="intro.data.gallery[0].image_5.url"
-            height="330"
-            width="300"
-            class="AppArticlePreview__picture"
-            sizes="xs:150px sm:180px md:230px lg:600 xl:800"
+            sizes="xs:150px sm:300px xl:500px"
           />
         </div>
       </div>
@@ -132,7 +79,7 @@
 
 <script setup lang="ts">
 import PhCaretRight from 'virtual:icons/ph/caret-right-bold'
-import { useAsyncData, useHead, usePrismic } from '#imports'
+import { computed, useAsyncData, useHead, usePrismic } from '#imports'
 import AppArticlePreview from '~/components/AppArticlePreview.vue'
 import AppSocialLinks from '~/components/AppSocialLinks.vue'
 
@@ -155,4 +102,12 @@ const { data: intro } = useAsyncData('intro', () =>
     lang: 'en-eu',
   })
 )
+
+const introMedia = computed(() => [
+  { image: intro.value.data.gallery[0].image_1, classes: 'rotate-2' },
+  { image: intro.value.data.gallery[0].image_2, classes: '-rotate-2' },
+  { image: intro.value.data.gallery[0].image_3, classes: 'rotate-2' },
+  { image: intro.value.data.gallery[0].image_4, classes: 'rotate-2' },
+  { image: intro.value.data.gallery[0].image_5, classes: '-rotate-2' },
+])
 </script>
