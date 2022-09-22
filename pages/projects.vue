@@ -38,7 +38,7 @@ useHead({
 
 const { client } = usePrismic()
 
-const { data: projects } = useAsyncData('bio', () =>
+const { data: projects } = useAsyncData('projects', () =>
   client.getAllByType('project', { lang: 'en-eu' })
 )
 </script>
