@@ -16,34 +16,12 @@
         class="grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2 lg:grid-cols-3"
       >
         <AppProjectCard
-          title="Mailjet CI Template"
-          description="Template to kickstart sending emails through Mailjet."
-          href="https://github.com/lennartzellmer/mailjet-deployment-template"
-          readable-url="github.com"
-        />
-        <AppProjectCard
-          title="Thunderstorm Lamp"
-          description="An audiovisual fixture brings all of the thunder but none of the rain to our living room."
-          href="https://vimeo.com/159278507"
-          readable-url="vimeo.com"
-        />
-        <AppProjectCard
-          title="Zufällig Sie?"
-          description="Short film that got awarded the jury award by the Zurich Film Festival."
-          href="https://www.youtube.com/watch?v=7KYu3g3B0g4"
-          readable-url="youtube.com"
-        />
-        <AppProjectCard
-          title="Diskostrand"
-          description="My first 1 million views youtube video. Okay - I admit it - it is because of the music."
-          href="https://www.youtube.com/watch?v=wlvFyCcoyN0"
-          readable-url="youtube.com"
-        />
-        <AppProjectCard
-          title="Master Thesis"
-          description="Relationships Between Complementing Platforms: A Quantitative Case Study on Factors Influencing Cross-platform Behavior"
-          href="https://research.cbs.dk/da/studentProjects/relationships-between-complementing-platforms-a-quantitative-case"
-          readable-url="research.cbs.dk"
+          v-for="project in projects"
+          :key="project.id"
+          :title="project.data.title"
+          :description="project.data.description"
+          :href="project.data.link.url"
+          :readable-url="project.data.readable_url"
         />
       </ul>
     </div>
@@ -52,4 +30,15 @@
 
 <script lang="ts" setup>
 import AppProjectCard from '~/components/AppProjectCard.vue'
+import { useAsyncData, useHead, usePrismic } from '#imports'
+
+useHead({
+  title: 'Projects',
+})
+
+const { client } = usePrismic()
+
+const { data: projects } = useAsyncData('bio', () =>
+  client.getAllByType('project', { lang: 'en-eu' })
+)
 </script>
