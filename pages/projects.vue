@@ -39,6 +39,12 @@
           href="https://www.youtube.com/watch?v=wlvFyCcoyN0"
           readable-url="youtube.com"
         />
+        <AppProjectCard
+          title="Master Thesis"
+          description="Relationships Between Complementing Platforms: A Quantitative Case Study on Factors Influencing Cross-platform Behavior"
+          href="https://research.cbs.dk/da/studentProjects/relationships-between-complementing-platforms-a-quantitative-case"
+          readable-url="research.cbs.dk"
+        />
       </ul>
     </div>
   </section>
