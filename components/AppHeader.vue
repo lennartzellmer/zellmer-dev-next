@@ -13,7 +13,9 @@
             to="/"
             @click="animatePath"
           >
-            <AppLogo :is-active="isActive" :svg-path="svgPath" />
+            <div class="h-10 w-10">
+              <LazyAppLogoAnimated :is-active="isActive" :svg-path="svgPath" />
+            </div>
             <p class="sr-only">Home</p>
           </NuxtLink>
         </li>
