@@ -13,14 +13,12 @@
         :imgix-params="{ h: 400, w: 400, fit: 'crop' }"
       />
     </button>
-    <client-only placeholder="Loading...">
-      <AppGallery
-        v-if="index !== null"
-        :images="images"
-        :index="index"
-        @close="index = null"
-      />
-    </client-only>
+    <LazyAppGallery
+      v-if="index !== null"
+      :images="images"
+      :index="index"
+      @close="index = null"
+    />
   </div>
 </template>
 

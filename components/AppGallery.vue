@@ -113,6 +113,7 @@
 <script lang="ts">
 import { PropType } from '@vue/runtime-core'
 import { ImageField } from '@prismicio/types'
+import anime from 'animejs'
 import { defineComponent } from '#imports'
 import AppGalleryImg from '~/components/AppGalleryImg.vue'
 
@@ -163,8 +164,6 @@ export default defineComponent({
   },
   methods: {
     animateIn() {
-      const anime = this.$anime
-
       const tl = anime.timeline({
         easing: 'easeOutExpo',
         duration: 1200,
