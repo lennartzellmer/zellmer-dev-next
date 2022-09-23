@@ -13,9 +13,14 @@
             to="/"
             @click="animatePath"
           >
-            <div class="h-10 w-10">
+            <LazyClientOnly>
+              <!-- this component will only be rendered on client side -->
               <LazyAppLogoAnimated :is-active="isActive" :svg-path="svgPath" />
-            </div>
+              <template #fallback>
+                <!-- this will be rendered on server side -->
+                <AppLogo :is-active="isActive" :svg-path="svgPath" />
+              </template>
+            </LazyClientOnly>
             <p class="sr-only">Home</p>
           </NuxtLink>
         </li>
@@ -63,15 +68,6 @@ const svgPath = ref(
 const animatePath = () => {
   svgPath.value = getSvgPath()
 }
-
-const AsyncLogo = defineAsyncComponent({
-  // the loader function
-  loader: async () => {
-    await new Promise((resolve) => setTimeout(resolve, 10000))
-    return import('./AppLogoAnimated.vue')
-  },
-  loadingComponent: AppLogo,
-})
 
 const menuItems = [
   { name: 'About', path: '/about' },
