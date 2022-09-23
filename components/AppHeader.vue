@@ -13,7 +13,14 @@
             to="/"
             @click="animatePath"
           >
-            <AsyncLogo :is-active="isActive" :svg-path="svgPath" />
+            <LazyClientOnly>
+              <!-- this component will only be rendered on client side -->
+              <AppLogoAnimated :is-active="isActive" :svg-path="svgPath" />
+              <template #fallback>
+                <!-- this will be rendered on server side -->
+                <AppLogo :is-active="isActive" :svg-path="svgPath" />
+              </template>
+            </LazyClientOnly>
             <p class="sr-only">Home</p>
           </NuxtLink>
         </li>
@@ -54,7 +61,9 @@ const getSvgPath = () =>
     seed: null,
   }).path
 
-const svgPath = ref(getSvgPath())
+const svgPath = ref(
+  'M78.5,58.5Q74,67,69.5,82Q65,97,53,87.5Q41,78,30.5,75Q20,72,19,61Q18,50,16,37Q14,24,26.5,19.5Q39,15,49,19Q59,23,72.5,23.5Q86,24,84.5,37Q83,50,78.5,58.5Z'
+)
 
 const animatePath = () => {
   svgPath.value = getSvgPath()
@@ -62,18 +71,11 @@ const animatePath = () => {
 
 const AsyncLogo = defineAsyncComponent({
   // the loader function
-  loader: () => import('./AppLogoAnimated.vue'),
-
-  // A component to use while the async component is loading
+  loader: async () => {
+    await new Promise((resolve) => setTimeout(resolve, 10000))
+    return import('./AppLogoAnimated.vue')
+  },
   loadingComponent: AppLogo,
-  // Delay before showing the loading component. Default: 200ms.
-  delay: 200,
-
-  // A component to use if the load fails
-  errorComponent: AppLogo,
-  // The error component will be displayed if a timeout is
-  // provided and exceeded. Default: Infinity.
-  timeout: 3000,
 })
 
 const menuItems = [
