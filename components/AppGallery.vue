@@ -213,8 +213,6 @@ export default defineComponent({
       )
     },
     animateOut() {
-      const anime = this.$anime
-
       const tl = anime.timeline({
         easing: 'easeOutExpo',
         duration: 300,
