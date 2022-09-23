@@ -32,6 +32,7 @@
             width="300"
             class="AppArticlePreview__picture"
             sizes="xs:150px sm:300px xl:500px"
+            :modifiers="{ duotone: '002E2B,EBF3EC' }"
           />
         </div>
       </div>
