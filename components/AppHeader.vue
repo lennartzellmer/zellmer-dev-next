@@ -13,14 +13,7 @@
             to="/"
             @click="animatePath"
           >
-            <LazyClientOnly>
-              <!-- this component will only be rendered on client side -->
-              <LazyAppLogoAnimated :is-active="isActive" :svg-path="svgPath" />
-              <template #fallback>
-                <!-- this will be rendered on server side -->
-                <AppLogo :is-active="isActive" :svg-path="svgPath" />
-              </template>
-            </LazyClientOnly>
+            <AppLogoAnimated :is-active="isActive" :svg-path="svgPath" />
             <p class="sr-only">Home</p>
           </NuxtLink>
         </li>
@@ -50,8 +43,7 @@
 <script lang="ts" setup>
 import blobshape from 'blobshape'
 import AppDarkModeToggle from '~/components/AppDarkModeToggle.vue'
-import { defineAsyncComponent, ref } from '#imports'
-import { AppLogo } from '#components'
+import { ref } from '#imports'
 
 const getSvgPath = () =>
   blobshape({
@@ -61,9 +53,7 @@ const getSvgPath = () =>
     seed: null,
   }).path
 
-const svgPath = ref(
-  'M78.5,58.5Q74,67,69.5,82Q65,97,53,87.5Q41,78,30.5,75Q20,72,19,61Q18,50,16,37Q14,24,26.5,19.5Q39,15,49,19Q59,23,72.5,23.5Q86,24,84.5,37Q83,50,78.5,58.5Z'
-)
+const svgPath = ref(getSvgPath())
 
 const animatePath = () => {
   svgPath.value = getSvgPath()
