@@ -5,7 +5,7 @@ export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.use(VueFathom, {
     siteID: 'VQAATPLB',
     settings: {
-      url: 'https://proud-legendary.zellmer.dev/script.js',
+      url: 'https://cdn.usefathom.com/script.js',
       spa: 'history',
     },
   })
