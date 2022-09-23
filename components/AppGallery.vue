@@ -5,52 +5,22 @@
       @click="close"
     >
       <span
-        class="gallery__background absolute inset-0 z-[997] bg-gray-900 bg-opacity-95"
+        class="gallery__background absolute inset-0 z-[997] bg-slate-1/90 dark:bg-slate-dark-1/90"
       />
       <button
         type="button"
-        class="gallery__navigation_button absolute top-2 right-2 z-[999] h-12 w-12 rounded-md bg-gray-800 p-2 text-gray-400 opacity-0 hover:scale-110 hover:text-green-400 focus:outline-none"
+        class="gallery__navigation_button :dark:text-slate-dark-11 absolute top-2 right-2 z-[999] h-12 w-12 rounded-md p-2 text-slate-11 opacity-0 hover:text-green-400 focus:outline-none"
         @click="close"
       >
-        <svg class="w-full" fill="none" viewBox="0 0 24 24">
-          <path
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="1.5"
-            d="M17.25 6.75L6.75 17.25"
-          />
-          <path
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="1.5"
-            d="M6.75 6.75L17.25 17.25"
-          />
-        </svg>
+        <PhX class="h-auto w-8" />
       </button>
       <button
         v-if="isMultiple"
         type="button"
-        class="gallery__navigation_button absolute bottom-4 left-2 z-[999] h-12 w-12 cursor-pointer rounded-md bg-gray-800 p-2 text-gray-400 opacity-0 transition-all hover:left-1.5 hover:text-green-400 focus:outline-none sm:bottom-1/2 sm:translate-y-1/2"
+        class="gallery__navigation_button :dark:text-slate-dark-11 absolute bottom-4 left-2 z-[999] h-12 w-12 cursor-pointer rounded-md p-2 text-slate-11 opacity-0 transition-all hover:left-1.5 hover:text-green-400 focus:outline-none sm:bottom-1/2 sm:translate-y-1/2"
         @click.stop="onPrev"
       >
-        <svg class="w-full" fill="none" viewBox="0 0 24 24">
-          <path
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="1.5"
-            d="M10.25 6.75L4.75 12L10.25 17.25"
-          />
-          <path
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="1.5"
-            d="M19.25 12H5"
-          />
-        </svg>
+        <PhArrowLeft class="h-auto w-full" />
       </button>
       <AppGalleryImg
         v-if="images"
@@ -60,25 +30,10 @@
       <button
         v-if="isMultiple"
         type="button"
-        class="gallery__navigation_button absolute right-2 bottom-4 z-[999] h-12 w-12 cursor-pointer rounded-md bg-gray-800 p-2 text-gray-400 opacity-0 transition-all hover:right-1.5 hover:text-green-400 focus:outline-none sm:bottom-1/2 sm:translate-y-1/2"
+        class="gallery__navigation_button :dark:text-slate-dark-11 absolute right-2 bottom-4 z-[999] h-12 w-12 cursor-pointer rounded-md p-2 text-slate-11 opacity-0 transition-all hover:right-1.5 hover:text-green-400 focus:outline-none sm:bottom-1/2 sm:translate-y-1/2"
         @click.stop="onNext"
       >
-        <svg class="w-full" fill="none" viewBox="0 0 24 24">
-          <path
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="1.5"
-            d="M13.75 6.75L19.25 12L13.75 17.25"
-          />
-          <path
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="1.5"
-            d="M19 12H4.75"
-          />
-        </svg>
+        <PhArrowRight class="h-auto w-full" />
       </button>
       <div
         v-if="isMultiple"
@@ -87,7 +42,7 @@
       >
         <span
           v-if="images"
-          class="gallery__navigation_index mb-2 font-mono text-gray-400"
+          class="gallery__navigation_index :dark:text-slate-dark-11 mb-2 font-mono text-slate-11"
         >
           {{ imgIndex + 1 }} / {{ images.length }}
         </span>
@@ -95,8 +50,11 @@
           <button
             v-for="(img, i) in images"
             :key="i"
-            class="navigation__image__container h-20 w-20 shrink grow-0 cursor-pointer overflow-hidden rounded-md object-cover opacity-60 hover:opacity-100 focus:outline-none"
-            :class="{ 'opacity-100 ring ring-gray-300': i === imgIndex }"
+            class="navigation__image__container h-20 w-20 shrink grow-0 cursor-pointer overflow-hidden rounded-md object-cover opacity-60 shadow-md hover:opacity-100 focus:outline-none"
+            :class="{
+              'opacity-100 ring ring-slate-9 dark:ring-slate-dark-9':
+                i === imgIndex,
+            }"
             @click.stop="onClickThumb(i)"
           >
             <PrismicImage
@@ -110,187 +68,173 @@
   </transition>
 </template>
 
-<script lang="ts">
-import { PropType } from '@vue/runtime-core'
+<script lang="ts" setup>
 import { ImageField } from '@prismicio/types'
-import anime from 'animejs'
-import { defineComponent } from '#imports'
+import { timeline, stagger } from 'animejs'
+import PhX from 'virtual:icons/ph/x'
+import PhArrowRight from 'virtual:icons/ph/arrow-right'
+import PhArrowLeft from 'virtual:icons/ph/arrow-left'
+import { computed, onMounted, ref, watch } from '#imports'
 import AppGalleryImg from '~/components/AppGalleryImg.vue'
 
-export default defineComponent({
-  components: { AppGalleryImg },
-  props: {
-    images: {
-      type: Array as PropType<ImageField[]>,
-      required: true,
-    },
-    index: {
-      type: Number,
-      required: false,
-      default: null,
-    },
-  },
-  data() {
-    return {
-      imgIndex: this.index,
-      image: null,
+const props = defineProps<{
+  images: ImageField[]
+  index: number
+}>()
+
+const emit = defineEmits<{
+  (
+    e: 'close',
+    data: {
+      imgIndex: number
     }
-  },
-  computed: {
-    selectedImage() {
-      return this.images[this.imgIndex]
+  ): void
+}>()
+
+const imgIndex = ref(props.index)
+
+const selectedImage = computed(() => props.images[imgIndex.value])
+const isMultiple = computed(() => props.images.length > 1)
+
+watch(
+  () => props.index,
+  (val) => (imgIndex.value = val)
+)
+
+const animateIn = () => {
+  const tl = timeline({
+    easing: 'easeOutExpo',
+    duration: 1200,
+  })
+
+  tl.add({
+    targets: '.gallery__background',
+    opacity: [0, 1],
+    delay: stagger(50),
+    duration: 400,
+    easing: 'easeOutQuad',
+  })
+
+  tl.add(
+    {
+      targets: '.gallery__image_container',
+      opacity: [0, 1],
+      duration: 400,
+      easing: 'easeOutQuad',
     },
-    isMultiple() {
-      return this.images.length > 1
+    '-=200'
+  )
+
+  tl.add(
+    {
+      targets: '.navigation__image__container',
+      scale: [0.9, 1],
+      opacity: [0, 1],
+      delay: stagger(50),
+      duration: 200,
+      easing: 'easeOutQuad',
     },
-  },
-  watch: {
-    index(val) {
-      this.imgIndex = val
+    '-=100'
+  )
+
+  tl.add(
+    {
+      targets: ['.gallery__navigation_button', '.gallery__navigation_index'],
+      opacity: [0, 1],
+      duration: 200,
+      easing: 'easeOutQuad',
     },
-  },
-  mounted() {
-    window.addEventListener('keydown', (e) => {
-      if (e.keyCode === 37) {
-        this.onPrev()
-      } else if (e.keyCode === 39) {
-        this.onNext()
-      } else if (e.keyCode === 27) {
-        this.close()
-      }
-    })
+    '-=100'
+  )
+}
+const animateOut = () => {
+  const tl = timeline({
+    easing: 'easeOutExpo',
+    duration: 300,
+  })
 
-    this.animateIn()
-  },
-  methods: {
-    animateIn() {
-      const tl = anime.timeline({
-        easing: 'easeOutExpo',
-        duration: 1200,
-      })
+  tl.add({
+    targets: '.gallery__image_container',
+    opacity: [1, 0],
+    duration: 300,
+    easing: 'easeOutQuad',
+  })
 
-      tl.add({
-        targets: '.gallery__background',
-        opacity: [0, 1],
-        delay: anime.stagger(50),
-        duration: 400,
-        easing: 'easeOutQuad',
-      })
-
-      tl.add(
-        {
-          targets: '.gallery__image_container',
-          opacity: [0, 1],
-          duration: 400,
-          easing: 'easeOutQuad',
-        },
-        '-=200'
-      )
-
-      tl.add(
-        {
-          targets: '.navigation__image__container',
-          scale: [0.9, 1],
-          opacity: [0, 1],
-          delay: anime.stagger(50),
-          duration: 200,
-          easing: 'easeOutQuad',
-        },
-        '-=100'
-      )
-
-      tl.add(
-        {
-          targets: [
-            '.gallery__navigation_button',
-            '.gallery__navigation_index',
-          ],
-          opacity: [0, 1],
-          duration: 200,
-          easing: 'easeOutQuad',
-        },
-        '-=100'
-      )
+  tl.add(
+    {
+      targets: '.navigation__image__container',
+      scale: [1, 0.9],
+      opacity: [1, 0],
+      delay: stagger(50),
+      duration: 300,
+      easing: 'easeOutQuad',
     },
-    animateOut() {
-      const tl = anime.timeline({
-        easing: 'easeOutExpo',
-        duration: 300,
-      })
+    '-300'
+  )
 
-      tl.add({
-        targets: '.gallery__image_container',
-        opacity: [1, 0],
-        duration: 300,
-        easing: 'easeOutQuad',
-      })
+  tl.add(
+    {
+      targets: ['.gallery__navigation_button', '.gallery__navigation_index'],
+      opacity: [1, 0],
+      duration: 200,
+      easing: 'easeOutQuad',
+    },
+    '-300'
+  )
 
-      tl.add(
-        {
-          targets: '.navigation__image__container',
-          scale: [1, 0.9],
-          opacity: [1, 0],
-          delay: anime.stagger(50),
-          duration: 300,
-          easing: 'easeOutQuad',
-        },
-        '-300'
-      )
+  tl.add(
+    {
+      targets: '.gallery__background',
+      opacity: [1, 0],
+      delay: stagger(50),
+      duration: 400,
+      easing: 'easeOutQuad',
+    },
+    '-300'
+  )
 
-      tl.add(
-        {
-          targets: [
-            '.gallery__navigation_button',
-            '.gallery__navigation_index',
-          ],
-          opacity: [1, 0],
-          duration: 200,
-          easing: 'easeOutQuad',
-        },
-        '-300'
-      )
+  return tl
+}
+const close = async () => {
+  await animateOut().finished
+  const eventData = {
+    imgIndex: imgIndex.value,
+  }
+  imgIndex.value = null
+  emit('close', eventData)
+}
+const onPrev = () => {
+  if (imgIndex.value === null) return
+  if (imgIndex.value > 0) {
+    imgIndex.value--
+  } else {
+    imgIndex.value = props.images.length - 1
+  }
+}
+const onNext = () => {
+  if (imgIndex.value === null) return
+  if (imgIndex.value < props.images.length - 1) {
+    imgIndex.value++
+  } else {
+    imgIndex.value = 0
+  }
+}
+const onClickThumb = (index) => {
+  imgIndex.value = index
+}
 
-      tl.add(
-        {
-          targets: '.gallery__background',
-          opacity: [1, 0],
-          delay: anime.stagger(50),
-          duration: 400,
-          easing: 'easeOutQuad',
-        },
-        '-300'
-      )
+onMounted(() => {
+  window.addEventListener('keydown', (e) => {
+    if (e.keyCode === 37) {
+      onPrev()
+    } else if (e.keyCode === 39) {
+      onNext()
+    } else if (e.keyCode === 27) {
+      close()
+    }
+  })
 
-      return tl
-    },
-    async close() {
-      await this.animateOut().finished
-      const eventData = {
-        imgIndex: this.imgIndex,
-      }
-      this.imgIndex = null
-      this.$emit('close', eventData)
-    },
-    onPrev() {
-      if (this.imgIndex === null) return
-      if (this.imgIndex > 0) {
-        this.imgIndex--
-      } else {
-        this.imgIndex = this.images.length - 1
-      }
-    },
-    onNext() {
-      if (this.imgIndex === null) return
-      if (this.imgIndex < this.images.length - 1) {
-        this.imgIndex++
-      } else {
-        this.imgIndex = 0
-      }
-    },
-    onClickThumb(index) {
-      this.imgIndex = index
-    },
-  },
+  animateIn()
 })
 </script>
 

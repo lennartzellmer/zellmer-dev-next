@@ -9,7 +9,7 @@
 </template>
 
 <script lang="ts" setup>
-import { useHead, useRoute } from '#imports'
+import { useHead } from '#imports'
 import { MetaTagKeys } from '~/types/metaTagKeys'
 
 useHead({

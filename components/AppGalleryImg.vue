@@ -4,11 +4,9 @@ import { useFetch } from '#app'
 import AppBlurHash from '~/components/AppBlurHash.vue'
 import { ref } from '#imports'
 
-interface Props {
+const props = defineProps<{
   selectedImage: ImageField
-}
-
-const props = defineProps<Props>()
+}>()
 
 const { data: blurHash } = await useFetch<string>(
   props.selectedImage.url.split('?')[0] + '?fm=blurhash'

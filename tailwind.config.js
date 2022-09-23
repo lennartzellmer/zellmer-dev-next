@@ -48,23 +48,8 @@ module.exports = {
     },
     extend: {
       colors: {
-        yellow: mappedRadixColors.amber,
-        'yellow-dark': mappedRadixColors.amberDark,
-        red: mappedRadixColors.red,
-        'red-dark': mappedRadixColors.redDark,
         slate: mappedRadixColors.sand,
         'slate-dark': mappedRadixColors.sageDark,
-        gray: {
-          100: mappedRadixColors.sand[1],
-          200: mappedRadixColors.sand[3],
-          300: mappedRadixColors.sand[5],
-          400: mappedRadixColors.sand[7],
-          500: mappedRadixColors.sand[8],
-          600: mappedRadixColors.sand[9],
-          700: mappedRadixColors.sand[10],
-          800: mappedRadixColors.sand[11],
-          900: mappedRadixColors.sand[12],
-        },
       },
     },
   },
