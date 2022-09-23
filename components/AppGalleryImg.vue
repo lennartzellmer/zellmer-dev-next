@@ -1,16 +1,12 @@
 <script lang="ts" setup>
 import { ImageField } from '@prismicio/types'
-import { useFetch } from '#app'
 import AppBlurHash from '~/components/AppBlurHash.vue'
 import { ref } from '#imports'
 
 const props = defineProps<{
   selectedImage: ImageField
+  blurHash: string
 }>()
-
-const { data: blurHash } = await useFetch<string>(
-  props.selectedImage.url.split('?')[0] + '?fm=blurhash'
-)
 
 const showBlurHash = ref(true)
 

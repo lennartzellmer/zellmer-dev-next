@@ -22,10 +22,12 @@
       >
         <PhArrowLeft class="h-auto w-full" />
       </button>
+      <pre class="z-[999]">{{ URLs }}</pre>
       <AppGalleryImg
         v-if="images"
         :key="selectedImage.url"
         :selected-image="selectedImage"
+        :blur-hash="blurHashes[imgIndex]"
       />
       <button
         v-if="isMultiple"
@@ -74,6 +76,7 @@ import anime from 'animejs'
 import PhX from 'virtual:icons/ph/x'
 import PhArrowRight from 'virtual:icons/ph/arrow-right'
 import PhArrowLeft from 'virtual:icons/ph/arrow-left'
+import { $fetch } from 'ohmyfetch'
 import { computed, onMounted, ref, watch } from '#imports'
 import AppGalleryImg from '~/components/AppGalleryImg.vue'
 
@@ -95,6 +98,10 @@ const imgIndex = ref(props.index)
 
 const selectedImage = computed(() => props.images[imgIndex.value])
 const isMultiple = computed(() => props.images.length > 1)
+
+const blurHashes = await Promise.all(
+  props.images.map((e) => $fetch(e.url.split('?')[0] + '?fm=blurhash'))
+)
 
 watch(
   () => props.index,
