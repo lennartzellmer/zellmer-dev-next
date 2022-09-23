@@ -70,7 +70,7 @@
 
 <script lang="ts" setup>
 import { ImageField } from '@prismicio/types'
-import { timeline, stagger } from 'animejs'
+import anime from 'animejs'
 import PhX from 'virtual:icons/ph/x'
 import PhArrowRight from 'virtual:icons/ph/arrow-right'
 import PhArrowLeft from 'virtual:icons/ph/arrow-left'
@@ -102,7 +102,7 @@ watch(
 )
 
 const animateIn = () => {
-  const tl = timeline({
+  const tl = anime.timeline({
     easing: 'easeOutExpo',
     duration: 1200,
   })
@@ -110,7 +110,7 @@ const animateIn = () => {
   tl.add({
     targets: '.gallery__background',
     opacity: [0, 1],
-    delay: stagger(50),
+    delay: anime.stagger(50),
     duration: 400,
     easing: 'easeOutQuad',
   })
@@ -130,7 +130,7 @@ const animateIn = () => {
       targets: '.navigation__image__container',
       scale: [0.9, 1],
       opacity: [0, 1],
-      delay: stagger(50),
+      delay: anime.stagger(50),
       duration: 200,
       easing: 'easeOutQuad',
     },
@@ -148,7 +148,7 @@ const animateIn = () => {
   )
 }
 const animateOut = () => {
-  const tl = timeline({
+  const tl = anime.timeline({
     easing: 'easeOutExpo',
     duration: 300,
   })
@@ -165,7 +165,7 @@ const animateOut = () => {
       targets: '.navigation__image__container',
       scale: [1, 0.9],
       opacity: [1, 0],
-      delay: stagger(50),
+      delay: anime.stagger(50),
       duration: 300,
       easing: 'easeOutQuad',
     },
@@ -186,7 +186,7 @@ const animateOut = () => {
     {
       targets: '.gallery__background',
       opacity: [1, 0],
-      delay: stagger(50),
+      delay: anime.stagger(50),
       duration: 400,
       easing: 'easeOutQuad',
     },
