@@ -13,14 +13,7 @@
             to="/"
             @click="animatePath"
           >
-            <LazyClientOnly>
-              <!-- this component will only be rendered on client side -->
-              <LazyAppLogoAnimated :is-active="isActive" :svg-path="svgPath" />
-              <template #fallback>
-                <!-- this will be rendered on server side -->
-                <AppLogo :is-active="isActive" :svg-path="svgPath" />
-              </template>
-            </LazyClientOnly>
+            <AppLogo :is-active="isActive" :svg-path="svgPath" />
             <p class="sr-only">Home</p>
           </NuxtLink>
         </li>
