@@ -13,37 +13,7 @@
             to="/"
             @click="animatePath"
           >
-            <svg
-              id="morphing"
-              width="100"
-              height="100"
-              fill="none"
-              viewBox="0 0 100 100"
-              class="h-auto w-10 overflow-visible transition transition-colors sm:w-14"
-              :class="[
-                isActive
-                  ? 'text-green-500'
-                  : 'text-slate-12 dark:text-slate-dark-12',
-              ]"
-            >
-              <path
-                ref="morphingPath1"
-                class="text-transparent transition-colors group-hover:text-slate-3 dark:group-hover:text-slate-dark-1"
-                fill="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="0"
-                :d="svgPath.path"
-              />
-              <path
-                ref="morphingPath2"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="6"
-                :d="svgPath.path"
-              />
-            </svg>
+            <AsyncLogo :is-active="isActive" :svg-path="svgPath" />
             <p class="sr-only">Home</p>
           </NuxtLink>
         </li>
@@ -73,10 +43,8 @@
 <script lang="ts" setup>
 import blobshape from 'blobshape'
 import AppDarkModeToggle from '~/components/AppDarkModeToggle.vue'
-import { ref } from '#imports'
-
-const morphingPath1 = ref<HTMLElement | null>(null)
-const morphingPath2 = ref<HTMLElement | null>(null)
+import { defineAsyncComponent, ref } from '#imports'
+import { AppLogo } from '#components'
 
 const getSvgPath = () =>
   blobshape({
@@ -86,17 +54,27 @@ const getSvgPath = () =>
     seed: null,
   }).path
 
-const svgPath = blobshape({
-  size: 100,
-  growth: 5,
-  edges: 10,
-  seed: null,
-})
+const svgPath = ref(getSvgPath())
 
 const animatePath = () => {
-  morphingPath1.value.setAttribute('d', getSvgPath())
-  morphingPath2.value.setAttribute('d', getSvgPath())
+  svgPath.value = getSvgPath()
 }
+
+const AsyncLogo = defineAsyncComponent({
+  // the loader function
+  loader: () => import('./AppLogoAnimated.vue'),
+
+  // A component to use while the async component is loading
+  loadingComponent: AppLogo,
+  // Delay before showing the loading component. Default: 200ms.
+  delay: 200,
+
+  // A component to use if the load fails
+  errorComponent: AppLogo,
+  // The error component will be displayed if a timeout is
+  // provided and exceeded. Default: Infinity.
+  timeout: 3000,
+})
 
 const menuItems = [
   { name: 'About', path: '/about' },
@@ -104,9 +82,3 @@ const menuItems = [
   { name: 'Projects', path: '/projects' },
 ]
 </script>
-
-<style>
-svg path {
-  transition: 0.2s all cubic-bezier(0.69, 1.61, 0.81, 1.01);
-}
-</style>
