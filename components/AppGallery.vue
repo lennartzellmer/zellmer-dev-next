@@ -30,7 +30,7 @@
       >
         <PhArrowRight class="h-auto w-full" />
       </button>
-      <div class="z-[998] w-full max-w-7xl">
+      <div class="z-[998] w-full max-w-5xl">
         <AppGalleryImg
           v-if="images"
           :key="selectedImage.url"
