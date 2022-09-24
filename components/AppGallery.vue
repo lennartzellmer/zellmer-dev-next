@@ -5,7 +5,7 @@
       @click="close"
     >
       <span
-        class="gallery__background absolute inset-0 z-[997] bg-slate-1/90 dark:bg-slate-dark-1/90"
+        class="gallery__background absolute inset-0 z-[997] bg-slate-1/90 dark:bg-black/90"
       />
       <button
         type="button"
@@ -22,13 +22,6 @@
       >
         <PhArrowLeft class="h-auto w-full" />
       </button>
-      <pre class="z-[999]">{{ URLs }}</pre>
-      <AppGalleryImg
-        v-if="images"
-        :key="selectedImage.url"
-        :selected-image="selectedImage"
-        :blur-hash="blurHashes[imgIndex]"
-      />
       <button
         v-if="isMultiple"
         type="button"
@@ -37,33 +30,41 @@
       >
         <PhArrowRight class="h-auto w-full" />
       </button>
-      <div
-        v-if="isMultiple"
-        ref="gallery"
-        class="z-[999] mt-4 hidden w-full max-w-7xl whitespace-nowrap sm:flex sm:flex-col sm:justify-center"
-      >
-        <span
+      <div class="z-[998] w-full max-w-7xl">
+        <AppGalleryImg
           v-if="images"
-          class="gallery__navigation_index :dark:text-slate-dark-11 mb-2 font-mono text-slate-11"
+          :key="selectedImage.url"
+          :selected-image="selectedImage"
+          :blur-hash="blurHashes[imgIndex]"
+        />
+        <div
+          v-if="isMultiple"
+          ref="gallery"
+          class="z-[999] mt-4 hidden w-full whitespace-nowrap sm:flex sm:flex-col sm:justify-center"
         >
-          {{ imgIndex + 1 }} / {{ images.length }}
-        </span>
-        <div v-if="images" class="flex items-stretch justify-start space-x-4">
-          <button
-            v-for="(img, i) in images"
-            :key="i"
-            class="navigation__image__container h-20 w-20 shrink grow-0 cursor-pointer overflow-hidden rounded-md object-cover opacity-60 shadow-md hover:opacity-100 focus:outline-none"
-            :class="{
-              'opacity-100 ring ring-slate-9 dark:ring-slate-dark-9':
-                i === imgIndex,
-            }"
-            @click.stop="onClickThumb(i)"
+          <span
+            v-if="images"
+            class="gallery__navigation_index :dark:text-slate-dark-11 mb-2 font-mono text-slate-11"
           >
-            <PrismicImage
-              :imgix-params="{ w: 300, h: 300, fit: 'crop' }"
-              :field="img"
-            />
-          </button>
+            {{ imgIndex + 1 }} / {{ images.length }}
+          </span>
+          <div v-if="images" class="flex items-stretch justify-start space-x-4">
+            <button
+              v-for="(img, i) in images"
+              :key="i"
+              class="navigation__image__container h-20 w-20 shrink grow-0 cursor-pointer overflow-hidden rounded-md object-cover opacity-60 shadow-md hover:opacity-100 focus:outline-none"
+              :class="{
+                'opacity-100 ring ring-slate-9 dark:ring-slate-dark-9':
+                  i === imgIndex,
+              }"
+              @click.stop="onClickThumb(i)"
+            >
+              <PrismicImage
+                :imgix-params="{ w: 300, h: 300, fit: 'crop' }"
+                :field="img"
+              />
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -248,7 +249,7 @@ onMounted(() => {
 <style lang="scss">
 .gallery__nuxt_picture {
   display: flex;
-  object-fit: cover;
+  object-fit: contain;
   img {
     @apply object-cover;
   }
