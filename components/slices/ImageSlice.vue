@@ -10,30 +10,34 @@
     >
       <PrismicImage
         :field="item.image"
+        width="200"
+        height="200"
         :imgix-params="{ h: 400, w: 400, fit: 'crop' }"
       />
     </button>
-    <LazyAppGallery
-      v-if="index !== null"
-      :images="images"
-      :index="index"
-      @close="index = null"
-    />
+    <client-only>
+      <LazyAppGallery
+        v-if="index !== null"
+        :images="images"
+        :index="index"
+        @close="index = null"
+      />
+    </client-only>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { Slice } from '@prismicio/types'
+import { ImageField, Slice } from '@prismicio/types'
 import { computed, ref } from '#imports'
 
 const props = defineProps<{
   slice: Slice<any>
 }>()
 
-const index = ref(null)
+const index = ref<null | number>(null)
 
 const images = computed(() => {
-  const images: string[] = []
+  const images: ImageField[] = []
   props.slice.items.forEach((item: any) => {
     images.push(item.image)
   })
