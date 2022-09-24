@@ -101,7 +101,9 @@ const selectedImage = computed(() => props.images[imgIndex.value])
 const isMultiple = computed(() => props.images.length > 1)
 
 const blurHashes = await Promise.all(
-  props.images.map((e) => $fetch(e.url.split('?')[0] + '?fm=blurhash'))
+  props.images.map((e) =>
+    $fetch(e.url.split('?')[0] + '?fm=blurhash&w=500&h=300')
+  )
 )
 
 watch(

@@ -17,18 +17,18 @@ const onLoaded = () => {
 
 <template>
   <div
-    class="gallery__image_container relative flex aspect-[2/1] overflow-x-hidden bg-slate-4 dark:bg-slate-dark-1 sm:rounded-lg md:max-w-7xl"
+    class="gallery__image_container relative flex aspect-[5/3] overflow-x-hidden bg-slate-4 dark:bg-slate-dark-1 sm:rounded-lg md:max-w-7xl"
     @click.stop="$emit('click')"
   >
     <AppBlurHash
       v-if="blurHash && showBlurHash"
-      :width="2000"
-      :height="1000"
+      :width="5000"
+      :height="3000"
       :hash="blurHash"
     />
     <PrismicImage
       class="gallery__nuxt_picture flex h-auto w-full"
-      :imgix-params="{ w: 2000, h: 1000, fit: 'crop' }"
+      :imgix-params="{ w: 5000 / 3, h: 3000 / 3, fit: 'crop' }"
       :field="selectedImage"
       @click.stop="$emit('click')"
       @load="onLoaded()"
