@@ -1,10 +1,12 @@
 <script lang="ts" setup>
-import { ImageField } from '@prismicio/types'
 import AppBlurHash from '~/components/AppBlurHash.vue'
 import { ref } from '#imports'
 
 const props = defineProps<{
-  selectedImage: ImageField
+  src: string
+  alt: string
+  width: number
+  height: number
   blurHash: string
 }>()
 
@@ -17,20 +19,22 @@ const onLoaded = () => {
 
 <template>
   <div
-    class="gallery__image_container relative flex aspect-[5/3] overflow-x-hidden bg-slate-4 dark:bg-slate-dark-1 sm:rounded-lg md:max-w-7xl"
-    @click.stop="$emit('click')"
+    class="relative flex aspect-[5/3] overflow-x-hidden bg-slate-4 dark:bg-slate-dark-1 sm:rounded-lg md:max-w-7xl"
   >
     <AppBlurHash
-      v-if="blurHash && showBlurHash"
-      :width="5000"
-      :height="3000"
+      v-if="showBlurHash"
+      :width="width"
+      :height="height"
       :hash="blurHash"
     />
-    <PrismicImage
+    <NuxtImg
       class="gallery__nuxt_picture flex h-auto w-full"
-      :imgix-params="{ w: 5000 / 3, h: 3000 / 3, fit: 'crop' }"
-      :field="selectedImage"
-      @click.stop="$emit('click')"
+      :src="src"
+      :width="width"
+      :height="height"
+      sizes="xs:320 sm:640 md:768 lg:1024 xl:2048"
+      fit="crop"
+      :alt="alt"
       @load="onLoaded()"
     />
   </div>

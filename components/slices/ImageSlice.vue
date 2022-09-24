@@ -8,11 +8,12 @@
       class="col-span-1 overflow-hidden rounded-lg ring-slate-7 transition hover:ring-2 focus:outline-none focus:ring dark:ring-slate-dark-7"
       @click="index = i"
     >
-      <PrismicImage
-        :field="item.image"
+      <NuxtImg
+        :src="item.image.url"
         width="200"
         height="200"
-        :imgix-params="{ h: 400, w: 400, fit: 'crop' }"
+        fit="crop"
+        :modifiers="{ h: 400, w: 400 }"
       />
     </button>
     <client-only>

@@ -47,6 +47,10 @@ module.exports = {
       mono: ['JetBrains Mono', ...defaultTheme.fontFamily.mono],
     },
     extend: {
+      screens: {
+        xs: '345px',
+        ...defaultTheme.screens,
+      },
       colors: {
         slate: mappedRadixColors.sand,
         'slate-dark': mappedRadixColors.sageDark,

@@ -33,7 +33,7 @@
           >
         </li>
       </ul>
-      <div class="flex items-center justify-center">
+      <div class="hidden items-center justify-center xs:flex">
         <AppDarkModeToggle class="ml-3" />
       </div>
     </nav>

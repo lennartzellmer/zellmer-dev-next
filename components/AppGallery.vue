@@ -1,78 +1,114 @@
 <template>
-  <transition name="modal">
-    <div
-      class="fixed inset-0 z-[9998] flex flex-col items-center justify-center px-0 sm:p-8"
-      @click="close"
+  <TransitionRoot appear :show="index !== null" as="template">
+    <Dialog
+      as="div"
+      class="relative z-10"
+      @keyup.right="onNext"
+      @keyup.left="onPrev"
+      @close="$emit('close')"
     >
-      <span
-        class="gallery__background absolute inset-0 z-[997] bg-slate-1/90 dark:bg-black/90"
-      />
-      <button
-        type="button"
-        class="gallery__navigation_button :dark:text-slate-dark-11 absolute top-2 right-2 z-[999] h-12 w-12 rounded-md p-2 text-slate-11 opacity-0 hover:text-green-400 focus:outline-none"
-        @click="close"
+      <TransitionChild
+        as="template"
+        enter="duration-300 ease-out"
+        enter-from="opacity-0"
+        enter-to="opacity-100"
+        leave="duration-200 ease-in"
+        leave-from="opacity-100"
+        leave-to="opacity-0"
       >
-        <PhX class="h-auto w-8" />
-      </button>
-      <button
-        v-if="isMultiple"
-        type="button"
-        class="gallery__navigation_button :dark:text-slate-dark-11 absolute bottom-4 left-2 z-[999] h-12 w-12 cursor-pointer rounded-md p-2 text-slate-11 opacity-0 transition-all hover:left-1.5 hover:text-green-400 focus:outline-none sm:bottom-1/2 sm:translate-y-1/2"
-        @click.stop="onPrev"
-      >
-        <PhArrowLeft class="h-auto w-full" />
-      </button>
-      <button
-        v-if="isMultiple"
-        type="button"
-        class="gallery__navigation_button :dark:text-slate-dark-11 absolute right-2 bottom-4 z-[999] h-12 w-12 cursor-pointer rounded-md p-2 text-slate-11 opacity-0 transition-all hover:right-1.5 hover:text-green-400 focus:outline-none sm:bottom-1/2 sm:translate-y-1/2"
-        @click.stop="onNext"
-      >
-        <PhArrowRight class="h-auto w-full" />
-      </button>
-      <div class="z-[998] w-full max-w-5xl">
-        <AppGalleryImg
-          v-if="images"
-          :key="selectedImage.url"
-          :selected-image="selectedImage"
-          :blur-hash="blurHashes[imgIndex]"
-        />
         <div
-          v-if="isMultiple"
-          ref="gallery"
-          class="z-[999] mt-4 hidden w-full whitespace-nowrap sm:flex sm:flex-col sm:justify-center"
+          class="gallery__background fixed inset-0 bg-slate-1/90 dark:bg-black/90"
+        />
+      </TransitionChild>
+      <div class="fixed inset-0 flex items-center justify-center p-4 sm:p-8">
+        <DialogPanel
+          as="div"
+          class="flex w-full max-w-5xl items-center justify-center px-0 sm:p-8"
         >
-          <span
-            v-if="images"
-            class="gallery__navigation_index :dark:text-slate-dark-11 mb-2 font-mono text-slate-11"
+          <button
+            type="button"
+            class="gallery__navigation_button :dark:text-slate-dark-11 absolute top-2 right-2 h-12 w-12 rounded-md p-2 text-slate-11 hover:text-green-400 focus:outline-none"
+            @click="close"
           >
-            {{ imgIndex + 1 }} / {{ images.length }}
-          </span>
-          <div v-if="images" class="flex items-stretch justify-start space-x-4">
-            <button
-              v-for="(img, i) in images"
-              :key="i"
-              class="navigation__image__container h-20 w-20 shrink grow-0 cursor-pointer overflow-hidden rounded-md object-cover opacity-60 shadow-md hover:opacity-100 focus:outline-none"
-              :class="{
-                'opacity-100 ring ring-slate-9 dark:ring-slate-dark-9':
-                  i === imgIndex,
-              }"
-              @click.stop="onClickThumb(i)"
+            <PhX class="h-auto w-8" />
+          </button>
+          <button
+            v-if="isMultiple"
+            type="button"
+            class="gallery__navigation_button :dark:text-slate-dark-11 absolute bottom-4 left-2 h-12 w-12 cursor-pointer rounded-md p-2 text-slate-11 transition-all hover:left-1.5 hover:text-green-400 focus:outline-none sm:bottom-1/2 sm:translate-y-1/2"
+            @click.stop="onPrev"
+          >
+            <PhArrowLeft class="h-auto w-full" />
+          </button>
+          <button
+            v-if="isMultiple"
+            type="button"
+            class="gallery__navigation_button :dark:text-slate-dark-11 absolute right-2 bottom-4 h-12 w-12 cursor-pointer rounded-md p-2 text-slate-11 transition-all hover:right-1.5 hover:text-green-400 focus:outline-none sm:bottom-1/2 sm:translate-y-1/2"
+            @click.stop="onNext"
+          >
+            <PhArrowRight class="h-auto w-full" />
+          </button>
+          <div class="w-full">
+            <AppGalleryImg
+              v-if="images"
+              :key="selectedImage.url"
+              :src="selectedImage.url"
+              :alt="selectedImage.alt || ''"
+              :width="5000"
+              :height="3000"
+              :blur-hash="blurHashes[imgIndex]"
+            />
+            <div
+              v-if="isMultiple"
+              ref="gallery"
+              class="z-[999] mt-4 hidden w-full whitespace-nowrap sm:flex sm:flex-col sm:justify-center"
             >
-              <PrismicImage
-                :imgix-params="{ w: 300, h: 300, fit: 'crop' }"
-                :field="img"
-              />
-            </button>
+              <span
+                v-if="images"
+                class="gallery__navigation_index :dark:text-slate-dark-11 mb-2 font-mono text-slate-11"
+              >
+                {{ imgIndex + 1 }} / {{ images.length }}
+              </span>
+              <div
+                v-if="images"
+                class="flex items-stretch justify-start space-x-4"
+              >
+                <button
+                  v-for="(img, i) in images"
+                  :key="i"
+                  class="navigation__image__container h-20 w-20 shrink grow-0 cursor-pointer overflow-hidden rounded-md object-cover shadow-md hover:opacity-100 focus:outline-none"
+                  :class="[
+                    i === imgIndex
+                      ? 'opacity-100 ring ring-slate-9 dark:ring-slate-dark-9'
+                      : 'opacity-80',
+                  ]"
+                  @click.stop="onClickThumb(i)"
+                >
+                  <NuxtImg
+                    fit="crop"
+                    width="300"
+                    height="300"
+                    :modifiers="{ w: 300, h: 300 }"
+                    :src="img.url"
+                  />
+                </button>
+              </div>
+            </div>
           </div>
-        </div>
+        </DialogPanel>
       </div>
-    </div>
-  </transition>
+    </Dialog>
+  </TransitionRoot>
 </template>
 
 <script lang="ts" setup>
 import { ImageField } from '@prismicio/types'
+import {
+  TransitionRoot,
+  TransitionChild,
+  Dialog,
+  DialogPanel,
+} from '@headlessui/vue'
 import anime from 'animejs'
 import PhX from 'virtual:icons/ph/x'
 import PhArrowRight from 'virtual:icons/ph/arrow-right'
@@ -115,14 +151,6 @@ const animateIn = () => {
   const tl = anime.timeline({
     easing: 'easeOutExpo',
     duration: 1200,
-  })
-
-  tl.add({
-    targets: '.gallery__background',
-    opacity: [0, 1],
-    delay: anime.stagger(50),
-    duration: 400,
-    easing: 'easeOutQuad',
   })
 
   tl.add(
@@ -233,19 +261,7 @@ const onClickThumb = (index) => {
   imgIndex.value = index
 }
 
-onMounted(() => {
-  window.addEventListener('keydown', (e) => {
-    if (e.keyCode === 37) {
-      onPrev()
-    } else if (e.keyCode === 39) {
-      onNext()
-    } else if (e.keyCode === 27) {
-      close()
-    }
-  })
-
-  animateIn()
-})
+onMounted(() => animateIn())
 </script>
 
 <style lang="scss">
