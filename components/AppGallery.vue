@@ -27,9 +27,6 @@
           enter="duration-300 ease-out"
           enter-from="opacity-0"
           enter-to="opacity-100"
-          leave="duration-200 ease-in"
-          leave-from="opacity-100"
-          leave-to="opacity-0"
           @beforeEnter="animateIn"
         >
           <DialogPanel
@@ -73,33 +70,26 @@
                 ref="gallery"
                 class="z-[999] mt-4 hidden w-full whitespace-nowrap sm:flex sm:flex-col sm:justify-center"
               >
-                <span
-                  v-if="images"
-                  class="gallery__navigation_index :dark:text-slate-dark-11 mb-2 font-mono text-slate-11"
-                >
-                  {{ imgIndex + 1 }} / {{ images.length }}
-                </span>
                 <div
                   v-if="images"
-                  class="flex items-stretch justify-start space-x-4"
+                  class="flex items-stretch justify-center space-x-2"
                 >
                   <button
                     v-for="(img, i) in images"
                     :key="i"
-                    class="navigation__image__container h-20 w-20 shrink grow-0 cursor-pointer overflow-hidden rounded-md object-cover shadow-md hover:opacity-100 focus:outline-none"
-                    :class="[
-                      i === imgIndex
-                        ? 'opacity-100 ring ring-slate-9 dark:ring-slate-dark-9'
-                        : 'opacity-80',
-                    ]"
+                    class="navigation__image__container shrink grow-0 cursor-pointer overflow-hidden rounded-md shadow-md focus:outline-none"
                     @click.stop="onClickThumb(i)"
                   >
                     <NuxtImg
                       fit="crop"
                       width="300"
                       height="300"
+                      class="h-20 object-cover transition-all hover:opacity-100"
                       :modifiers="{ w: 300, h: 300 }"
                       :src="img.url"
+                      :class="[
+                        i === imgIndex ? 'w-20 opacity-100' : 'w-10 opacity-80',
+                      ]"
                     />
                   </button>
                 </div>
@@ -175,74 +165,75 @@ const onNext = () => {
 const animateIn = () => {
   const tl = anime.timeline({
     easing: 'easeOutExpo',
-    duration: 1200,
   })
 
-  tl.add({
-    targets: '.gallery__image_container',
-    opacity: [0, 1],
-    duration: 400,
-    easing: 'easeOutQuad',
-  })
+  tl.add(
+    {
+      targets: '.gallery__image_container',
+      opacity: [0, 1],
+      duration: 150,
+      easing: 'easeOutQuad',
+    },
+    0
+  )
 
   tl.add(
     {
       targets: '.navigation__image__container',
       scale: [0.9, 1],
       opacity: [0, 1],
-      delay: anime.stagger(50),
-      duration: 200,
+      duration: 150,
+      delay: anime.stagger(50, { from: 'center' }),
       easing: 'easeOutQuad',
     },
-    '-=400'
+    150
   )
 
   tl.add(
     {
-      targets: ['.gallery__navigation_button', '.gallery__navigation_index'],
+      targets: ['.gallery__navigation_button'],
       opacity: [0, 1],
-      duration: 200,
+      duration: 100,
       easing: 'easeOutQuad',
     },
-    '-=400'
+    0
   )
 }
 
 const closeModal = async () => {
   const tl = anime.timeline({
-    easing: 'easeOutExpo',
-    duration: 1200,
     direction: 'reverse',
     autoplay: false,
   })
 
-  tl.add({
-    targets: '.gallery__image_container',
-    opacity: [0, 1],
-    duration: 200,
-    easing: 'easeOutQuad',
-  })
-
   tl.add(
     {
-      targets: '.navigation__image__container',
-      scale: [0.9, 1],
+      targets: '.gallery__image_container',
       opacity: [0, 1],
-      delay: anime.stagger(50),
-      duration: 200,
+      duration: 150,
       easing: 'easeOutQuad',
     },
-    '-=400'
+    0
   )
 
   tl.add(
     {
-      targets: ['.gallery__navigation_button', '.gallery__navigation_index'],
+      targets: '.navigation__image__container',
+      duration: 150,
       opacity: [0, 1],
-      duration: 200,
       easing: 'easeOutQuad',
     },
-    '-=400'
+    0
+  )
+
+  tl.add(
+    {
+      targets: ['.gallery__navigation_button'],
+      opacity: [0, 1],
+      duration: 100,
+      easing: 'easeOutQuad',
+    },
+    0
   )
   tl.play()
   await tl.finished
@@ -255,10 +246,8 @@ const onClickThumb = (index) => {
 </script>
 
 <style>
-.gallery__navigation_index,
 .gallery__navigation_button,
-.gallery__image_container,
-.gallery__navigation_index {
+.gallery__image_container {
   opacity: 0;
 }
 </style>
