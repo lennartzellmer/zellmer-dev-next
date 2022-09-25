@@ -28,7 +28,7 @@ const onLoaded = () => {
       :hash="blurHash"
     />
     <NuxtImg
-      class="gallery__nuxt_picture flex h-auto w-full"
+      class="flex h-auto w-full object-contain"
       :src="src"
       :width="width"
       :height="height"

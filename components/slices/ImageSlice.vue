@@ -17,12 +17,7 @@
       />
     </button>
     <client-only>
-      <LazyAppGallery
-        v-if="index !== null"
-        :images="images"
-        :index="index"
-        @close="index = null"
-      />
+      <AppGallery :images="images" :index="index" @close="index = null" />
     </client-only>
   </div>
 </template>
