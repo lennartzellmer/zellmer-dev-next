@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import PhDownloadSimple from 'virtual:icons/ph/download-simple'
 import AppBlurHash from '~/components/AppBlurHash.vue'
 import { ref } from '#imports'
 
@@ -21,6 +22,12 @@ const onLoaded = () => {
   <div
     class="relative flex aspect-[5/3] overflow-x-hidden bg-slate-4 dark:bg-slate-dark-1 sm:rounded-lg md:max-w-7xl"
   >
+    <NuxtLink
+      :href="src"
+      target="_blank"
+      class="absolute right-0 bottom-0 m-4 hidden rounded-md border border-slate-1/20 bg-slate-12/50 p-3 text-slate-1/70 hover:border-slate-1/40 hover:text-slate-1/70 sm:flex"
+      ><PhDownloadSimple
+    /></NuxtLink>
     <AppBlurHash
       v-if="showBlurHash"
       :width="width"
