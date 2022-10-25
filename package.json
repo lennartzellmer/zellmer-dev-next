@@ -31,6 +31,7 @@
     "@tailwindcss/typography": "^0.5.4",
     "@types/animejs": "^3.1.5",
     "@types/prismjs": "^1.26.0",
+    "@vercel/analytics": "^0.1.1",
     "animejs": "^3.2.1",
     "blobshape": "^1.0.0",
     "blurhash": "^2.0.0",
