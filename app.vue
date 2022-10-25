@@ -76,7 +76,7 @@ useHead({
     { rel: 'icon', type: 'image/png', href: '/favicon.png' },
   ],
   bodyAttrs: {
-    class: 'bg-black',
+    class: 'bg-black overflow-x-hidden',
   },
   htmlAttrs: {
     lang: 'en',

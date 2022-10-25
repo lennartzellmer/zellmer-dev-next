@@ -2,7 +2,6 @@ import { defineNuxtConfig } from 'nuxt/config'
 import Icons from 'unplugin-icons/vite'
 import { FileSystemIconLoader } from 'unplugin-icons/loaders'
 
-// https://v3.nuxtjs.org/docs/directory-structure/nuxt.config
 export default defineNuxtConfig({
   modules: [
     '@nuxtjs/color-mode',
