@@ -3,7 +3,7 @@ import PhDownloadSimple from 'virtual:icons/ph/download-simple'
 import AppBlurHash from '~/components/AppBlurHash.vue'
 import { ref } from '#imports'
 
-const props = defineProps<{
+defineProps<{
   src: string
   alt: string
   width: number

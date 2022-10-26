@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-const props = defineProps<{ slice: any }>()
+defineProps<{ slice: any }>()
 </script>
 
 <template>

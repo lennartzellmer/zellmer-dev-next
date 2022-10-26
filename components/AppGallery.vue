@@ -163,6 +163,7 @@ const onNext = () => {
 }
 
 const animateIn = () => {
+  // eslint-disable-next-line import/no-named-as-default-member
   const tl = anime.timeline({
     easing: 'easeOutExpo',
   })
@@ -183,6 +184,7 @@ const animateIn = () => {
       scale: [0.9, 1],
       opacity: [0, 1],
       duration: 150,
+      // eslint-disable-next-line import/no-named-as-default-member
       delay: anime.stagger(50, { from: 'center' }),
       easing: 'easeOutQuad',
     },
@@ -201,6 +203,7 @@ const animateIn = () => {
 }
 
 const closeModal = async () => {
+  // eslint-disable-next-line import/no-named-as-default-member
   const tl = anime.timeline({
     direction: 'reverse',
     autoplay: false,

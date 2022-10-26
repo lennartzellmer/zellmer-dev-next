@@ -5,7 +5,7 @@
     height="100"
     fill="none"
     viewBox="0 0 100 100"
-    class="h-auto w-10 overflow-visible transition transition-colors sm:w-14"
+    class="h-auto w-10 overflow-visible transition sm:w-14"
     :class="[
       isActive ? 'text-green-500' : 'text-slate-12 dark:text-slate-dark-12',
     ]"

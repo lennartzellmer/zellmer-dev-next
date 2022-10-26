@@ -21,7 +21,7 @@
           <NuxtLink
             v-slot="{ isActive }"
             :to="menuItem.path"
-            class="ml-1 rounded-md py-3 px-1.5 transition-colors transition-colors hover:bg-slate-3 dark:hover:bg-slate-dark-3 sm:ml-2 sm:px-3"
+            class="ml-1 rounded-md py-3 px-1.5 transition-colors hover:bg-slate-3 dark:hover:bg-slate-dark-3 sm:ml-2 sm:px-3"
             ><span
               :class="[
                 isActive

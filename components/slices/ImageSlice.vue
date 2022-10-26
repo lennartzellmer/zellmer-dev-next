@@ -27,7 +27,7 @@ import { ImageField, Slice } from '@prismicio/types'
 import { computed, ref } from '#imports'
 
 const props = defineProps<{
-  slice: Slice<any>
+  slice: Slice<any, any, any>
 }>()
 
 const index = ref<null | number>(null)

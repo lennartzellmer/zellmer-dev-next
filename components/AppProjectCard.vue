@@ -27,7 +27,7 @@
 <script lang="ts" setup>
 import PhLink from 'virtual:icons/ph/link'
 
-const props = defineProps<{
+defineProps<{
   title: string
   description: string
   readableUrl: string
