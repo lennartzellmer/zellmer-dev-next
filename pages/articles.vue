@@ -11,14 +11,25 @@
         design, and more, collected in chronological order.
       </p>
     </header>
-    <ul v-if="posts" class="mt-8">
-      <li
-        v-for="post in posts.results"
-        :key="post.id"
-        class="border-b border-slate-4 last:border-0 dark:border-slate-dark-2"
-      >
-        <AppArticlePreview :post="post" />
-      </li>
+    <ul class="mt-8">
+      <template v-if="posts">
+        <li
+          v-for="post in posts.results"
+          :key="post.id"
+          class="border-b border-slate-4 last:border-0 dark:border-slate-dark-2"
+        >
+          <AppArticlePreview :post="post" />
+        </li>
+      </template>
+      <template v-if="pending">
+        <li
+          v-for="index in 7"
+          :key="index"
+          class="border-b border-slate-4 last:border-0 dark:border-slate-dark-2"
+        >
+          <SkeletonsArticlePreview />
+        </li>
+      </template>
     </ul>
   </section>
 </template>
@@ -31,7 +42,7 @@ useHead({
 })
 
 const { client } = usePrismic()
-const { data: posts } = useAsyncData('blog-posts', () =>
+const { data: posts, pending } = useAsyncData('blog-posts', () =>
   client.getByType('blog-post', {
     lang: 'en-eu',
     orderings: [
