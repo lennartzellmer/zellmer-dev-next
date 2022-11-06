@@ -8,7 +8,7 @@ import xml from 'highlight.js/lib/languages/xml'
 import bash from 'highlight.js/lib/languages/bash'
 import typescript from 'highlight.js/lib/languages/typescript'
 
-function hljsDefineVue(hljs): Language {
+function hljsDefineVue(hljs: any): Language {
   return {
     subLanguage: 'xml',
     contains: [

@@ -1,6 +1,6 @@
 <template>
   <main>
-    <section class="mx-auto mt-20 max-w-5xl px-4 md:mt-28">
+    <section v-if="intro" class="mx-auto mt-20 max-w-5xl px-4 md:mt-28">
       <div class="flex max-w-2xl flex-col">
         <prismic-rich-text
           class="text-3xl font-bold leading-tight text-slate-12 dark:text-slate-dark-12 md:text-5xl"
@@ -13,7 +13,7 @@
         <AppSocialLinks class="mt-4" />
       </div>
     </section>
-    <section class="mt-16 sm:mt-24">
+    <section v-if="intro" class="mt-16 sm:mt-24">
       <div
         class="-my-4 flex justify-center gap-5 overflow-hidden py-4 sm:gap-8"
       >

@@ -15,7 +15,7 @@ export default defineNuxtConfig({
         },
       },
     ],
-    ['@nuxtjs/tailwindcss', { cssPath: '~/assets/css/tailwind.css' }],
+    ['@nuxtjs/tailwindcss'],
     [
       '@nuxtjs/prismic',
       {

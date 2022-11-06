@@ -1,0 +1,31 @@
+{
+  "cSpell.words": [
+    "Vitesse"
+  ],
+  "prettier.enable": false,
+  "editor.formatOnSave": false,
+  "i18n-ally.localesPaths": [
+    "locales"
+  ],
+  "i18n-ally.keystyle": "nested",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "eslint.validate": [
+    "javascript"
+  ],
+  "tailwindCSS.experimental.configFile": ".nuxt/tailwind.config.cjs",
+  "files.associations": {
+    "*.css": "tailwindcss",
+    "*.scss": "tailwindcss"
+  },
+  "scss.lint.unknownAtRules": "ignore",
+  "typescript.tsdk": "node_modules/typescript/lib",
+	"tailwindCSS.includeLanguages": {
+		"vue": "html",
+		"vue-html": "html"
+	},
+	"editor.quickSuggestions": {
+		"strings": true
+	}
+}

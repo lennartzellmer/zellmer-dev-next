@@ -30,23 +30,13 @@ const mappedRadixColors = Object.fromEntries(
 )
 
 module.exports = {
-  content: [
-    `components/**/*.{vue,js}`,
-    `layouts/**/*.vue`,
-    `pages/**/*.vue`,
-    `composables/**/*.{js,ts}`,
-    `plugins/**/*.{js,ts}`,
-    `App.{js,ts,vue}`,
-    `app.{js,ts,vue}`,
-  ],
-  darkMode: 'class',
-  safelist: ['line-through'],
   theme: {
-    fontFamily: {
-      sans: [...defaultTheme.fontFamily.sans],
-      mono: ['JetBrains Mono', ...defaultTheme.fontFamily.mono],
-    },
     extend: {
+      safelist: ['line-through'],
+      fontFamily: {
+        sans: [...defaultTheme.fontFamily.sans],
+        mono: ['JetBrains Mono', ...defaultTheme.fontFamily.mono],
+      },
       screens: {
         xs: '345px',
         ...defaultTheme.screens,

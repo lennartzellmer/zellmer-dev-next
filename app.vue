@@ -2,9 +2,9 @@
   <div
     class="flex min-h-screen w-screen flex-col overflow-x-hidden bg-slate-2 antialiased dark:bg-slate-dark-1/50"
   >
-    <AppHeader />
-    <NuxtPage class="grow" />
-    <AppFooter />
+    <NuxtLayout>
+      <NuxtPage />
+    </NuxtLayout>
   </div>
 </template>
 
