@@ -25,10 +25,6 @@ import PhArrowRight from 'virtual:icons/ph/arrow-arc-left'
 import PhArrowLeft from 'virtual:icons/ph/arrow-arc-right'
 import App404Animated from '~~/components/App404Animated.vue'
 
-definePageMeta({
-  layout: 'minimal'
-})
-
 defineProps<{
   error: any
 }>()

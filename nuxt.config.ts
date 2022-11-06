@@ -21,7 +21,8 @@ export default defineNuxtConfig({
       {
         toolbar: false,
         preview: false,
-        endpoint: 'https://zellmer-dev.cdn.prismic.io/api/v2'
+        endpoint: 'https://zellmer-dev.cdn.prismic.io/api/v2',
+        linkResolver: '~/app/prismic/linkResolver.js'
       }
     ]
   ],
