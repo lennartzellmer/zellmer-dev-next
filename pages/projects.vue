@@ -15,14 +15,19 @@
       <ul
         class="grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2 lg:grid-cols-3"
       >
-        <AppProjectCard
-          v-for="project in projects"
-          :key="project.id"
-          :title="project.data.title"
-          :description="project.data.description"
-          :href="project.data.link.url"
-          :readable-url="project.data.readable_url"
-        />
+        <template v-if="projects">
+          <AppProjectCard
+            v-for="project in projects"
+            :key="project.id"
+            :title="project.data.title"
+            :description="project.data.description"
+            :href="project.data.link.url"
+            :readable-url="project.data.readable_url"
+          />
+        </template>
+        <template v-if="pending">
+          <SkeletonsProjectCard v-for="index in 6" :key="index" />
+        </template>
       </ul>
     </div>
   </section>
@@ -38,7 +43,7 @@ useHead({
 
 const { client } = usePrismic()
 
-const { data: projects } = useAsyncData('projects', () =>
+const { data: projects, pending } = useAsyncData('projects', () =>
   client.getAllByType('project', { lang: 'en-eu' })
 )
 </script>
