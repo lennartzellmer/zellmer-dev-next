@@ -1,11 +1,12 @@
+import tailwindTypography from '@tailwindcss/typography'
 const defaultTheme = require('tailwindcss/defaultTheme')
 const radixColors = require('@radix-ui/colors')
 
-function colorKey(name, step) {
+function colorKey (name, step) {
   return `${name.replace('Dark', '')}${step}`
 }
 
-function fromRadixColor(key, color) {
+function fromRadixColor (key, color) {
   return [
     key,
     {
@@ -20,8 +21,8 @@ function fromRadixColor(key, color) {
       9: color[colorKey(key, 9)],
       10: color[colorKey(key, 10)],
       11: color[colorKey(key, 11)],
-      12: color[colorKey(key, 12)],
-    },
+      12: color[colorKey(key, 12)]
+    }
   ]
 }
 
@@ -30,25 +31,25 @@ const mappedRadixColors = Object.fromEntries(
 )
 
 module.exports = {
+  darkMode: 'class',
+  safelist: ['line-through'],
   theme: {
     extend: {
-      safelist: ['line-through'],
       fontFamily: {
         sans: [...defaultTheme.fontFamily.sans],
-        mono: ['JetBrains Mono', ...defaultTheme.fontFamily.mono],
+        mono: ['JetBrains Mono', ...defaultTheme.fontFamily.mono]
       },
       screens: {
         xs: '345px',
-        ...defaultTheme.screens,
+        ...defaultTheme.screens
       },
       colors: {
         slate: mappedRadixColors.sand,
-        'slate-dark': mappedRadixColors.sageDark,
-      },
-    },
+        'slate-dark': mappedRadixColors.sageDark
+      }
+    }
   },
-  variants: {
-    extend: {},
-  },
-  plugins: [require('@tailwindcss/typography')],
+  plugins: [
+    tailwindTypography({ className: 'prose', target: 'modern' })
+  ]
 }

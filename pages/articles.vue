@@ -27,7 +27,7 @@
 import { useAsyncData, useHead, usePrismic } from '#imports'
 
 useHead({
-  title: 'Articles',
+  title: 'Articles'
 })
 
 const { client } = usePrismic()
@@ -35,8 +35,8 @@ const { data: posts } = useAsyncData('blog-posts', () =>
   client.getByType('blog-post', {
     lang: 'en-eu',
     orderings: [
-      { field: 'document.first_publication_date', direction: 'desc' },
-    ],
+      { field: 'document.first_publication_date', direction: 'desc' }
+    ]
   })
 )
 </script>

@@ -3,7 +3,9 @@
     v-model="$colorMode.preference"
     class="flex flex-initial cursor-pointer rounded-full ring-2 ring-slate-12 dark:ring-slate-dark-7"
   >
-    <RadioGroupLabel class="sr-only">Dark mode</RadioGroupLabel>
+    <RadioGroupLabel class="sr-only">
+      Dark mode
+    </RadioGroupLabel>
     <RadioGroupOption
       v-slot="{ active, checked }"
       value="light"
@@ -21,7 +23,9 @@
             active ? 'rounded-full bg-slate-4' : '',
           ]"
         />
-        <p class="sr-only">Light</p>
+        <p class="sr-only">
+          Light
+        </p>
       </RadioGroupLabel>
     </RadioGroupOption>
     <RadioGroupOption
@@ -39,7 +43,9 @@
             active ? 'rounded-full bg-slate-dark-4' : '',
           ]"
         />
-        <p class="sr-only">Dark</p>
+        <p class="sr-only">
+          Dark
+        </p>
       </RadioGroupLabel>
     </RadioGroupOption>
     <RadioGroupOption
@@ -59,7 +65,9 @@
             active ? 'rounded-full bg-slate-4 dark:bg-slate-dark-4' : '',
           ]"
         />
-        <p class="sr-only">System</p>
+        <p class="sr-only">
+          System
+        </p>
       </RadioGroupLabel>
     </RadioGroupOption>
   </RadioGroup>
@@ -79,7 +87,7 @@ export default defineComponent({
     RadioGroupOption,
     PhMoonStars,
     PhSun,
-    PhDesktop,
-  },
+    PhDesktop
+  }
 })
 </script>

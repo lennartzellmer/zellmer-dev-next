@@ -1,9 +1,6 @@
 {
   "extends": [
-      "@antfu",
-      "@nuxtjs/eslint-config-typescript",
-      "plugin:@intlify/vue-i18n/recommended",
-      "plugin:tailwindcss/recommended"
+      "@nuxtjs/eslint-config-typescript"
   ],
   "rules": {
       "@typescript-eslint/consistent-type-definitions": "off",

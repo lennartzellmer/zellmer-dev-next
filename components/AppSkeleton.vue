@@ -7,31 +7,31 @@ export default {
   props: {
     maxWidth: {
       default: 100,
-      type: Number,
+      type: Number
     },
     minWidth: {
       default: 80,
-      type: Number,
+      type: Number
     },
     height: {
-      default: `1em`,
-      type: String,
+      default: '1em',
+      type: String
     },
     width: {
       default: null,
-      type: String,
-    },
+      type: String
+    }
   },
   computed: {
-    computedWidth() {
+    computedWidth () {
       return (
         this.width ||
         `${Math.floor(
           Math.random() * (this.maxWidth - this.minWidth) + this.minWidth
         )}%`
       )
-    },
-  },
+    }
+  }
 }
 </script>
 

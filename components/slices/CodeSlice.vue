@@ -14,13 +14,13 @@ import { defineComponent } from '#imports'
 export default defineComponent({
   name: 'CodeSlice',
   components: {
-    highlightjs,
+    highlightjs
   },
   props: {
     slice: {
       required: true,
-      type: Object,
-    },
-  },
+      type: Object
+    }
+  }
 })
 </script>

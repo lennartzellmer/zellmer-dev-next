@@ -47,19 +47,19 @@ useHead({
     {
       hid: MetaTagKeys.DESCRIPTION,
       name: MetaTagKeys.DESCRIPTION,
-      content: computed(() => `${asText(post.value?.data.description) || ''}`),
+      content: computed(() => `${asText(post.value?.data.description) || ''}`)
     },
     {
       hid: MetaTagKeys.OG_TYPE,
       property: MetaTagKeys.OG_TYPE,
-      content: 'article',
+      content: 'article'
     },
     {
       hid: MetaTagKeys.OG_DESCRIPTION,
       property: MetaTagKeys.OG_DESCRIPTION,
-      content: computed(() => `${asText(post.value?.data.description) || ''}`),
-    },
-  ],
+      content: computed(() => `${asText(post.value?.data.description) || ''}`)
+    }
+  ]
 })
 
 const blocks = computed(() => {

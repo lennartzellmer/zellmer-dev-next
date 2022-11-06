@@ -33,7 +33,7 @@ import AppProjectCard from '~/components/AppProjectCard.vue'
 import { useAsyncData, useHead, usePrismic } from '#imports'
 
 useHead({
-  title: 'Projects',
+  title: 'Projects'
 })
 
 const { client } = usePrismic()

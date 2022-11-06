@@ -9,7 +9,7 @@ const formattedDate = new Date(
   props.post.first_publication_date
 ).toLocaleDateString('en-EN', {
   year: 'numeric',
-  month: 'long',
+  month: 'long'
 })
 </script>
 

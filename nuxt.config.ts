@@ -11,9 +11,9 @@ export default defineNuxtConfig({
       {
         download: true,
         families: {
-          'JetBrains Mono': [400, 600, 800],
-        },
-      },
+          'JetBrains Mono': [400, 600, 800]
+        }
+      }
     ],
     ['@nuxtjs/tailwindcss'],
     [
@@ -21,13 +21,13 @@ export default defineNuxtConfig({
       {
         toolbar: false,
         preview: false,
-        endpoint: 'https://zellmer-dev.cdn.prismic.io/api/v2',
-      },
-    ],
+        endpoint: 'https://zellmer-dev.cdn.prismic.io/api/v2'
+      }
+    ]
   ],
 
   colorMode: {
-    classSuffix: '',
+    classSuffix: ''
   },
 
   image: {
@@ -39,16 +39,16 @@ export default defineNuxtConfig({
       lg: 1024,
       xl: 1280,
       xxl: 1536,
-      '2xl': 1536,
-    },
+      '2xl': 1536
+    }
   },
 
   typescript: {
     tsConfig: {
       compilerOptions: {
-        types: ['unplugin-icons/types/vue'],
-      },
-    },
+        types: ['unplugin-icons/types/vue']
+      }
+    }
   },
 
   vite: {
@@ -57,12 +57,12 @@ export default defineNuxtConfig({
         compiler: 'vue3',
 
         customCollections: {
-          elvah: FileSystemIconLoader('./assets/icons'),
-        },
-      }),
+          elvah: FileSystemIconLoader('./assets/icons')
+        }
+      })
     ],
     optimizeDeps: {
-      include: ['@highlightjs/vue-plugin'],
-    },
-  },
+      include: ['@highlightjs/vue-plugin']
+    }
+  }
 })

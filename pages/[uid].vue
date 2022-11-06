@@ -17,9 +17,9 @@ import { useAsyncData, useRoute, usePrismic, useHead, computed } from '#imports'
 const { client, asText } = usePrismic()
 const route = useRoute()
 
-const { data: page, error } = await useAsyncData(route.params.uid.toString(), () =>
+const { data: page } = await useAsyncData(route.params.uid.toString(), () =>
   client.getByUID('default_page', route.params.uid.toString(), {
-    lang: 'en-eu',
+    lang: 'en-eu'
   })
 )
 
@@ -28,7 +28,7 @@ if (!page.value) {
 }
 
 useHead({
-  title: computed(() => `${asText(page.value?.data.title) || ''}`),
+  title: computed(() => `${asText(page.value?.data.title) || ''}`)
 })
 
 </script>

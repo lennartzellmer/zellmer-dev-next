@@ -5,7 +5,7 @@ import { computed, onMounted, ref, watch } from '#imports'
 const props = defineProps({
   width: { type: Number, default: 128 },
   height: { type: Number, default: 128 },
-  hash: { type: String, required: true },
+  hash: { type: String, required: true }
 })
 
 watch(
@@ -19,7 +19,7 @@ const sanitizedDimensions = computed(() => {
   const ratio = props.width / props.height
   return {
     width: Math.round(ratio * 100),
-    height: 100,
+    height: 100
   }
 })
 

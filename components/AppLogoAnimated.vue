@@ -42,7 +42,7 @@ const animate = (newSvgPath: string) => {
   anime({
     targets: '#morphing-path',
     d: [{ value: newSvgPath }],
-    easing: 'spring(1, 80, 15, 20)',
+    easing: 'spring(1, 80, 15, 20)'
   })
 }
 

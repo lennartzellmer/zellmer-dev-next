@@ -108,7 +108,7 @@ import {
   Dialog,
   DialogPanel,
   TransitionRoot,
-  TransitionChild,
+  TransitionChild
 } from '@headlessui/vue'
 import PhX from 'virtual:icons/ph/x'
 import PhArrowRight from 'virtual:icons/ph/arrow-right'
@@ -132,7 +132,7 @@ const selectedImage = computed(() => props.images[imgIndex.value])
 const isMultiple = computed(() => props.images.length > 1)
 
 const blurHashes = await Promise.all(
-  props.images.map((e) =>
+  props.images.map(e =>
     $fetch(e.url.split('?')[0] + '?fm=blurhash&w=500&h=300')
   )
 )
@@ -145,7 +145,7 @@ watch(
 )
 
 const onPrev = () => {
-  if (imgIndex.value === null) return
+  if (imgIndex.value === null) { return }
   if (imgIndex.value > 0) {
     imgIndex.value--
   } else {
@@ -154,7 +154,7 @@ const onPrev = () => {
 }
 
 const onNext = () => {
-  if (imgIndex.value === null) return
+  if (imgIndex.value === null) { return }
   if (imgIndex.value < props.images.length - 1) {
     imgIndex.value++
   } else {
@@ -165,7 +165,7 @@ const onNext = () => {
 const animateIn = () => {
   // eslint-disable-next-line import/no-named-as-default-member
   const tl = anime.timeline({
-    easing: 'easeOutExpo',
+    easing: 'easeOutExpo'
   })
 
   tl.add(
@@ -173,7 +173,7 @@ const animateIn = () => {
       targets: '.gallery__image_container',
       opacity: [0, 1],
       duration: 150,
-      easing: 'easeOutQuad',
+      easing: 'easeOutQuad'
     },
     0
   )
@@ -186,7 +186,7 @@ const animateIn = () => {
       duration: 150,
       // eslint-disable-next-line import/no-named-as-default-member
       delay: anime.stagger(50, { from: 'center' }),
-      easing: 'easeOutQuad',
+      easing: 'easeOutQuad'
     },
     150
   )
@@ -196,7 +196,7 @@ const animateIn = () => {
       targets: ['.gallery__navigation_button'],
       opacity: [0, 1],
       duration: 100,
-      easing: 'easeOutQuad',
+      easing: 'easeOutQuad'
     },
     0
   )
@@ -206,7 +206,7 @@ const closeModal = async () => {
   // eslint-disable-next-line import/no-named-as-default-member
   const tl = anime.timeline({
     direction: 'reverse',
-    autoplay: false,
+    autoplay: false
   })
 
   tl.add(
@@ -214,7 +214,7 @@ const closeModal = async () => {
       targets: '.gallery__image_container',
       opacity: [0, 1],
       duration: 150,
-      easing: 'easeOutQuad',
+      easing: 'easeOutQuad'
     },
     0
   )
@@ -224,7 +224,7 @@ const closeModal = async () => {
       targets: '.navigation__image__container',
       duration: 150,
       opacity: [0, 1],
-      easing: 'easeOutQuad',
+      easing: 'easeOutQuad'
     },
     0
   )
@@ -234,7 +234,7 @@ const closeModal = async () => {
       targets: ['.gallery__navigation_button'],
       opacity: [0, 1],
       duration: 100,
-      easing: 'easeOutQuad',
+      easing: 'easeOutQuad'
     },
     0
   )

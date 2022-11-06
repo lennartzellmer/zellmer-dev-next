@@ -8,52 +8,52 @@ import xml from 'highlight.js/lib/languages/xml'
 import bash from 'highlight.js/lib/languages/bash'
 import typescript from 'highlight.js/lib/languages/typescript'
 
-function hljsDefineVue(hljs: any): Language {
+function hljsDefineVue (hljs: any): Language {
   return {
     subLanguage: 'xml',
     contains: [
       hljs.COMMENT('<!--', '-->', {
-        relevance: 10,
+        relevance: 10
       }),
       {
         begin: /^(\s*)(<template>)/gm,
         end: /^(\s*)(<\/template>)/gm,
         subLanguage: 'xml',
-        contains: [{ begin: '/\\*', end: '\\*/', skip: true }],
+        contains: [{ begin: '/\\*', end: '\\*/', skip: true }]
       },
       {
         begin: /^(\s*)(<script>)/gm,
         end: /^(\s*)(<\/script>)/gm,
         subLanguage: 'javascript',
-        contains: [{ begin: '/\\*', end: '\\*/', skip: true }],
+        contains: [{ begin: '/\\*', end: '\\*/', skip: true }]
       },
       {
         begin: /^(?:\s*)(?:<script\s+lang=(["'])ts\1>)/gm,
         end: /^(\s*)(<\/script>)/gm,
         subLanguage: 'typescript',
-        contains: [{ begin: '/\\*', end: '\\*/', skip: true }],
+        contains: [{ begin: '/\\*', end: '\\*/', skip: true }]
       },
       {
         begin: /^(\s*)(<style(\s+scoped)?>)/gm,
         end: /^(\s*)(<\/style>)/gm,
         subLanguage: 'css',
-        contains: [{ begin: '/\\*', end: '\\*/', skip: true }],
+        contains: [{ begin: '/\\*', end: '\\*/', skip: true }]
       },
       {
         begin:
           /^(?:\s*)(?:<style(?:\s+scoped)?\s+lang=(["'])(?:s[ca]ss)\1(?:\s+scoped)?>)/gm,
         end: /^(\s*)(<\/style>)/gm,
         subLanguage: 'scss',
-        contains: [{ begin: '/\\*', end: '\\*/', skip: true }],
+        contains: [{ begin: '/\\*', end: '\\*/', skip: true }]
       },
       {
         begin:
           /^(?:\s*)(?:<style(?:\s+scoped)?\s+lang=(["'])stylus\1(?:\s+scoped)?>)/gm,
         end: /^(\s*)(<\/style>)/gm,
         subLanguage: 'stylus',
-        contains: [{ begin: '/\\*', end: '\\*/', skip: true }],
-      },
-    ],
+        contains: [{ begin: '/\\*', end: '\\*/', skip: true }]
+      }
+    ]
   }
 }
 
@@ -61,22 +61,22 @@ export default defineComponent({
   props: {
     code: {
       type: String,
-      required: true,
+      required: true
     },
     language: {
       type: String,
-      default: '',
+      default: ''
     },
     autodetect: {
       type: Boolean,
-      default: false,
+      default: false
     },
     ignoreIllegals: {
       type: Boolean,
-      default: true,
-    },
+      default: true
+    }
   },
-  setup(props) {
+  setup (props) {
     const language = ref(props.language)
     hljs.registerLanguage('javascript', javascript)
     hljs.registerLanguage('css', css)
@@ -100,22 +100,22 @@ export default defineComponent({
     const highlightedCode = computed((): string => {
       const result = hljs.highlight(props.code, {
         language: language.value,
-        ignoreIllegals: false,
+        ignoreIllegals: false
       })
       return result.value
     })
 
     return {
       className,
-      highlightedCode,
+      highlightedCode
     }
   },
-  render() {
+  render () {
     return h('pre', {}, [
       h('code', {
         class: this.className,
-        innerHTML: this.highlightedCode,
-      }),
+        innerHTML: this.highlightedCode
+      })
     ])
-  },
+  }
 })

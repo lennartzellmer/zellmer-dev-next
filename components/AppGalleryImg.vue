@@ -26,7 +26,8 @@ const onLoaded = () => {
       :href="src"
       target="_blank"
       class="absolute right-0 bottom-0 m-4 hidden rounded-md border border-slate-1/20 bg-slate-12/50 p-3 text-slate-1/70 hover:border-slate-1/40 hover:text-slate-1/70 sm:flex"
-      ><PhDownloadSimple />
+    >
+      <PhDownloadSimple />
       <span class="sr-only">Download</span>
     </NuxtLink>
     <AppBlurHash

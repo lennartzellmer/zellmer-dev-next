@@ -31,7 +31,7 @@ import { useAsyncData, useHead, usePrismic } from '#imports'
 import AppSocialLinks from '~/components/AppSocialLinks.vue'
 
 useHead({
-  title: 'About',
+  title: 'About'
 })
 
 const { client } = usePrismic()

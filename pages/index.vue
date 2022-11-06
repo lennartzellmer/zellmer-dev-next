@@ -85,7 +85,7 @@ import AppArticlePreview from '~/components/AppArticlePreview.vue'
 import AppSocialLinks from '~/components/AppSocialLinks.vue'
 
 useHead({
-  title: 'Intro',
+  title: 'Intro'
 })
 
 const { client } = usePrismic()
@@ -94,13 +94,13 @@ const { data: posts } = useAsyncData('blog-posts-preview', () =>
     lang: 'en-eu',
     pageSize: 6,
     orderings: [
-      { field: 'document.first_publication_date', direction: 'desc' },
-    ],
+      { field: 'document.first_publication_date', direction: 'desc' }
+    ]
   })
 )
 const { data: intro } = useAsyncData('intro', () =>
   client.getSingle('homepage_intro', {
-    lang: 'en-eu',
+    lang: 'en-eu'
   })
 )
 
@@ -109,6 +109,6 @@ const introMedia = computed(() => [
   { image: intro.value.data.gallery[0].image_2, classes: '-rotate-2' },
   { image: intro.value.data.gallery[0].image_3, classes: 'rotate-2' },
   { image: intro.value.data.gallery[0].image_4, classes: 'rotate-2' },
-  { image: intro.value.data.gallery[0].image_5, classes: '-rotate-2' },
+  { image: intro.value.data.gallery[0].image_5, classes: '-rotate-2' }
 ])
 </script>
