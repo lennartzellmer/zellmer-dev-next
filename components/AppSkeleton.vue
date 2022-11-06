@@ -1,38 +1,40 @@
 <template>
-  <span :style="{ height, width: computedWidth }" class="SkeletonBox" />
+  <span :style="{ height: computedHeight, width: computedWidth }" class="SkeletonBox" />
 </template>
 
-<script>
-export default {
-  props: {
-    maxWidth: {
-      default: 100,
-      type: Number
-    },
-    minWidth: {
-      default: 80,
-      type: Number
-    },
-    height: {
-      default: '1em',
-      type: String
-    },
-    width: {
-      default: null,
-      type: String
-    }
-  },
-  computed: {
-    computedWidth () {
-      return (
-        this.width ||
-        `${Math.floor(
-          Math.random() * (this.maxWidth - this.minWidth) + this.minWidth
-        )}%`
-      )
-    }
-  }
+<script setup lang="ts">
+interface Props {
+  maxWidth?: number,
+  minWidth?: number,
+  height?: string,
+  width?: string,
+  customStyle?: boolean
 }
+const props = withDefaults(defineProps<Props>(), {
+  maxWidth: 100,
+  minWidth: 80,
+  height: '1em',
+  width: undefined,
+  customStyle: false
+})
+
+const computedHeight = computed(() => {
+  if (props.customStyle) {
+    return ''
+  }
+
+  return props.height
+})
+
+const computedWidth = computed(() => {
+  if (props.customStyle) {
+    return ''
+  }
+  if (props.width) {
+    return props.width
+  }
+  return `${Math.floor(Math.random() * (props.maxWidth - props.minWidth) + props.minWidth)}%`
+})
 </script>
 
 <style lang="scss">
