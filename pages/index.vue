@@ -105,10 +105,10 @@ const { data: intro } = useAsyncData('intro', () =>
 )
 
 const introMedia = computed(() => [
-  { image: intro.value.data.gallery[0].image_1, classes: 'rotate-2' },
-  { image: intro.value.data.gallery[0].image_2, classes: '-rotate-2' },
-  { image: intro.value.data.gallery[0].image_3, classes: 'rotate-2' },
-  { image: intro.value.data.gallery[0].image_4, classes: 'rotate-2' },
-  { image: intro.value.data.gallery[0].image_5, classes: '-rotate-2' }
+  { image: intro.value?.data.gallery[0].image_1, classes: 'rotate-2' },
+  { image: intro.value?.data.gallery[0].image_2, classes: '-rotate-2' },
+  { image: intro.value?.data.gallery[0].image_3, classes: 'rotate-2' },
+  { image: intro.value?.data.gallery[0].image_4, classes: 'rotate-2' },
+  { image: intro.value?.data.gallery[0].image_5, classes: '-rotate-2' }
 ])
 </script>
