@@ -44,14 +44,6 @@ export default defineNuxtConfig({
     }
   },
 
-  typescript: {
-    tsConfig: {
-      compilerOptions: {
-        types: ['unplugin-icons/types/vue']
-      }
-    }
-  },
-
   vite: {
     plugins: [
       Icons({
