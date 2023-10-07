@@ -1,3 +1,11 @@
+<script lang="ts" setup>
+import { useAsyncData, usePrismic } from '#imports'
+
+const { client, asText } = usePrismic()
+const { data: footerNavigation } = useAsyncData('footerNavigation', () =>
+  client.getSingle('footer_navigation', { lang: 'en-eu' }))
+</script>
+
 <template>
   <footer class="mx-auto flex w-full max-w-5xl px-4 lg:px-0">
     <nav
@@ -15,15 +23,6 @@
     </nav>
   </footer>
 </template>
-
-<script lang="ts" setup>
-import { useAsyncData, usePrismic } from '#imports'
-
-const { client, asText } = usePrismic()
-const { data: footerNavigation } = useAsyncData('footerNavigation', () =>
-  client.getSingle('footer_navigation', { lang: 'en-eu' })
-)
-</script>
 
 <style lang="scss">
 .prismic-text-dark {

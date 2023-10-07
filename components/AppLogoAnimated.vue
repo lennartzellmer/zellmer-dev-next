@@ -1,3 +1,25 @@
+<script lang="ts" setup>
+import anime from 'animejs'
+import { ref, watch } from '#imports'
+
+const props = defineProps<{ svgPath: string; isActive: boolean }>()
+
+const renderedSvgPath = ref(props.svgPath)
+
+function animate(newSvgPath: string) {
+  anime({
+    targets: '#morphing-path',
+    d: [{ value: newSvgPath }],
+    easing: 'spring(1, 80, 15, 20)',
+  })
+}
+
+watch(
+  () => props.svgPath,
+  (newSvgPath, oldSvgPath) => animate(newSvgPath || oldSvgPath),
+)
+</script>
+
 <template>
   <svg
     id="morphing"
@@ -29,25 +51,3 @@
     />
   </svg>
 </template>
-
-<script lang="ts" setup>
-import anime from 'animejs'
-import { ref, watch } from '#imports'
-
-const props = defineProps<{ svgPath: string; isActive: boolean }>()
-
-const renderedSvgPath = ref(props.svgPath)
-
-const animate = (newSvgPath: string) => {
-  anime({
-    targets: '#morphing-path',
-    d: [{ value: newSvgPath }],
-    easing: 'spring(1, 80, 15, 20)'
-  })
-}
-
-watch(
-  () => props.svgPath,
-  (newSvgPath, oldSvgPath) => animate(newSvgPath || oldSvgPath)
-)
-</script>

@@ -1,4 +1,4 @@
-import anime from 'animejs'
+import type anime from 'animejs'
 
 declare module '@nuxt/types' {
   interface Context {

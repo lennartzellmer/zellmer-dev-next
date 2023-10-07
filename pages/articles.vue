@@ -1,3 +1,21 @@
+<script lang="ts" setup>
+import { useAsyncData, useHead, usePrismic } from '#imports'
+
+useHead({
+  title: 'Articles',
+})
+
+const { client } = usePrismic()
+const { data: posts, pending } = useAsyncData('blog-posts', () =>
+  client.getByType('blog-post', {
+    lang: 'en-eu',
+    orderings: [
+      { field: 'document.first_publication_date', direction: 'desc' },
+    ],
+  }))
+
+</script>
+
 <template>
   <section class="mx-auto mt-16 max-w-5xl px-4 sm:mt-32 lg:px-0">
     <header class="max-w-2xl">
@@ -33,21 +51,3 @@
     </ul>
   </section>
 </template>
-
-<script lang="ts" setup>
-import { useAsyncData, useHead, usePrismic } from '#imports'
-
-useHead({
-  title: 'Articles'
-})
-
-const { client } = usePrismic()
-const { data: posts, pending } = useAsyncData('blog-posts', () =>
-  client.getByType('blog-post', {
-    lang: 'en-eu',
-    orderings: [
-      { field: 'document.first_publication_date', direction: 'desc' }
-    ]
-  })
-)
-</script>

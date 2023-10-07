@@ -1,9 +1,0 @@
-{
-  "extends": [
-      "@nuxtjs/eslint-config-typescript"
-  ],
-  "rules": {
-      "@typescript-eslint/consistent-type-definitions": "off",
-      "tailwindcss/no-custom-classname": "off"
-  }
-}

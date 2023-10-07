@@ -1,3 +1,150 @@
+<script lang="ts" setup>
+import type { ImageField } from '@prismicio/types'
+import {
+  Dialog,
+  DialogPanel,
+  TransitionChild,
+  TransitionRoot,
+} from '@headlessui/vue'
+import anime from 'animejs'
+import PhX from '~icons/ph/x'
+import PhArrowRight from '~icons/ph/arrow-right'
+import PhArrowLeft from '~icons/ph/arrow-left'
+import { computed, ref, watch } from '#imports'
+import AppGalleryImg from '~/components/AppGalleryImg.vue'
+
+interface Props {
+  images: ImageField[]
+  index: number | null
+}
+
+const props = defineProps<Props>()
+
+const emit = defineEmits(['close'])
+
+const imgIndex = ref(props.index)
+const isOpen = computed(() => props.index !== null)
+
+const selectedImage = computed(() => props.images[imgIndex.value])
+const isMultiple = computed(() => props.images.length > 1)
+
+const blurHashes = await Promise.all(
+  props.images.map(e =>
+    $fetch(`${e.url.split('?')[0]}?fm=blurhash&w=500&h=300`),
+  ),
+)
+
+watch(
+  () => props.index,
+  (val: any) => {
+    imgIndex.value = val
+  },
+)
+
+function onPrev() {
+  if (imgIndex.value === null)
+    return
+  if (imgIndex.value > 0)
+    imgIndex.value--
+  else
+    imgIndex.value = props.images.length - 1
+}
+
+function onNext() {
+  if (imgIndex.value === null)
+    return
+  if (imgIndex.value < props.images.length - 1)
+    imgIndex.value++
+  else
+    imgIndex.value = 0
+}
+
+function animateIn() {
+  // eslint-disable-next-line import/no-named-as-default-member
+  const tl = anime.timeline({
+    easing: 'easeOutExpo',
+  })
+
+  tl.add(
+    {
+      targets: '.gallery__image_container',
+      opacity: [0, 1],
+      duration: 150,
+      easing: 'easeOutQuad',
+    },
+    0,
+  )
+
+  tl.add(
+    {
+      targets: '.navigation__image__container',
+      scale: [0.9, 1],
+      opacity: [0, 1],
+      duration: 150,
+      // eslint-disable-next-line import/no-named-as-default-member
+      delay: anime.stagger(50, { from: 'center' }),
+      easing: 'easeOutQuad',
+    },
+    150,
+  )
+
+  tl.add(
+    {
+      targets: ['.gallery__navigation_button'],
+      opacity: [0, 1],
+      duration: 100,
+      easing: 'easeOutQuad',
+    },
+    0,
+  )
+}
+
+async function closeModal() {
+  // eslint-disable-next-line import/no-named-as-default-member
+  const tl = anime.timeline({
+    direction: 'reverse',
+    autoplay: false,
+  })
+
+  tl.add(
+    {
+      targets: '.gallery__image_container',
+      opacity: [0, 1],
+      duration: 150,
+      easing: 'easeOutQuad',
+    },
+    0,
+  )
+
+  tl.add(
+    {
+      targets: '.navigation__image__container',
+      duration: 150,
+      opacity: [0, 1],
+      easing: 'easeOutQuad',
+    },
+    0,
+  )
+
+  tl.add(
+    {
+      targets: ['.gallery__navigation_button'],
+      opacity: [0, 1],
+      duration: 100,
+      easing: 'easeOutQuad',
+    },
+    0,
+  )
+  tl.play()
+  await tl.finished
+  emit('close')
+}
+
+function onClickThumb(index) {
+  imgIndex.value = index
+}
+</script>
+
 <template>
   <TransitionRoot appear :show="isOpen" as="template">
     <Dialog
@@ -27,7 +174,7 @@
           enter="duration-300 ease-out"
           enter-from="opacity-0"
           enter-to="opacity-100"
-          @beforeEnter="animateIn"
+          @before-enter="animateIn"
         >
           <DialogPanel
             class="flex w-full max-w-5xl items-center justify-center px-0 sm:p-8"
@@ -67,7 +214,6 @@
               />
               <div
                 v-if="isMultiple"
-                ref="gallery"
                 class="z-[999] mt-4 hidden w-full whitespace-nowrap sm:flex sm:flex-col sm:justify-center"
               >
                 <div
@@ -101,152 +247,6 @@
     </Dialog>
   </TransitionRoot>
 </template>
-
-<script lang="ts" setup>
-import { ImageField } from '@prismicio/types'
-import {
-  Dialog,
-  DialogPanel,
-  TransitionRoot,
-  TransitionChild
-} from '@headlessui/vue'
-import PhX from 'virtual:icons/ph/x'
-import PhArrowRight from 'virtual:icons/ph/arrow-right'
-import PhArrowLeft from 'virtual:icons/ph/arrow-left'
-import { $fetch } from 'ohmyfetch'
-import anime from 'animejs'
-import { computed, ref, watch } from '#imports'
-import AppGalleryImg from '~/components/AppGalleryImg.vue'
-
-const props = defineProps<{
-  images: ImageField[]
-  index: number | null
-}>()
-
-const emit = defineEmits(['close'])
-
-const imgIndex = ref(props.index)
-const isOpen = computed(() => props.index !== null)
-
-const selectedImage = computed(() => props.images[imgIndex.value])
-const isMultiple = computed(() => props.images.length > 1)
-
-const blurHashes = await Promise.all(
-  props.images.map(e =>
-    $fetch(e.url.split('?')[0] + '?fm=blurhash&w=500&h=300')
-  )
-)
-
-watch(
-  () => props.index,
-  (val) => {
-    imgIndex.value = val
-  }
-)
-
-const onPrev = () => {
-  if (imgIndex.value === null) { return }
-  if (imgIndex.value > 0) {
-    imgIndex.value--
-  } else {
-    imgIndex.value = props.images.length - 1
-  }
-}
-
-const onNext = () => {
-  if (imgIndex.value === null) { return }
-  if (imgIndex.value < props.images.length - 1) {
-    imgIndex.value++
-  } else {
-    imgIndex.value = 0
-  }
-}
-
-const animateIn = () => {
-  // eslint-disable-next-line import/no-named-as-default-member
-  const tl = anime.timeline({
-    easing: 'easeOutExpo'
-  })
-
-  tl.add(
-    {
-      targets: '.gallery__image_container',
-      opacity: [0, 1],
-      duration: 150,
-      easing: 'easeOutQuad'
-    },
-    0
-  )
-
-  tl.add(
-    {
-      targets: '.navigation__image__container',
-      scale: [0.9, 1],
-      opacity: [0, 1],
-      duration: 150,
-      // eslint-disable-next-line import/no-named-as-default-member
-      delay: anime.stagger(50, { from: 'center' }),
-      easing: 'easeOutQuad'
-    },
-    150
-  )
-
-  tl.add(
-    {
-      targets: ['.gallery__navigation_button'],
-      opacity: [0, 1],
-      duration: 100,
-      easing: 'easeOutQuad'
-    },
-    0
-  )
-}
-
-const closeModal = async () => {
-  // eslint-disable-next-line import/no-named-as-default-member
-  const tl = anime.timeline({
-    direction: 'reverse',
-    autoplay: false
-  })
-
-  tl.add(
-    {
-      targets: '.gallery__image_container',
-      opacity: [0, 1],
-      duration: 150,
-      easing: 'easeOutQuad'
-    },
-    0
-  )
-
-  tl.add(
-    {
-      targets: '.navigation__image__container',
-      duration: 150,
-      opacity: [0, 1],
-      easing: 'easeOutQuad'
-    },
-    0
-  )
-
-  tl.add(
-    {
-      targets: ['.gallery__navigation_button'],
-      opacity: [0, 1],
-      duration: 100,
-      easing: 'easeOutQuad'
-    },
-    0
-  )
-  tl.play()
-  await tl.finished
-  emit('close')
-}
-
-const onClickThumb = (index) => {
-  imgIndex.value = index
-}
-</script>
 
 <style>
 .gallery__navigation_button,

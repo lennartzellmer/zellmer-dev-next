@@ -1,3 +1,40 @@
+<script lang="ts" setup>
+import { computed, useAsyncData, useHead, usePrismic, useRoute } from '#imports'
+import AppSkeleton from '~/components/AppSkeleton.vue'
+import { MetaTagKeys } from '~/types/metaTagKeys'
+
+const { client, asText } = usePrismic()
+const route = useRoute()
+
+const { data: post, pending } = useAsyncData(route.params.uid.toString(), () =>
+  client.getByUID('blog-post', route.params.uid.toString(), { lang: 'en-eu' }))
+
+useHead({
+  title: computed(() => `${asText(post.value?.data.headline) || ''}`),
+  meta: [
+    {
+      hid: MetaTagKeys.DESCRIPTION,
+      name: MetaTagKeys.DESCRIPTION,
+      content: computed(() => `${asText(post.value?.data.description) || ''}`),
+    },
+    {
+      hid: MetaTagKeys.OG_TYPE,
+      property: MetaTagKeys.OG_TYPE,
+      content: 'article',
+    },
+    {
+      hid: MetaTagKeys.OG_DESCRIPTION,
+      property: MetaTagKeys.OG_DESCRIPTION,
+      content: computed(() => `${asText(post.value?.data.description) || ''}`),
+    },
+  ],
+})
+
+const blocks = computed(() => {
+  return [4, 5, 2, 6, 7]
+})
+</script>
+
 <template>
   <div>
     <main class="bg-slate-2 dark:bg-transparent">
@@ -29,43 +66,6 @@
     </main>
   </div>
 </template>
-
-<script lang="ts" setup>
-import { usePrismic, useRoute, useAsyncData, computed, useHead } from '#imports'
-import AppSkeleton from '~/components/AppSkeleton.vue'
-import { MetaTagKeys } from '~/types/metaTagKeys'
-const { client, asText } = usePrismic()
-const route = useRoute()
-
-const { data: post, pending } = useAsyncData(route.params.uid.toString(), () =>
-  client.getByUID('blog-post', route.params.uid.toString(), { lang: 'en-eu' })
-)
-
-useHead({
-  title: computed(() => `${asText(post.value?.data.headline) || ''}`),
-  meta: [
-    {
-      hid: MetaTagKeys.DESCRIPTION,
-      name: MetaTagKeys.DESCRIPTION,
-      content: computed(() => `${asText(post.value?.data.description) || ''}`)
-    },
-    {
-      hid: MetaTagKeys.OG_TYPE,
-      property: MetaTagKeys.OG_TYPE,
-      content: 'article'
-    },
-    {
-      hid: MetaTagKeys.OG_DESCRIPTION,
-      property: MetaTagKeys.OG_DESCRIPTION,
-      content: computed(() => `${asText(post.value?.data.description) || ''}`)
-    }
-  ]
-})
-
-const blocks = computed(() => {
-  return [4, 5, 2, 6, 7]
-})
-</script>
 
 <style lang="scss">
 .BlogPost__picture {

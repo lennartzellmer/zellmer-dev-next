@@ -1,3 +1,14 @@
+<script lang="ts" setup>
+import PhLink from '~icons/ph/link'
+
+defineProps<{
+  title: string
+  description: string
+  readableUrl: string
+  href: string
+}>()
+</script>
+
 <template>
   <li class="group relative flex flex-col items-start pb-1">
     <h2
@@ -21,14 +32,3 @@
     </p>
   </li>
 </template>
-
-<script lang="ts" setup>
-import PhLink from 'virtual:icons/ph/link'
-
-defineProps<{
-  title: string
-  description: string
-  readableUrl: string
-  href: string
-}>()
-</script>

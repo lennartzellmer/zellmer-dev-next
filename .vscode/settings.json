@@ -21,11 +21,11 @@
   },
   "scss.lint.unknownAtRules": "ignore",
   "typescript.tsdk": "node_modules/typescript/lib",
-	"tailwindCSS.includeLanguages": {
-		"vue": "html",
-		"vue-html": "html"
-	},
-	"editor.quickSuggestions": {
-		"strings": true
-	}
+  "tailwindCSS.includeLanguages": {
+    "vue": "html",
+    "vue-html": "html"
+  },
+  "editor.quickSuggestions": {
+    "strings": true
+  }
 }

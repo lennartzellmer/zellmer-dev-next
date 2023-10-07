@@ -1,3 +1,10 @@
+<script lang="ts" setup>
+import PhGithubLogo from '~icons/ph/github-logo'
+import PhPaperPlaneTilt from '~icons/ph/paper-plane-tilt'
+import PhTwitterLogo from '~icons/ph/twitter-logo'
+import PhLinkedinLogo from '~icons/ph/linkedin-logo'
+</script>
+
 <template>
   <div class="relative flex text-slate-9 dark:text-slate-dark-9">
     <a
@@ -38,10 +45,3 @@
     </a>
   </div>
 </template>
-
-<script lang="ts" setup>
-import PhGithubLogo from 'virtual:icons/ph/github-logo'
-import PhPaperPlaneTilt from 'virtual:icons/ph/paper-plane-tilt'
-import PhTwitterLogo from 'virtual:icons/ph/twitter-logo'
-import PhLinkedinLogo from 'virtual:icons/ph/linkedin-logo'
-</script>

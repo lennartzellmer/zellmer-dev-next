@@ -1,13 +1,9 @@
-<template>
-  <span :style="{ height: computedHeight, width: computedWidth }" class="SkeletonBox" />
-</template>
-
 <script setup lang="ts">
 interface Props {
-  maxWidth?: number,
-  minWidth?: number,
-  height?: string,
-  width?: string,
+  maxWidth?: number
+  minWidth?: number
+  height?: string
+  width?: string
   customStyle?: boolean
 }
 const props = withDefaults(defineProps<Props>(), {
@@ -15,27 +11,30 @@ const props = withDefaults(defineProps<Props>(), {
   minWidth: 80,
   height: '1em',
   width: undefined,
-  customStyle: false
+  customStyle: false,
 })
 
 const computedHeight = computed(() => {
-  if (props.customStyle) {
+  if (props.customStyle)
     return ''
-  }
 
   return props.height
 })
 
 const computedWidth = computed(() => {
-  if (props.customStyle) {
+  if (props.customStyle)
     return ''
-  }
-  if (props.width) {
+
+  if (props.width)
     return props.width
-  }
+
   return `${Math.floor(Math.random() * (props.maxWidth - props.minWidth) + props.minWidth)}%`
 })
 </script>
+
+<template>
+  <span :style="{ height: computedHeight, width: computedWidth }" class="SkeletonBox" />
+</template>
 
 <style lang="scss">
 .SkeletonBox {
