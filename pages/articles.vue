@@ -13,6 +13,7 @@ const { data: posts, pending } = useAsyncData('blog-posts', () =>
       { field: 'document.first_publication_date', direction: 'desc' },
     ],
   }))
+
 </script>
 
 <template>
