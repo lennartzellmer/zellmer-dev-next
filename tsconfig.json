@@ -4,7 +4,7 @@
   "compilerOptions": {
     "types": [
       "@vueuse/core",
-      "unplugin-icons/types/vue",
+      "unplugin-icons/types/vue"
     ]
   }
 }

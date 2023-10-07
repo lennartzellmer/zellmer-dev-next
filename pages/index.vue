@@ -1,3 +1,36 @@
+<script setup lang="ts">
+import PhCaretRight from '~icons/ph/caret-right-bold'
+import { computed, useAsyncData, useHead, usePrismic } from '#imports'
+import AppArticlePreview from '~/components/AppArticlePreview.vue'
+import AppSocialLinks from '~/components/AppSocialLinks.vue'
+
+useHead({
+  title: 'Intro',
+})
+
+const { client } = usePrismic()
+const { data: posts } = useAsyncData('blog-posts-preview', () =>
+  client.getByType('blog-post', {
+    lang: 'en-eu',
+    pageSize: 6,
+    orderings: [
+      { field: 'document.first_publication_date', direction: 'desc' },
+    ],
+  }))
+const { data: intro } = useAsyncData('intro', () =>
+  client.getSingle('homepage_intro', {
+    lang: 'en-eu',
+  }))
+
+const introMedia = computed(() => [
+  { image: intro.value?.data.gallery[0].image_1, classes: 'rotate-2' },
+  { image: intro.value?.data.gallery[0].image_2, classes: '-rotate-2' },
+  { image: intro.value?.data.gallery[0].image_3, classes: 'rotate-2' },
+  { image: intro.value?.data.gallery[0].image_4, classes: 'rotate-2' },
+  { image: intro.value?.data.gallery[0].image_5, classes: '-rotate-2' },
+])
+</script>
+
 <template>
   <main>
     <section v-if="intro" class="mx-auto mt-20 max-w-5xl px-4 md:mt-28">
@@ -49,7 +82,7 @@
         <li>
           <NuxtLink
             class="group flex cursor-pointer flex-row items-center py-8 focus:outline-none"
-            :to="'/articles'"
+            to="/articles"
           >
             <div
               v-for="post in posts.results.slice(3, posts.results.length)"
@@ -77,38 +110,3 @@
     </section>
   </main>
 </template>
-
-<script setup lang="ts">
-import PhCaretRight from 'virtual:icons/ph/caret-right-bold'
-import { computed, useAsyncData, useHead, usePrismic } from '#imports'
-import AppArticlePreview from '~/components/AppArticlePreview.vue'
-import AppSocialLinks from '~/components/AppSocialLinks.vue'
-
-useHead({
-  title: 'Intro'
-})
-
-const { client } = usePrismic()
-const { data: posts } = useAsyncData('blog-posts-preview', () =>
-  client.getByType('blog-post', {
-    lang: 'en-eu',
-    pageSize: 6,
-    orderings: [
-      { field: 'document.first_publication_date', direction: 'desc' }
-    ]
-  })
-)
-const { data: intro } = useAsyncData('intro', () =>
-  client.getSingle('homepage_intro', {
-    lang: 'en-eu'
-  })
-)
-
-const introMedia = computed(() => [
-  { image: intro.value?.data.gallery[0].image_1, classes: 'rotate-2' },
-  { image: intro.value?.data.gallery[0].image_2, classes: '-rotate-2' },
-  { image: intro.value?.data.gallery[0].image_3, classes: 'rotate-2' },
-  { image: intro.value?.data.gallery[0].image_4, classes: 'rotate-2' },
-  { image: intro.value?.data.gallery[0].image_5, classes: '-rotate-2' }
-])
-</script>

@@ -1,3 +1,30 @@
+<script lang="ts" setup>
+import anime from 'animejs'
+import blobshape from 'blobshape'
+
+const RANDOM_CLASS = 'animate-c17016f9-0143-40f0-9d35-3689e956020c'
+
+function getSvgPath() {
+  return blobshape({
+    size: 100,
+    growth: 5,
+    edges: 10,
+    seed: null,
+  }).path
+}
+
+function animateNow() {
+  const newSvgPath = getSvgPath()
+  anime({
+    targets: `#${RANDOM_CLASS}`,
+    d: [{ value: newSvgPath }],
+    easing: 'spring(1, 90, 15, 10)',
+  })
+}
+
+setInterval(animateNow, 4000)
+</script>
+
 <template>
   <div>
     <svg
@@ -19,29 +46,3 @@
     </svg>
   </div>
 </template>
-
-<script lang="ts" setup>
-import anime from 'animejs'
-import blobshape from 'blobshape'
-
-const RANDOM_CLASS = 'animate-c17016f9-0143-40f0-9d35-3689e956020c'
-
-const getSvgPath = () =>
-  blobshape({
-    size: 100,
-    growth: 5,
-    edges: 10,
-    seed: null
-  }).path
-
-const animateNow = () => {
-  const newSvgPath = getSvgPath()
-  anime({
-    targets: `#${RANDOM_CLASS}`,
-    d: [{ value: newSvgPath }],
-    easing: 'spring(1, 90, 15, 10)'
-  })
-}
-
-setInterval(animateNow, 4000)
-</script>

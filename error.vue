@@ -1,3 +1,16 @@
+<script lang="ts" setup>
+import PhMoonStars from '~icons/ph/house'
+import PhArrowRight from '~icons/ph/arrow-arc-left'
+import PhArrowLeft from '~icons/ph/arrow-arc-right'
+import App404Animated from '~~/components/App404Animated.vue'
+
+defineProps<{
+  error: any
+}>()
+
+const handleError = () => clearError({ redirect: '/' })
+</script>
+
 <template>
   <div class="min-h-screen bg-slate-2 dark:bg-slate-dark-1">
     <section
@@ -18,17 +31,3 @@
     </section>
   </div>
 </template>
-
-<script lang="ts" setup>
-import PhMoonStars from 'virtual:icons/ph/house'
-import PhArrowRight from 'virtual:icons/ph/arrow-arc-left'
-import PhArrowLeft from 'virtual:icons/ph/arrow-arc-right'
-import App404Animated from '~~/components/App404Animated.vue'
-
-defineProps<{
-  error: any
-}>()
-
-const handleError = () => clearError({ redirect: '/' })
-
-</script>

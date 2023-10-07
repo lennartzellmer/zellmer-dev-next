@@ -1,3 +1,22 @@
+<script lang="ts">
+import { defineComponent } from 'vue'
+import { RadioGroup, RadioGroupLabel, RadioGroupOption } from '@headlessui/vue'
+import PhMoonStars from '~icons/ph/moon-stars-bold'
+import PhSun from '~icons/ph/sun-bold'
+import PhDesktop from '~icons/ph/desktop-bold'
+
+export default defineComponent({
+  components: {
+    RadioGroup,
+    RadioGroupLabel,
+    RadioGroupOption,
+    PhMoonStars,
+    PhSun,
+    PhDesktop,
+  },
+})
+</script>
+
 <template>
   <RadioGroup
     v-model="$colorMode.preference"
@@ -72,22 +91,3 @@
     </RadioGroupOption>
   </RadioGroup>
 </template>
-
-<script lang="ts">
-import { defineComponent } from 'vue'
-import PhMoonStars from 'virtual:icons/ph/moon-stars-bold'
-import PhSun from 'virtual:icons/ph/sun-bold'
-import PhDesktop from 'virtual:icons/ph/desktop-bold'
-import { RadioGroup, RadioGroupLabel, RadioGroupOption } from '@headlessui/vue'
-
-export default defineComponent({
-  components: {
-    RadioGroup,
-    RadioGroupLabel,
-    RadioGroupOption,
-    PhMoonStars,
-    PhSun,
-    PhDesktop
-  }
-})
-</script>

@@ -1,3 +1,22 @@
+<script lang="ts" setup>
+import { computed, useAsyncData, useHead, usePrismic, useRoute } from '#imports'
+
+const { client, asText } = usePrismic()
+const route = useRoute()
+
+const { data: page } = await useAsyncData(route.params.uid.toString(), () =>
+  client.getByUID('default_page', route.params.uid.toString(), {
+    lang: 'en-eu',
+  }))
+
+if (!page.value)
+  throw createError({ statusCode: 404, statusMessage: 'Page Not Found' })
+
+useHead({
+  title: computed(() => `${asText(page.value?.data.title) || ''}`),
+})
+</script>
+
 <template>
   <NuxtErrorBoundary>
     <main class="bg-slate-2 dark:bg-transparent">
@@ -10,28 +29,6 @@
     </main>
   </NuxtErrorBoundary>
 </template>
-
-<script lang="ts" setup>
-import { useAsyncData, useRoute, usePrismic, useHead, computed } from '#imports'
-
-const { client, asText } = usePrismic()
-const route = useRoute()
-
-const { data: page } = await useAsyncData(route.params.uid.toString(), () =>
-  client.getByUID('default_page', route.params.uid.toString(), {
-    lang: 'en-eu'
-  })
-)
-
-if (!page.value) {
-  throw createError({ statusCode: 404, statusMessage: 'Page Not Found' })
-}
-
-useHead({
-  title: computed(() => `${asText(page.value?.data.title) || ''}`)
-})
-
-</script>
 
 <style lang="scss">
 .prismic-text {

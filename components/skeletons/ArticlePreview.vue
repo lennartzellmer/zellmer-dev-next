@@ -24,7 +24,7 @@
         <AppSkeleton v-for="index in 4" :key="index" />
       </p>
       <div class="mt-4 flex items-center space-x-1 text-slate-500 dark:text-slate-dark-500">
-        <AppSkeleton :width="'5em'" />
+        <AppSkeleton width="5em" />
       </div>
     </article>
   </div>

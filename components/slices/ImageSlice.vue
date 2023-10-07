@@ -1,3 +1,22 @@
+<script lang="ts" setup>
+import type { ImageField, Slice } from '@prismicio/types'
+import { computed, ref } from '#imports'
+
+const props = defineProps<{
+  slice: Slice<any, any, any>
+}>()
+
+const index = ref<null | number>(null)
+
+const images = computed(() => {
+  const images: ImageField[] = []
+  props.slice.items.forEach((item: any) => {
+    images.push(item.image)
+  })
+  return images
+})
+</script>
+
 <template>
   <div
     class="grid grid-cols-2 gap-4 py-8 md:grid-cols-3 lg:grid-cols-4 lg:gap-6"
@@ -21,22 +40,3 @@
     </client-only>
   </div>
 </template>
-
-<script lang="ts" setup>
-import { ImageField, Slice } from '@prismicio/types'
-import { computed, ref } from '#imports'
-
-const props = defineProps<{
-  slice: Slice<any, any, any>
-}>()
-
-const index = ref<null | number>(null)
-
-const images = computed(() => {
-  const images: ImageField[] = []
-  props.slice.items.forEach((item: any) => {
-    images.push(item.image)
-  })
-  return images
-})
-</script>

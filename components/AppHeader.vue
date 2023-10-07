@@ -1,3 +1,30 @@
+<script lang="ts" setup>
+import blobshape from 'blobshape'
+import AppDarkModeToggle from '~/components/AppDarkModeToggle.vue'
+import { ref } from '#imports'
+
+function getSvgPath() {
+  return blobshape({
+    size: 100,
+    growth: 5,
+    edges: 10,
+    seed: null,
+  }).path
+}
+
+const svgPath = ref(getSvgPath())
+
+function animatePath() {
+  svgPath.value = getSvgPath()
+}
+
+const menuItems = [
+  { name: 'About', path: '/about' },
+  { name: 'Articles', path: '/articles' },
+  { name: 'Projects', path: '/projects' },
+]
+</script>
+
 <template>
   <header class="px-4">
     <nav class="mx-auto mt-3 flex max-w-5xl flex-row items-center justify-between py-4 sm:mt-8">
@@ -32,29 +59,3 @@
     </nav>
   </header>
 </template>
-
-<script lang="ts" setup>
-import blobshape from 'blobshape'
-import AppDarkModeToggle from '~/components/AppDarkModeToggle.vue'
-import { ref } from '#imports'
-
-const getSvgPath = () =>
-  blobshape({
-    size: 100,
-    growth: 5,
-    edges: 10,
-    seed: null
-  }).path
-
-const svgPath = ref(getSvgPath())
-
-const animatePath = () => {
-  svgPath.value = getSvgPath()
-}
-
-const menuItems = [
-  { name: 'About', path: '/about' },
-  { name: 'Articles', path: '/articles' },
-  { name: 'Projects', path: '/projects' }
-]
-</script>

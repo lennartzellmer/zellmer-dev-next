@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import PhDownloadSimple from 'virtual:icons/ph/download-simple'
+import PhDownloadSimple from '~icons/ph/download-simple'
 import AppBlurHash from '~/components/AppBlurHash.vue'
 import { ref } from '#imports'
 
@@ -13,7 +13,7 @@ defineProps<{
 
 const showBlurHash = ref(true)
 
-const onLoaded = () => {
+function onLoaded() {
   showBlurHash.value = false
 }
 </script>
