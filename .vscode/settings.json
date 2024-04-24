@@ -1,7 +1,9 @@
 {
   "files.associations": {
-    "*.css": "postcss"
+    "*.css": "postcss",
   },
+
+  "scss.lint.unknownAtRules": "ignore",
 
   // Enable the ESlint flat config support
   "eslint.experimental.useFlatConfig": true,
