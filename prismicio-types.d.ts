@@ -5,11 +5,11 @@ import type * as prismic from "@prismicio/client";
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
 /**
- * Content for bio documents
+ * Content for Bio documents
  */
 interface BioDocumentData {
   /**
-   * Profile Image field in *bio*
+   * Profile Image field in *Bio*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
@@ -20,7 +20,7 @@ interface BioDocumentData {
   profile_image: prismic.ImageField<never>;
 
   /**
-   * Bio Text field in *bio*
+   * Bio Text field in *Bio*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
@@ -29,21 +29,10 @@ interface BioDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   bio_text: prismic.RichTextField;
-
-  /**
-   * Current Location field in *bio*
-   *
-   * - **Field Type**: GeoPoint
-   * - **Placeholder**: *None*
-   * - **API ID Path**: bio.current_location
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#geopoint
-   */
-  current_location: prismic.GeoPointField;
 }
 
 /**
- * bio document from Prismic
+ * Bio document from Prismic
  *
  * - **API ID**: `bio`
  * - **Repeatable**: `false`
@@ -207,11 +196,11 @@ export type DefaultPageDocument<Lang extends string = string> =
   >;
 
 /**
- * Item in *footer navigation → Menu Links*
+ * Item in *Footer navigation → Menu Links*
  */
 export interface FooterNavigationDocumentDataMenuLinksItem {
   /**
-   * Link Label field in *footer navigation → Menu Links*
+   * Link Label field in *Footer navigation → Menu Links*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: Link Label...
@@ -221,7 +210,7 @@ export interface FooterNavigationDocumentDataMenuLinksItem {
   label: prismic.RichTextField;
 
   /**
-   * Link field in *footer navigation → Menu Links*
+   * Link field in *Footer navigation → Menu Links*
    *
    * - **Field Type**: Link
    * - **Placeholder**: Select a Link...
@@ -232,11 +221,11 @@ export interface FooterNavigationDocumentDataMenuLinksItem {
 }
 
 /**
- * Content for footer navigation documents
+ * Content for Footer navigation documents
  */
 interface FooterNavigationDocumentData {
   /**
-   * `title` field in *footer navigation*
+   * `title` field in *Footer navigation*
    *
    * - **Field Type**: Title
    * - **Placeholder**: Menu title...
@@ -247,7 +236,7 @@ interface FooterNavigationDocumentData {
   title: prismic.TitleField;
 
   /**
-   * Menu Links field in *footer navigation*
+   * Menu Links field in *Footer navigation*
    *
    * - **Field Type**: Group
    * - **Placeholder**: *None*
@@ -261,7 +250,7 @@ interface FooterNavigationDocumentData {
 }
 
 /**
- * footer navigation document from Prismic
+ * Footer navigation document from Prismic
  *
  * - **API ID**: `footer_navigation`
  * - **Repeatable**: `false`
@@ -436,11 +425,11 @@ export type HomepageIntroDocument<Lang extends string = string> =
   >;
 
 /**
- * Content for project documents
+ * Content for Project documents
  */
 interface ProjectDocumentData {
   /**
-   * Title field in *project*
+   * Title field in *Project*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
@@ -451,7 +440,7 @@ interface ProjectDocumentData {
   title: prismic.KeyTextField;
 
   /**
-   * Description field in *project*
+   * Description field in *Project*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
@@ -462,7 +451,7 @@ interface ProjectDocumentData {
   description: prismic.KeyTextField;
 
   /**
-   * Link field in *project*
+   * Link field in *Project*
    *
    * - **Field Type**: Link
    * - **Placeholder**: *None*
@@ -473,7 +462,7 @@ interface ProjectDocumentData {
   link: prismic.LinkField;
 
   /**
-   * Readable URL field in *project*
+   * Readable URL field in *Project*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
@@ -485,7 +474,7 @@ interface ProjectDocumentData {
 }
 
 /**
- * project document from Prismic
+ * Project document from Prismic
  *
  * - **API ID**: `project`
  * - **Repeatable**: `true`
@@ -501,11 +490,11 @@ export type ProjectDocument<Lang extends string = string> =
   >;
 
 /**
- * Item in *settings → keywords*
+ * Item in *Settings → keywords*
  */
 export interface SettingsDocumentDataKeywordsItem {
   /**
-   * keyword field in *settings → keywords*
+   * keyword field in *Settings → keywords*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
@@ -516,11 +505,11 @@ export interface SettingsDocumentDataKeywordsItem {
 }
 
 /**
- * Content for settings documents
+ * Content for Settings documents
  */
 interface SettingsDocumentData {
   /**
-   * name field in *settings*
+   * name field in *Settings*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
@@ -531,7 +520,7 @@ interface SettingsDocumentData {
   name: prismic.KeyTextField;
 
   /**
-   * description field in *settings*
+   * description field in *Settings*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
@@ -542,7 +531,7 @@ interface SettingsDocumentData {
   description: prismic.KeyTextField;
 
   /**
-   * keywords field in *settings*
+   * keywords field in *Settings*
    *
    * - **Field Type**: Group
    * - **Placeholder**: *None*
@@ -554,7 +543,7 @@ interface SettingsDocumentData {
 }
 
 /**
- * settings document from Prismic
+ * Settings document from Prismic
  *
  * - **API ID**: `settings`
  * - **Repeatable**: `false`

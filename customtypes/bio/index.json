@@ -1,7 +1,10 @@
 {
   "id": "bio",
-  "label": "bio",
+  "label": "Bio",
   "repeatable": false,
+  "hash": "a7770d6fe846177d79960341c39c6354",
+  "status": true,
+  "format": "custom",
   "json": {
     "Main": {
       "profile_image": {
@@ -20,16 +23,7 @@
           "label": "Bio Text",
           "labels": ["line-through"]
         }
-      },
-      "current_location": {
-        "type": "GeoPoint",
-        "config": {
-          "label": "Current Location"
-        }
       }
     }
-  },
-  "hash": "a7770d6fe846177d79960341c39c6354",
-  "status": true,
-  "format": "custom"
+  }
 }

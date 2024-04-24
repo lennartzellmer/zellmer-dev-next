@@ -1,7 +1,10 @@
 {
   "id": "footer_navigation",
-  "label": "footer navigation",
+  "label": "Footer navigation",
   "repeatable": false,
+  "hash": "8ca5ad145a1ca3126620838f6c699547",
+  "status": true,
+  "format": "custom",
   "json": {
     "Main": {
       "title": {
@@ -36,8 +39,5 @@
         }
       }
     }
-  },
-  "hash": "8ca5ad145a1ca3126620838f6c699547",
-  "status": true,
-  "format": "custom"
+  }
 }
