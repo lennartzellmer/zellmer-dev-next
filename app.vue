@@ -1,6 +1,8 @@
 <script lang="ts" setup>
 import { MetaTagKeys } from '~/types/metaTagKeys'
 
+const settings = useSettings()
+
 useHead({
   titleTemplate: (titleChunk) => {
     return titleChunk ? `${titleChunk} - Zellmer.dev` : 'Zellmer.dev'
@@ -9,43 +11,32 @@ useHead({
     {
       hid: MetaTagKeys.DESCRIPTION,
       name: MetaTagKeys.DESCRIPTION,
-      content:
-        'Lennart here. Sharing thoughts and concepts around Product, Design and Development.',
+      content: computed(() => settings.value?.data.description),
     },
     {
       hid: MetaTagKeys.KEYWORDS,
       name: MetaTagKeys.KEYWORDS,
-      content: 'Product, Blog, Design, Development, Maker',
+      content: computed(() => settings.value?.data.keywords.map(keyword => keyword.keyword).join(', ')),
     },
     {
       hid: MetaTagKeys.OG_TITLE,
       property: MetaTagKeys.OG_TITLE,
-      content: 'Zellmer.dev',
+      content: computed(() => settings.value?.data.name),
     },
     {
       hid: MetaTagKeys.OG_DESCRIPTION,
       property: MetaTagKeys.OG_DESCRIPTION,
-      content: 'Lennart here. Sharing thoughts and concepts around Product, Design and Development.',
-    },
-    {
-      hid: MetaTagKeys.OG_IMAGE,
-      property: MetaTagKeys.OG_IMAGE,
-      content: '/og-image.jpeg',
+      content: computed(() => settings.value?.data.description),
     },
     {
       hid: MetaTagKeys.OG_LOCALE,
       property: MetaTagKeys.OG_LOCALE,
-      content: 'en_GB',
+      content: computed(() => settings.value?.lang),
     },
     {
       hid: MetaTagKeys.OG_TYPE,
       property: MetaTagKeys.OG_TYPE,
       content: 'website',
-    },
-    {
-      hid: MetaTagKeys.TWITTER_CARD,
-      name: MetaTagKeys.TWITTER_CARD,
-      content: 'summary_large_image',
     },
     {
       name: 'theme-color',
@@ -70,6 +61,11 @@ useHead({
   htmlAttrs: {
     lang: 'en',
   },
+})
+
+defineOgImageComponent('DefaultPage', {
+  title: computed(() => settings.value?.data.name),
+  description: computed(() => settings.value?.data.description),
 })
 </script>
 

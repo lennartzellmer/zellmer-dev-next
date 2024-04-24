@@ -1,6 +1,8 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  devtools: { enabled: true },
+  devtools: {
+    enabled: true,
+  },
   modules: [
     'nuxt-icon',
     '@nuxtjs/prismic',
@@ -10,9 +12,14 @@ export default defineNuxtConfig({
     '@nuxt/fonts',
     '@nuxtjs/color-mode',
     'nuxt-shiki',
+    'nuxt-og-image',
   ],
   shiki: {
     defaultTheme: 'houston',
+  },
+  site: {
+    // production URL for OG Image generation
+    url: 'https://lennart.zellmer.dev',
   },
   prismic: {
     endpoint: 'zellmer-dev',

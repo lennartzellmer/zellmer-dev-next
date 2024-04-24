@@ -15,6 +15,11 @@ useHead({
     },
   ],
 })
+
+defineOgImageComponent('DefaultPage', {
+  title: computed(() => page.value?.data.meta_title),
+  description: computed(() => page.value?.data.meta_description),
+})
 </script>
 
 <template>

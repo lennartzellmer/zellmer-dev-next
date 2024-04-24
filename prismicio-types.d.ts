@@ -57,194 +57,44 @@ export type BioDocument<Lang extends string = string> =
 type BlogPostDocumentDataBodySlice = TextSlice | CodeSlice | ImageSlice;
 
 /**
- * Primary content in *blog-post → Slice Zone → General Card → Primary*
- */
-export interface BlogPostDocumentDataSocialGeneralCardSlicePrimary {
-  /**
-   * Title field in *blog-post → Slice Zone → General Card → Primary*
-   *
-   * - **Field Type**: Title
-   * - **Placeholder**: Title...
-   * - **API ID Path**: blog-post.social[].general_card.primary.title
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  title: prismic.TitleField;
-
-  /**
-   * Description field in *blog-post → Slice Zone → General Card → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: Description...
-   * - **API ID Path**: blog-post.social[].general_card.primary.description
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  description: prismic.RichTextField;
-
-  /**
-   * Image field in *blog-post → Slice Zone → General Card → Primary*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: blog-post.social[].general_card.primary.image
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  image: prismic.ImageField<never>;
-}
-
-/**
- * Slice for *blog-post → Slice Zone*
- */
-export type BlogPostDocumentDataSocialGeneralCardSlice = prismic.Slice<
-  "general_card",
-  Simplify<BlogPostDocumentDataSocialGeneralCardSlicePrimary>,
-  never
->;
-
-/**
- * Primary content in *blog-post → Slice Zone → Twitter Card → Primary*
- */
-export interface BlogPostDocumentDataSocialTwitterCardSlicePrimary {
-  /**
-   * Card type field in *blog-post → Slice Zone → Twitter Card → Primary*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: *None*
-   * - **Default Value**: Standard Summary Card
-   * - **API ID Path**: blog-post.social[].twitter_card.primary.card_type
-   * - **Documentation**: https://prismic.io/docs/field#select
-   */
-  card_type: prismic.SelectField<
-    "Standard Summary Card" | "Summary Card with Large Image",
-    "filled"
-  >;
-
-  /**
-   * Twitter Handle field in *blog-post → Slice Zone → Twitter Card → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: Twitter handle...
-   * - **API ID Path**: blog-post.social[].twitter_card.primary.twitter_handle
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  twitter_handle: prismic.KeyTextField;
-
-  /**
-   * Title field in *blog-post → Slice Zone → Twitter Card → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: Twitter Card Title...
-   * - **API ID Path**: blog-post.social[].twitter_card.primary.title
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  title: prismic.RichTextField;
-
-  /**
-   * Description field in *blog-post → Slice Zone → Twitter Card → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: Twitter Card Description...
-   * - **API ID Path**: blog-post.social[].twitter_card.primary.description
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  description: prismic.RichTextField;
-
-  /**
-   * Image field in *blog-post → Slice Zone → Twitter Card → Primary*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: blog-post.social[].twitter_card.primary.image
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  image: prismic.ImageField<"large_image">;
-}
-
-/**
- * Slice for *blog-post → Slice Zone*
- */
-export type BlogPostDocumentDataSocialTwitterCardSlice = prismic.Slice<
-  "twitter_card",
-  Simplify<BlogPostDocumentDataSocialTwitterCardSlicePrimary>,
-  never
->;
-
-/**
- * Primary content in *blog-post → Slice Zone → Pinterest Product Pin → Primary*
- */
-export interface BlogPostDocumentDataSocialPinterestProductPinSlicePrimary {
-  /**
-   * Title field in *blog-post → Slice Zone → Pinterest Product Pin → Primary*
-   *
-   * - **Field Type**: Title
-   * - **Placeholder**: Title...
-   * - **API ID Path**: blog-post.social[].pinterest_product_pin.primary.title
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  title: prismic.TitleField;
-
-  /**
-   * Description field in *blog-post → Slice Zone → Pinterest Product Pin → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: Description...
-   * - **API ID Path**: blog-post.social[].pinterest_product_pin.primary.description
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  description: prismic.RichTextField;
-
-  /**
-   * Price field in *blog-post → Slice Zone → Pinterest Product Pin → Primary*
-   *
-   * - **Field Type**: Number
-   * - **Placeholder**: Enter Product Price...
-   * - **API ID Path**: blog-post.social[].pinterest_product_pin.primary.price
-   * - **Documentation**: https://prismic.io/docs/field#number
-   */
-  price: prismic.NumberField;
-
-  /**
-   * Currency field in *blog-post → Slice Zone → Pinterest Product Pin → Primary*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: *None*
-   * - **Default Value**: USD
-   * - **API ID Path**: blog-post.social[].pinterest_product_pin.primary.currency
-   * - **Documentation**: https://prismic.io/docs/field#select
-   */
-  currency: prismic.SelectField<"USD" | "Euro", "filled">;
-
-  /**
-   * Availability field in *blog-post → Slice Zone → Pinterest Product Pin → Primary*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: *None*
-   * - **Default Value**: In-stock
-   * - **API ID Path**: blog-post.social[].pinterest_product_pin.primary.availability
-   * - **Documentation**: https://prismic.io/docs/field#select
-   */
-  availability: prismic.SelectField<"In-stock" | "Out of stock", "filled">;
-}
-
-/**
- * Slice for *blog-post → Slice Zone*
- */
-export type BlogPostDocumentDataSocialPinterestProductPinSlice = prismic.Slice<
-  "pinterest_product_pin",
-  Simplify<BlogPostDocumentDataSocialPinterestProductPinSlicePrimary>,
-  never
->;
-
-type BlogPostDocumentDataSocialSlice =
-  | BlogPostDocumentDataSocialGeneralCardSlice
-  | BlogPostDocumentDataSocialTwitterCardSlice
-  | BlogPostDocumentDataSocialPinterestProductPinSlice;
-
-/**
- * Content for blog-post documents
+ * Content for Post documents
  */
 interface BlogPostDocumentData {
   /**
-   * Slice Zone field in *blog-post*
+   * headline field in *Post*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog-post.headline
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  headline: prismic.TitleField;
+
+  /**
+   * thumbnail field in *Post*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog-post.thumbnail
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  thumbnail: prismic.ImageField<never>;
+
+  /**
+   * description field in *Post*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog-post.description
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Slice Zone field in *Post*
    *
    * - **Field Type**: Slice Zone
    * - **Placeholder**: *None*
@@ -253,50 +103,30 @@ interface BlogPostDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#slices
    */
   body: prismic.SliceZone<BlogPostDocumentDataBodySlice> /**
-   * headline field in *blog-post*
+   * meta_title field in *Post*
    *
-   * - **Field Type**: Title
-   * - **Placeholder**: My new blogpost
-   * - **API ID Path**: blog-post.headline
-   * - **Tab**: Overview
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog-post.meta_title
+   * - **Tab**: Meta
+   * - **Documentation**: https://prismic.io/docs/field#key-text
    */;
-  headline: prismic.TitleField;
+  meta_title: prismic.KeyTextField;
 
   /**
-   * thumbnail field in *blog-post*
+   * meta_description field in *Post*
    *
-   * - **Field Type**: Image
+   * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: blog-post.thumbnail
-   * - **Tab**: Overview
-   * - **Documentation**: https://prismic.io/docs/field#image
+   * - **API ID Path**: blog-post.meta_description
+   * - **Tab**: Meta
+   * - **Documentation**: https://prismic.io/docs/field#key-text
    */
-  thumbnail: prismic.ImageField<never>;
-
-  /**
-   * description field in *blog-post*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: Add description for overview
-   * - **API ID Path**: blog-post.description
-   * - **Tab**: Overview
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  description: prismic.RichTextField /**
-   * Slice Zone field in *blog-post*
-   *
-   * - **Field Type**: Slice Zone
-   * - **Placeholder**: *None*
-   * - **API ID Path**: blog-post.social[]
-   * - **Tab**: Social Cards
-   * - **Documentation**: https://prismic.io/docs/field#slices
-   */;
-  social: prismic.SliceZone<BlogPostDocumentDataSocialSlice>;
+  meta_description: prismic.KeyTextField;
 }
 
 /**
- * blog-post document from Prismic
+ * Post document from Prismic
  *
  * - **API ID**: `blog-post`
  * - **Repeatable**: `true`
@@ -471,17 +301,6 @@ interface HomeDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */;
   meta_description: prismic.KeyTextField;
-
-  /**
-   * Meta Image field in *Home*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: home.meta_image
-   * - **Tab**: SEO & Metadata
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  meta_image: prismic.ImageField<never>;
 
   /**
    * Meta Title field in *Home*
@@ -681,6 +500,75 @@ export type ProjectDocument<Lang extends string = string> =
     Lang
   >;
 
+/**
+ * Item in *settings → keywords*
+ */
+export interface SettingsDocumentDataKeywordsItem {
+  /**
+   * keyword field in *settings → keywords*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.keywords[].keyword
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  keyword: prismic.KeyTextField;
+}
+
+/**
+ * Content for settings documents
+ */
+interface SettingsDocumentData {
+  /**
+   * name field in *settings*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.name
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  name: prismic.KeyTextField;
+
+  /**
+   * description field in *settings*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.description
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description: prismic.KeyTextField;
+
+  /**
+   * keywords field in *settings*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.keywords[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  keywords: prismic.GroupField<Simplify<SettingsDocumentDataKeywordsItem>>;
+}
+
+/**
+ * settings document from Prismic
+ *
+ * - **API ID**: `settings`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type SettingsDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<SettingsDocumentData>,
+    "settings",
+    Lang
+  >;
+
 export type AllDocumentTypes =
   | BioDocument
   | BlogPostDocument
@@ -688,7 +576,8 @@ export type AllDocumentTypes =
   | FooterNavigationDocument
   | HomeDocument
   | HomepageIntroDocument
-  | ProjectDocument;
+  | ProjectDocument
+  | SettingsDocument;
 
 /**
  * Primary content in *Code → Primary*
@@ -945,10 +834,6 @@ declare module "@prismicio/client" {
       BlogPostDocument,
       BlogPostDocumentData,
       BlogPostDocumentDataBodySlice,
-      BlogPostDocumentDataSocialGeneralCardSlicePrimary,
-      BlogPostDocumentDataSocialTwitterCardSlicePrimary,
-      BlogPostDocumentDataSocialPinterestProductPinSlicePrimary,
-      BlogPostDocumentDataSocialSlice,
       DefaultPageDocument,
       DefaultPageDocumentData,
       DefaultPageDocumentDataSlicesSlice,
@@ -963,6 +848,9 @@ declare module "@prismicio/client" {
       HomepageIntroDocumentDataGalleryItem,
       ProjectDocument,
       ProjectDocumentData,
+      SettingsDocument,
+      SettingsDocumentData,
+      SettingsDocumentDataKeywordsItem,
       AllDocumentTypes,
       CodeSlice,
       CodeSliceDefaultPrimary,

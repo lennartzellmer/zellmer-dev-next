@@ -1,0 +1,41 @@
+{
+  "format": "custom",
+  "id": "settings",
+  "label": "settings",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "name": {
+        "type": "Text",
+        "config": {
+          "label": "name",
+          "placeholder": ""
+        }
+      },
+      "description": {
+        "type": "Text",
+        "config": {
+          "label": "description",
+          "placeholder": ""
+        }
+      },
+      "keywords": {
+        "type": "Group",
+        "config": {
+          "label": "keywords",
+          "repeat": true,
+          "fields": {
+            "keyword": {
+              "type": "Text",
+              "config": {
+                "label": "keyword",
+                "placeholder": ""
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

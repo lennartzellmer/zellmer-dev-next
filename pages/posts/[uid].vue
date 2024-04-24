@@ -12,12 +12,11 @@ const { data: post, pending } = useAsyncData(route.params.uid.toString(), () =>
 )
 
 useHead({
-  title: computed(() => `${asText(post.value?.data.headline) || ''}`),
+  title: computed(() => post.value?.data.meta_title || asText(post.value?.data.headline)),
   meta: [
     {
-      hid: MetaTagKeys.DESCRIPTION,
       name: MetaTagKeys.DESCRIPTION,
-      content: computed(() => `${asText(post.value?.data.description) || ''}`),
+      content: computed(() => post.value?.data.meta_description || asText(post.value?.data.description)),
     },
     {
       hid: MetaTagKeys.OG_TYPE,
@@ -27,9 +26,14 @@ useHead({
     {
       hid: MetaTagKeys.OG_DESCRIPTION,
       property: MetaTagKeys.OG_DESCRIPTION,
-      content: computed(() => `${asText(post.value?.data.description) || ''}`),
+      content: computed(() => post.value?.data.meta_description || asText(post.value?.data.description)),
     },
   ],
+})
+
+defineOgImageComponent('DefaultPage', {
+  title: computed(() => post.value?.data.meta_title || asText(post.value?.data.headline)),
+  description: computed(() => post.value?.data.meta_description || asText(post.value?.data.description)),
 })
 
 const blocks = computed(() => {
