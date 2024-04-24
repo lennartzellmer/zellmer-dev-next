@@ -8,6 +8,9 @@ dependencies:
   '@nuxt/fonts':
     specifier: 0.6.1
     version: 0.6.1(nuxt@3.11.2)(vite@5.2.10)
+  '@nuxtjs/web-vitals':
+    specifier: 0.2.7
+    version: 0.2.7
   blurhash:
     specifier: 2.0.5
     version: 2.0.5
@@ -1528,6 +1531,19 @@ packages:
       - ts-node
       - uWebSockets.js
     dev: true
+
+  /@nuxtjs/web-vitals@0.2.7:
+    resolution: {integrity: sha512-ztqk+PsdozVExk0IkzH64+5LnHhyUQboIBp/IdDHaOZEHybMZRtdMB53z6OqSg/DCK3638sHDXoza44DYvveaw==}
+    dependencies:
+      '@nuxt/kit': 3.11.2
+      defu: 6.1.4
+      pathe: 1.1.2
+      ufo: 1.5.3
+      web-vitals: 3.5.2
+    transitivePeerDependencies:
+      - rollup
+      - supports-color
+    dev: false
 
   /@parcel/watcher-android-arm64@2.4.1:
     resolution: {integrity: sha512-LOi/WTbbh3aTn2RYddrO8pnapixAziFl6SMxHM69r3tvdSm94JtCenaKgk1GRg5FJ5wpMCpHeW+7yqPlvZv7kg==}
@@ -9564,6 +9580,10 @@ packages:
     resolution: {integrity: sha512-d2JWLCivmZYTSIoge9MsgFCZrt571BikcWGYkjC1khllbTeDlGqZ2D8vD8E/lJa8WGWbb7Plm8/XJYV7IJHZZw==}
     engines: {node: '>= 8'}
     dev: true
+
+  /web-vitals@3.5.2:
+    resolution: {integrity: sha512-c0rhqNcHXRkY/ogGDJQxZ9Im9D19hDihbzSQJrsioex+KnFgmMzBiy57Z1EjkhX/+OjyBpclDCzz2ITtjokFmg==}
+    dev: false
 
   /webidl-conversions@3.0.1:
     resolution: {integrity: sha512-2JAn3z8AR6rjK8Sm8orRC0h/bcl/DqL7tRPdGZ4I1CjdF+EaMLmYxBHyXuKL849eucPFhvBoxMsflfOb8kxaeQ==}
