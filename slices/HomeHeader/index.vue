@@ -48,13 +48,13 @@ function getRotateClass(index: number) {
       class="mt-16 sm:mt-24"
     >
       <div
-        class="-my-4 flex justify-center gap-5 overflow-hidden py-4 sm:gap-8"
+        class="-my-4 flex justify-center gap-5 py-4 sm:gap-8"
       >
         <div
           v-for="(media, index) in slice.items"
           :key="media.image.id!"
           :class="getRotateClass(index)"
-          class="relative flex aspect-[9/10] w-44 flex-none overflow-hidden rounded-xl bg-zinc-100 object-cover dark:bg-zinc-800 sm:w-72 sm:rounded-2xl"
+          class="relative flex aspect-[9/10] shadow-putiful-close hover:scale-[104%] duration-300 ring-4 ring-white/20 dark:ring-white/5 hover:rotate-0 transition-all hover:shadow-putiful w-44 flex-none overflow-hidden rounded-xl bg-zinc-100 object-cover dark:bg-zinc-800 sm:w-72 sm:rounded-2xl"
         >
           <NuxtPicture
             fit="crop"
