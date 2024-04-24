@@ -16,9 +16,15 @@ const menuItems = [
             class="group focus:outline-none"
             to="/"
           >
-            <AppLogoAnimated
-              :is-active="isActive"
-            />
+            <ClientOnly fallback="span">
+              <AppLogoAnimated
+                class="size-10 sm:size-14 overflow-hidden"
+                :is-active="isActive"
+              />
+              <template #fallback>
+                <div class="size-10 sm:size-14 block overflow-hidden" />
+              </template>
+            </ClientOnly>
             <p class="sr-only">
               Home
             </p>
