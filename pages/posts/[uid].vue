@@ -1,3 +1,42 @@
+<script lang="ts" setup>
+import { usePrismic, useRoute, useAsyncData, computed, useHead } from '#imports'
+import AppSkeleton from '~/components/AppSkeleton.vue'
+import { MetaTagKeys } from '~/types/metaTagKeys'
+import { components } from '~/slices'
+
+const { client, asText } = usePrismic()
+const route = useRoute()
+
+const { data: post, pending } = useAsyncData(route.params.uid.toString(), () =>
+  client.getByUID('blog-post', route.params.uid.toString(), { lang: 'en-eu' }),
+)
+
+useHead({
+  title: computed(() => `${asText(post.value?.data.headline) || ''}`),
+  meta: [
+    {
+      hid: MetaTagKeys.DESCRIPTION,
+      name: MetaTagKeys.DESCRIPTION,
+      content: computed(() => `${asText(post.value?.data.description) || ''}`),
+    },
+    {
+      hid: MetaTagKeys.OG_TYPE,
+      property: MetaTagKeys.OG_TYPE,
+      content: 'article',
+    },
+    {
+      hid: MetaTagKeys.OG_DESCRIPTION,
+      property: MetaTagKeys.OG_DESCRIPTION,
+      content: computed(() => `${asText(post.value?.data.description) || ''}`),
+    },
+  ],
+})
+
+const blocks = computed(() => {
+  return [4, 5, 2, 6, 7]
+})
+</script>
+
 <template>
   <div>
     <main class="bg-slate-2 dark:bg-transparent">
@@ -8,10 +47,23 @@
           v-if="pending"
           class="col-span-12 pt-16 md:col-span-10 lg:col-span-10"
         >
-          <AppSkeleton :max-width="100" class="text-4xl sm:text-6xl" />
-          <AppSkeleton :max-width="75" class="mt-4 text-4xl sm:text-6xl" />
-          <div v-for="index in blocks" :key="index" class="mt-8 text-lg">
-            <AppSkeleton v-for="n in index" :key="`${{ n }}-${{ index }}`" />
+          <AppSkeleton
+            :max-width="100"
+            class="text-4xl sm:text-6xl"
+          />
+          <AppSkeleton
+            :max-width="75"
+            class="mt-4 text-4xl sm:text-6xl"
+          />
+          <div
+            v-for="index in blocks"
+            :key="index"
+            class="mt-8 text-lg"
+          >
+            <AppSkeleton
+              v-for="n in index"
+              :key="`${{ n }}-${{ index }}`"
+            />
           </div>
         </div>
         <template v-if="post">
@@ -20,52 +72,17 @@
           >
             {{ asText(post.data.headline) }}
           </h1>
-          <SlicesBlock
+          <SliceZone
+            wrapper="main"
             class="col-span-12 md:col-span-10 lg:col-span-8"
-            :slices="post.data.body"
+            :slices="post?.data.body as any"
+            :components="components"
           />
         </template>
       </section>
     </main>
   </div>
 </template>
-
-<script lang="ts" setup>
-import { usePrismic, useRoute, useAsyncData, computed, useHead } from '#imports'
-import AppSkeleton from '~/components/AppSkeleton.vue'
-import { MetaTagKeys } from '~/types/metaTagKeys'
-const { client, asText } = usePrismic()
-const route = useRoute()
-
-const { data: post, pending } = useAsyncData(route.params.uid.toString(), () =>
-  client.getByUID('blog-post', route.params.uid.toString(), { lang: 'en-eu' })
-)
-
-useHead({
-  title: computed(() => `${asText(post.value?.data.headline) || ''}`),
-  meta: [
-    {
-      hid: MetaTagKeys.DESCRIPTION,
-      name: MetaTagKeys.DESCRIPTION,
-      content: computed(() => `${asText(post.value?.data.description) || ''}`)
-    },
-    {
-      hid: MetaTagKeys.OG_TYPE,
-      property: MetaTagKeys.OG_TYPE,
-      content: 'article'
-    },
-    {
-      hid: MetaTagKeys.OG_DESCRIPTION,
-      property: MetaTagKeys.OG_DESCRIPTION,
-      content: computed(() => `${asText(post.value?.data.description) || ''}`)
-    }
-  ]
-})
-
-const blocks = computed(() => {
-  return [4, 5, 2, 6, 7]
-})
-</script>
 
 <style lang="scss">
 .BlogPost__picture {

@@ -7,7 +7,10 @@
       target="_blank"
     >
       <span class="sr-only">Write me an email</span>
-      <PhPaperPlaneTilt class="h-auto w-6" />
+      <Icon
+        name="ph:paper-plane-tilt"
+        class="size-6"
+      />
     </a>
     <a
       class="flex items-center p-1.5 ring-green-300 transition hover:rotate-6 hover:scale-105 hover:text-green-400 focus:rounded-full focus:bg-slate-1 focus:outline-none focus:ring-2 dark:hover:text-white dark:focus:bg-slate-dark-1 sm:p-2"
@@ -16,7 +19,10 @@
       rel="noreferrer"
     >
       <span class="sr-only">Go to my GitHub profile</span>
-      <PhGithubLogo class="h-auto w-6" />
+      <Icon
+        name="ph:github-logo"
+        class="size-6"
+      />
     </a>
     <a
       class="flex h-full items-center p-1.5 ring-green-300 transition hover:-rotate-6 hover:scale-105 hover:text-green-400 focus:rounded-full focus:bg-slate-1 focus:outline-none focus:ring-2 dark:hover:text-white dark:focus:bg-slate-dark-1 sm:p-2"
@@ -25,7 +31,10 @@
       rel="noreferrer"
     >
       <span class="sr-only">Go to my twitter profile</span>
-      <PhTwitterLogo class="h-auto w-6" />
+      <Icon
+        name="ph:twitter-logo"
+        class="size-6"
+      />
     </a>
     <a
       class="flex h-full items-center p-1.5 ring-green-300 transition hover:-rotate-6 hover:scale-105 hover:text-green-400 focus:rounded-full focus:bg-slate-1 focus:outline-none focus:ring-2 dark:hover:text-white dark:focus:bg-slate-dark-1 sm:p-2"
@@ -34,14 +43,10 @@
       rel="noreferrer"
     >
       <span class="sr-only">Go to my linkedin profile</span>
-      <PhLinkedinLogo class="h-auto w-6" />
+      <Icon
+        name="ph:linkedin-logo"
+        class="size-6"
+      />
     </a>
   </div>
 </template>
-
-<script lang="ts" setup>
-import PhGithubLogo from 'virtual:icons/ph/github-logo'
-import PhPaperPlaneTilt from 'virtual:icons/ph/paper-plane-tilt'
-import PhTwitterLogo from 'virtual:icons/ph/twitter-logo'
-import PhLinkedinLogo from 'virtual:icons/ph/linkedin-logo'
-</script>

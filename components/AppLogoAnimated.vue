@@ -1,3 +1,37 @@
+<script lang="ts" setup>
+import anime from 'animejs'
+import blobshape from 'blobshape'
+
+defineProps<{
+  isActive: boolean
+}>()
+
+function getSvgPath() {
+  return blobshape({
+    size: 100,
+    growth: 5,
+    edges: 10,
+    seed: null,
+  }).path
+}
+
+const svgPath = ref('M76.5,60Q78,70,69.5,77.5Q61,85,48.5,88.5Q36,92,29.5,81Q23,70,13,60Q3,50,15,42Q27,34,34,28.5Q41,23,51,19Q61,15,68,23.5Q75,32,75,41Q75,50,76.5,60Z')
+
+function animatePath() {
+  const newPath = getSvgPath()
+  animate(newPath || svgPath.value)
+  svgPath.value = newPath
+}
+
+function animate(newSvgPath: string) {
+  anime({
+    targets: '#morphing-path',
+    d: [{ value: newSvgPath }],
+    easing: 'spring(1, 80, 15, 20)',
+  })
+}
+</script>
+
 <template>
   <svg
     id="morphing"
@@ -9,6 +43,7 @@
     :class="[
       isActive ? 'text-green-500' : 'text-slate-12 dark:text-slate-dark-12',
     ]"
+    @click="animatePath"
   >
     <path
       id="morphing-path"
@@ -17,7 +52,7 @@
       stroke-linecap="round"
       stroke-linejoin="round"
       stroke-width="0"
-      :d="renderedSvgPath"
+      :d="svgPath"
     />
     <path
       id="morphing-path"
@@ -25,29 +60,7 @@
       stroke-linecap="round"
       stroke-linejoin="round"
       stroke-width="6"
-      :d="renderedSvgPath"
+      :d="svgPath"
     />
   </svg>
 </template>
-
-<script lang="ts" setup>
-import anime from 'animejs'
-import { ref, watch } from '#imports'
-
-const props = defineProps<{ svgPath: string; isActive: boolean }>()
-
-const renderedSvgPath = ref(props.svgPath)
-
-const animate = (newSvgPath: string) => {
-  anime({
-    targets: '#morphing-path',
-    d: [{ value: newSvgPath }],
-    easing: 'spring(1, 80, 15, 20)'
-  })
-}
-
-watch(
-  () => props.svgPath,
-  (newSvgPath, oldSvgPath) => animate(newSvgPath || oldSvgPath)
-)
-</script>

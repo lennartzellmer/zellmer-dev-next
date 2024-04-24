@@ -1,0 +1,36 @@
+{
+  "id": "project",
+  "label": "project",
+  "repeatable": true,
+  "json": {
+    "Main": {
+      "title": {
+        "type": "Text",
+        "config": {
+          "label": "Title"
+        }
+      },
+      "description": {
+        "type": "Text",
+        "config": {
+          "label": "Description"
+        }
+      },
+      "link": {
+        "type": "Link",
+        "config": {
+          "label": "Link",
+          "select": null
+        }
+      },
+      "readable_url": {
+        "type": "Text",
+        "config": {
+          "label": "Readable URL"
+        }
+      }
+    }
+  },
+  "status": true,
+  "format": "custom"
+}

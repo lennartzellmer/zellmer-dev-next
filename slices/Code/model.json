@@ -1,0 +1,48 @@
+{
+  "id": "code",
+  "type": "SharedSlice",
+  "name": "Code",
+  "description": "Code",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "code": {
+          "type": "StructuredText",
+          "config": {
+            "label": "code",
+            "placeholder": "",
+            "allowTargetBlank": false,
+            "single": "preformatted"
+          }
+        },
+        "language": {
+          "type": "Select",
+          "config": {
+            "label": "Language",
+            "placeholder": "",
+            "options": [
+              "js",
+              "ts",
+              "css",
+              "json",
+              "html",
+              "vue",
+              "vue-html"
+            ],
+            "default_value": "js"
+          }
+        }
+      },
+      "items": {}
+    }
+  ],
+  "legacyPaths": {
+    "blog-post::body::code": "default"
+  }
+}

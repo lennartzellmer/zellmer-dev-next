@@ -1,37 +1,40 @@
-<template>
-  <NuxtErrorBoundary>
-    <main class="bg-slate-2 dark:bg-transparent">
-      <section v-if="page" class="mx-auto max-w-5xl grid-cols-12 gap-8 px-4 pt-12 sm:grid sm:px-6 lg:px-4">
-        <article class="prismic-text col-span-7 pb-12">
-          <PrismicRichText class="my-8" :field="page.data.title" />
-          <PrismicRichText class="my-8" :field="page.data.text" />
-        </article>
-      </section>
-    </main>
-  </NuxtErrorBoundary>
-</template>
-
 <script lang="ts" setup>
-import { useAsyncData, useRoute, usePrismic, useHead, computed } from '#imports'
+import { components } from '~/slices'
 
-const { client, asText } = usePrismic()
+const { client } = usePrismic()
 const route = useRoute()
 
 const { data: page } = await useAsyncData(route.params.uid.toString(), () =>
   client.getByUID('default_page', route.params.uid.toString(), {
-    lang: 'en-eu'
-  })
+    lang: 'en-eu',
+  }),
 )
 
 if (!page.value) {
-  throw createError({ statusCode: 404, statusMessage: 'Page Not Found' })
+  throw createError({ statusCode: 404, statusMessage: 'Meh, this page might used to exists... but now it is gone. Nothing is forever.' })
 }
 
 useHead({
-  title: computed(() => `${asText(page.value?.data.title) || ''}`)
+  title: computed(() => `${page.value?.data.meta_title || ''}`),
 })
-
 </script>
+
+<template>
+  <main class="bg-slate-2 dark:bg-transparent">
+    <section
+      v-if="page"
+      class="mx-auto max-w-5xl grid-cols-12 gap-8 px-4 pt-12 sm:grid sm:px-6 lg:px-4"
+    >
+      <div class="prismic-text col-span-7 pb-12">
+        <SliceZone
+          wrapper="article"
+          :slices="page?.data.slices as any"
+          :components="components"
+        />
+      </div>
+    </section>
+  </main>
+</template>
 
 <style lang="scss">
 .prismic-text {

@@ -16,7 +16,10 @@
       </span>
     </h2>
     <p class="relative w-full z-10 mt-2 text-sm text-slate-11 dark:text-slate-dark-11">
-      <AppSkeleton v-for="index in 2" :key="index" />
+      <AppSkeleton
+        v-for="index in 2"
+        :key="index"
+      />
     </p>
     <p
       class="relative w-full z-10 mt-6 flex text-sm font-medium text-slate-9 transition group-hover:text-green-500 dark:text-slate-dark-9"

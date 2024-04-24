@@ -1,61 +1,47 @@
-import { defineNuxtConfig } from 'nuxt/config'
-import Icons from 'unplugin-icons/vite'
-import { FileSystemIconLoader } from 'unplugin-icons/loaders'
-
+// https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  devtools: { enabled: true },
   modules: [
+    'nuxt-icon',
+    '@nuxtjs/prismic',
+    '@nuxt/image',
+    '@nuxtjs/tailwindcss',
+    '@nuxt/eslint',
+    '@nuxt/fonts',
     '@nuxtjs/color-mode',
-    '@nuxt/image-edge',
-    [
-      '@nuxtjs/google-fonts',
-      {
-        download: true,
-        families: {
-          'JetBrains Mono': [400, 600, 800]
-        }
-      }
-    ],
-    ['@nuxtjs/tailwindcss'],
-    [
-      '@nuxtjs/prismic',
-      {
-        toolbar: false,
-        preview: false,
-        endpoint: 'https://zellmer-dev.cdn.prismic.io/api/v2',
-        linkResolver: '~/app/prismic/linkResolver.js'
-      }
-    ]
+    'nuxt-shiki',
   ],
-
-  colorMode: {
-    classSuffix: ''
+  shiki: {
+    defaultTheme: 'houston',
   },
-
+  prismic: {
+    endpoint: 'zellmer-dev',
+    preview: false,
+    toolbar: false,
+  },
+  tailwindcss: {
+    exposeConfig: true,
+    viewer: true,
+  },
+  colorMode: {
+    classSuffix: '',
+  },
   image: {
     provider: 'prismic',
+    prismic: {},
     screens: {
-      xs: 345,
-      sm: 640,
-      md: 768,
-      lg: 1024,
-      xl: 1280,
-      xxl: 1536,
-      '2xl': 1536
-    }
+      'xs': 345,
+      'sm': 640,
+      'md': 768,
+      'lg': 1024,
+      'xl': 1280,
+      'xxl': 1536,
+      '2xl': 1536,
+    },
   },
-
-  vite: {
-    plugins: [
-      Icons({
-        compiler: 'vue3',
-
-        customCollections: {
-          elvah: FileSystemIconLoader('./assets/icons')
-        }
-      })
-    ],
-    optimizeDeps: {
-      include: ['@highlightjs/vue-plugin']
-    }
-  }
+  eslint: {
+    config: {
+      stylistic: true,
+    },
+  },
 })

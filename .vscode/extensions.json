@@ -1,10 +1,10 @@
 {
   "recommendations": [
-    "antfu.vite",
     "antfu.iconify",
-    "dbaeumer.vscode-eslint",
-    "voorjaar.windicss-intellisense",
+    "antfu.goto-alias",
     "csstools.postcss",
-    "lokalise.i18n-ally"
+    "dbaeumer.vscode-eslint",
+    "vue.volar",
+    "bradlc.vscode-tailwindcss"
   ]
 }

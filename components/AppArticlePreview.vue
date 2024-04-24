@@ -1,34 +1,37 @@
-<script lang="ts" setup>
-import PhCaretRight from 'virtual:icons/ph/caret-right-bold'
+<script setup lang="ts">
+import type { BlogPostDocument } from '~/prismicio-types'
 
-const props = defineProps<{
-  post: any
-}>()
+const props = defineProps<Props>()
+
+interface Props {
+  post: BlogPostDocument<string>
+}
 
 const formattedDate = new Date(
-  props.post.first_publication_date
+  props.post.first_publication_date,
 ).toLocaleDateString('en-EN', {
   year: 'numeric',
-  month: 'long'
+  month: 'long',
 })
 </script>
 
 <template>
-  <NuxtLink
+  <PrismicLink
     class="group flex cursor-pointer flex-col py-8 focus:outline-none sm:flex-row"
-    :to="'/posts/' + props.post.uid"
+    :field="props.post"
   >
     <div
       class="relative z-20 hidden h-36 w-full shrink-0 overflow-hidden rounded-lg bg-slate-1 transition-all dark:bg-slate-dark-1 sm:flex sm:h-auto sm:w-48 sm:group-hover:w-52 sm:group-focus:w-52"
     >
       <nuxt-picture
         loading="lazy"
-        :src="props.post.data.thumbnail.url"
-        :alt="props.post.data.thumbnail.alt"
+        :src="props.post.data.thumbnail.url || ''"
+        :alt="props.post.data.thumbnail.alt || ''"
         fit="crop"
         height="250"
         width="250"
-        class="AppArticlePreview__picture transition-all group-hover:brightness-100 dark:brightness-90"
+        class="flex w-full object-cover transition-all group-hover:brightness-100 dark:brightness-90"
+        :img-attrs="{ class: 'object-cover' }"
         sizes="xs:150px sm:250px lg:400px"
       />
     </div>
@@ -50,19 +53,11 @@ const formattedDate = new Date(
       </p>
       <div class="mt-4 flex items-center space-x-1 text-green-500">
         <p>Read article</p>
-        <PhCaretRight class="h-auto w-4" />
+        <Icon
+          name="ph:caret-right-bold"
+          class="h-auto w-4"
+        />
       </div>
     </article>
-  </NuxtLink>
+  </PrismicLink>
 </template>
-
-<style lang="scss">
-.AppArticlePreview__picture {
-  display: flex;
-  object-fit: cover;
-  width: 100%;
-  img {
-    @apply object-cover;
-  }
-}
-</style>

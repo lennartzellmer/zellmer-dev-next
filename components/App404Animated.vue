@@ -31,7 +31,7 @@ const getSvgPath = () =>
     size: 100,
     growth: 5,
     edges: 10,
-    seed: null
+    seed: null,
   }).path
 
 const animateNow = () => {
@@ -39,7 +39,7 @@ const animateNow = () => {
   anime({
     targets: `#${RANDOM_CLASS}`,
     d: [{ value: newSvgPath }],
-    easing: 'spring(1, 90, 15, 10)'
+    easing: 'spring(1, 90, 15, 10)',
   })
 }
 

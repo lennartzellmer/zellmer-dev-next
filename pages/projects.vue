@@ -1,3 +1,15 @@
+<script lang="ts" setup>
+useHead({
+  title: 'Projects',
+})
+
+const { client } = usePrismic()
+
+const { data: projects, pending } = useAsyncData('projects', () =>
+  client.getAllByType('project', { lang: 'en-eu' }),
+)
+</script>
+
 <template>
   <section class="mx-auto mt-8 w-full max-w-5xl px-4 sm:mt-32 lg:px-0">
     <header class="max-w-2xl">
@@ -19,31 +31,16 @@
           <AppProjectCard
             v-for="project in projects"
             :key="project.id"
-            :title="project.data.title"
-            :description="project.data.description"
-            :href="project.data.link.url"
-            :readable-url="project.data.readable_url"
+            :project="project"
           />
         </template>
         <template v-if="pending">
-          <SkeletonsProjectCard v-for="index in 6" :key="index" />
+          <SkeletonsProjectCard
+            v-for="index in 6"
+            :key="index"
+          />
         </template>
       </ul>
     </div>
   </section>
 </template>
-
-<script lang="ts" setup>
-import AppProjectCard from '~/components/AppProjectCard.vue'
-import { useAsyncData, useHead, usePrismic } from '#imports'
-
-useHead({
-  title: 'Projects'
-})
-
-const { client } = usePrismic()
-
-const { data: projects, pending } = useAsyncData('projects', () =>
-  client.getAllByType('project', { lang: 'en-eu' })
-)
-</script>

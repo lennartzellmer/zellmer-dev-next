@@ -1,0 +1,35 @@
+{
+  "id": "bio",
+  "label": "bio",
+  "repeatable": false,
+  "json": {
+    "Main": {
+      "profile_image": {
+        "type": "Image",
+        "config": {
+          "constraint": {},
+          "thumbnails": [],
+          "label": "Profile Image"
+        }
+      },
+      "bio_text": {
+        "type": "StructuredText",
+        "config": {
+          "multi": "paragraph,preformatted,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+          "allowTargetBlank": true,
+          "label": "Bio Text",
+          "labels": ["line-through"]
+        }
+      },
+      "current_location": {
+        "type": "GeoPoint",
+        "config": {
+          "label": "Current Location"
+        }
+      }
+    }
+  },
+  "hash": "a7770d6fe846177d79960341c39c6354",
+  "status": true,
+  "format": "custom"
+}

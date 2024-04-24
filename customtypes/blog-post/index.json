@@ -1,0 +1,218 @@
+{
+  "id": "blog-post",
+  "label": "blog-post",
+  "repeatable": true,
+  "hash": "a8257949a02cc5ef69e7ba6bd3d9bcee",
+  "status": true,
+  "format": "custom",
+  "json": {
+    "Main": {
+      "body": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {
+            "text": {
+              "type": "SharedSlice"
+            },
+            "code": {
+              "type": "SharedSlice"
+            },
+            "image": {
+              "type": "SharedSlice"
+            }
+          }
+        }
+      }
+    },
+    "Overview": {
+      "uid": {
+        "type": "UID",
+        "config": {
+          "label": "uid"
+        }
+      },
+      "headline": {
+        "type": "StructuredText",
+        "config": {
+          "single": "heading1",
+          "label": "headline",
+          "placeholder": "My new blogpost"
+        }
+      },
+      "thumbnail": {
+        "type": "Image",
+        "config": {
+          "constraint": {
+            "width": 800,
+            "height": 800
+          },
+          "thumbnails": [],
+          "label": "thumbnail"
+        }
+      },
+      "description": {
+        "type": "StructuredText",
+        "config": {
+          "multi": "paragraph",
+          "label": "description",
+          "placeholder": "Add description for overview"
+        }
+      }
+    },
+    "Social Cards": {
+      "social": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {
+            "general_card": {
+              "type": "Slice",
+              "fieldset": "General Card",
+              "description": "General Social card for Facebook, LinkedIn, Google+, etc.",
+              "icon": "art_track",
+              "non-repeat": {
+                "title": {
+                  "type": "StructuredText",
+                  "config": {
+                    "single": "heading1",
+                    "label": "Title",
+                    "placeholder": "Title..."
+                  }
+                },
+                "description": {
+                  "type": "StructuredText",
+                  "config": {
+                    "single": "paragraph",
+                    "label": "Description",
+                    "placeholder": "Description..."
+                  }
+                },
+                "image": {
+                  "type": "Image",
+                  "config": {
+                    "constraint": {
+                      "width": 1200,
+                      "height": 650
+                    },
+                    "thumbnails": [],
+                    "label": "Image"
+                  }
+                }
+              },
+              "repeat": {}
+            },
+            "twitter_card": {
+              "type": "Slice",
+              "fieldset": "Twitter Card",
+              "description": "Twitter summary card with image",
+              "icon": "subtitles",
+              "non-repeat": {
+                "card_type": {
+                  "type": "Select",
+                  "config": {
+                    "options": [
+                      "Standard Summary Card",
+                      "Summary Card with Large Image"
+                    ],
+                    "default_value": "Standard Summary Card",
+                    "label": "Card type"
+                  }
+                },
+                "twitter_handle": {
+                  "type": "Text",
+                  "config": {
+                    "label": "Twitter Handle",
+                    "placeholder": "Twitter handle..."
+                  }
+                },
+                "title": {
+                  "type": "StructuredText",
+                  "config": {
+                    "single": "paragraph",
+                    "label": "Title",
+                    "placeholder": "Twitter Card Title..."
+                  }
+                },
+                "description": {
+                  "type": "StructuredText",
+                  "config": {
+                    "single": "paragraph",
+                    "label": "Description",
+                    "placeholder": "Twitter Card Description..."
+                  }
+                },
+                "image": {
+                  "type": "Image",
+                  "config": {
+                    "constraint": {
+                      "width": 300,
+                      "height": 300
+                    },
+                    "thumbnails": [
+                      {
+                        "name": "large_image",
+                        "width": 600,
+                        "height": 314
+                      }
+                    ],
+                    "label": "Image"
+                  }
+                }
+              },
+              "repeat": {}
+            },
+            "pinterest_product_pin": {
+              "type": "Slice",
+              "fieldset": "Pinterest Product Pin",
+              "description": "Product summary pin for Pinterest",
+              "icon": "loyalty",
+              "non-repeat": {
+                "title": {
+                  "type": "StructuredText",
+                  "config": {
+                    "single": "heading1",
+                    "label": "Title",
+                    "placeholder": "Title..."
+                  }
+                },
+                "description": {
+                  "type": "StructuredText",
+                  "config": {
+                    "single": "paragraph",
+                    "label": "Description",
+                    "placeholder": "Description..."
+                  }
+                },
+                "price": {
+                  "type": "Number",
+                  "config": {
+                    "label": "Price",
+                    "placeholder": "Enter Product Price..."
+                  }
+                },
+                "currency": {
+                  "type": "Select",
+                  "config": {
+                    "options": ["USD", "Euro"],
+                    "default_value": "USD",
+                    "label": "Currency"
+                  }
+                },
+                "availability": {
+                  "type": "Select",
+                  "config": {
+                    "options": ["In-stock", "Out of stock"],
+                    "default_value": "In-stock",
+                    "label": "Availability"
+                  }
+                }
+              },
+              "repeat": {}
+            }
+          }
+        }
+      }
+    }
+  }
+}
