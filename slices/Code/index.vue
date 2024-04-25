@@ -36,6 +36,6 @@ defineProps(
 <style lang="scss">
 .shiki {
   white-space: pre-wrap;
-  @apply p-8 rounded-lg shadow-md ring-4 ring-slate-3;
+  @apply p-8 rounded-lg shadow-md ring-4 ring-slate-3 dark:ring-slate-dark-3;
 }
 </style>

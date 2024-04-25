@@ -21,7 +21,7 @@ defineProps(
     :data-slice-variation="slice.variation"
   >
     <prismic-rich-text
-      class="prismic-rich-text prose mt-8 break-words prose-a:font-mono prose-a:text-black dark:prose-a:text-white"
+      class="prismic-rich-text prose dark:prose-invert mt-8 break-words prose-a:font-mono prose-a:text-black dark:prose-a:text-white"
       :field="slice.primary.text"
     />
   </section>
