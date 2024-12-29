@@ -1,7 +1,5 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script setup lang="ts">
-import { type Content } from '@prismicio/client'
-
 const { client } = usePrismic()
 const { data: posts } = useAsyncData('blog-posts-preview', () =>
   client.getByType('blog-post', {
@@ -15,7 +13,7 @@ const { data: posts } = useAsyncData('blog-posts-preview', () =>
 // The array passed to `getSliceComponentProps` is purely optional.
 // Consider it as a visual hint for you when templating your slice.
 defineProps(
-  getSliceComponentProps<Content.LatestBlogPostsSlice>([
+  getSliceComponentProps([
     'slice',
     'index',
     'slices',

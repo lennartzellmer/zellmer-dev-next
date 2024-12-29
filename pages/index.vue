@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { components } from '~/slices'
-
 const prismic = usePrismic()
 const { data: page } = useAsyncData('home', () =>
   prismic.client.getSingle('home'),
@@ -24,10 +22,7 @@ defineOgImageComponent('DefaultPage', {
 
 <template>
   <main>
-    <SliceZone
-      wrapper="main"
-      :slices="page?.data.slices || [] as any"
-      :components="components"
-    />
+    <HomeHeader />
+    <LatestBlogPosts />
   </main>
 </template>

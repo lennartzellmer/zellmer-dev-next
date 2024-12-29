@@ -1,17 +1,11 @@
 <script lang="ts" setup>
+import type { Post } from '~/types/content'
+
 useHead({
   title: 'Articles',
 })
 
-const { client } = usePrismic()
-const { data: posts, pending } = useAsyncData('blog-posts', () =>
-  client.getByType('blog-post', {
-    lang: 'en-eu',
-    orderings: [
-      { field: 'document.first_publication_date', direction: 'desc' },
-    ],
-  }),
-)
+const { data: posts, status } = await useAsyncData('all-blog-posts', () => queryContent<Post>('posts').find())
 </script>
 
 <template>
@@ -30,14 +24,14 @@ const { data: posts, pending } = useAsyncData('blog-posts', () =>
     <ul class="mt-8">
       <template v-if="posts">
         <li
-          v-for="post in posts.results"
-          :key="post.id"
+          v-for="post in posts"
+          :key="post._id"
           class="border-b border-slate-4 last:border-0 dark:border-slate-dark-2"
         >
           <AppArticlePreview :post="post" />
         </li>
       </template>
-      <template v-if="pending">
+      <template v-if="status === 'pending'">
         <li
           v-for="index in 7"
           :key="index"

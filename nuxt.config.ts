@@ -1,8 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  devtools: {
-    enabled: true,
-  },
+
   modules: [
     'nuxt-icon',
     '@nuxtjs/prismic',
@@ -11,31 +9,44 @@ export default defineNuxtConfig({
     '@nuxt/eslint',
     '@nuxt/fonts',
     '@nuxtjs/color-mode',
-    'nuxt-shiki',
     'nuxt-og-image',
+    '@nuxt/content',
   ],
-  shiki: {
-    defaultTheme: 'houston',
+  devtools: {
+    enabled: true,
   },
+
   site: {
     // production URL for OG Image generation
     url: 'https://lennart.zellmer.dev',
   },
-  prismic: {
-    endpoint: 'zellmer-dev',
-    preview: false,
-    toolbar: false,
-  },
-  tailwindcss: {
-    exposeConfig: true,
-    viewer: true,
-  },
+
   colorMode: {
     classSuffix: '',
   },
+
+  content: {
+    highlight: {
+      // Theme used in all color schemes.
+      theme: {
+        // Default theme (same as single string)
+        default: 'github-light',
+        // Theme used if `html.dark`
+        dark: 'github-dark',
+      },
+    },
+  },
+
+  compatibilityDate: '2024-12-27',
+
+  eslint: {
+    config: {
+      stylistic: true,
+    },
+  },
+
   image: {
-    provider: 'prismic',
-    prismic: {},
+    provider: 'ipx',
     screens: {
       'xs': 345,
       'sm': 640,
@@ -46,9 +57,15 @@ export default defineNuxtConfig({
       '2xl': 1536,
     },
   },
-  eslint: {
-    config: {
-      stylistic: true,
-    },
+
+  prismic: {
+    endpoint: 'zellmer-dev',
+    preview: false,
+    toolbar: false,
+  },
+
+  tailwindcss: {
+    exposeConfig: true,
+    viewer: true,
   },
 })

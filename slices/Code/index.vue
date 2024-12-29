@@ -1,6 +1,6 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <script setup lang="ts">
-import { type Content } from '@prismicio/client'
+import type { Content } from '@prismicio/client'
 import { asText } from '@prismicio/client'
 import AppCopyButton from '~/components/AppCopyButton.vue'
 
@@ -32,10 +32,3 @@ defineProps(
     />
   </div>
 </template>
-
-<style lang="scss">
-.shiki {
-  white-space: pre-wrap;
-  @apply p-8 rounded-lg shadow-md ring-4 ring-slate-3 dark:ring-slate-dark-3;
-}
-</style>

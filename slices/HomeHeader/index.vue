@@ -62,11 +62,12 @@ function getRotateClass(index: number) {
             loading="lazy"
             :src="media.image.url!"
             height="330"
+            
             width="300"
             :img-attrs="{ class: 'object-cover' }"
             class="flex w-full object-cover"
             sizes="xs:150px sm:300px xl:500px"
-            :modifiers="{ duotone: '002E2B,EBF3EC' }"
+            :modifiers="{ grayscale: true, tint: '#00DC82' }"
           />
         </div>
       </div>

@@ -26,13 +26,13 @@
     </a>
     <a
       class="flex h-full items-center p-1.5 ring-green-300 transition hover:-rotate-6 hover:scale-105 hover:text-green-400 focus:rounded-full focus:bg-slate-1 focus:outline-none focus:ring-2 dark:hover:text-white dark:focus:bg-slate-dark-1 sm:p-2"
-      href="https://twitter.com/ZuTeilen"
+      href="https://bsky.app/profile/zellart.bsky.social"
       target="_blank"
       rel="noreferrer"
     >
       <span class="sr-only">Go to my twitter profile</span>
       <Icon
-        name="ph:twitter-logo"
+        name="ph:butterfly"
         class="size-6"
       />
     </a>
