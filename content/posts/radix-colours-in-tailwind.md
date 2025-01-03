@@ -3,7 +3,7 @@ title: "Using Radix Colors in TailwindCSS"
 description: "Radix colors are an insanely versatile UI library for colors. Actually it is meant for React/vanillaJS but can also be used beautifully in projects with Tailwind."
 seo_title: "How to integrate Tailwind's and Radix's color systems using an easy mapping layer."
 seo_description: "How to integrate Tailwind's and Radix's color systems using an easy mapping layer."
-thumbnail: /blogpost_radix.jpeg
+thumbnail: /posts/blogpost_radix.jpeg
 slug: radix-colours-in-tailwind
 ---
 

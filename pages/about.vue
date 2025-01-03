@@ -1,43 +1,39 @@
 <script lang="ts" setup>
-import { useAsyncData, useHead, usePrismic } from '#imports'
 import AppSocialLinks from '~/components/AppSocialLinks.vue'
 
+const { data, status } = await useAsyncData('about_data', () => queryContent('/').where({ _file: 'bio.md' }).findOne())
+
 useHead({
-  title: 'About',
+  title: computed(() => `${data.value?.title || ''}`),
 })
-
-const { client } = usePrismic()
-
-const { data: bio, pending } = useAsyncData('bio', () =>
-  client.getSingle('bio', { lang: 'en-eu' }),
-)
 </script>
 
 <template>
   <section>
     <div class="py-12 relative mx-auto max-w-2xl px-4 lg:max-w-5xl">
-      <div v-if="bio">
+      <div v-if="data">
         <div
           class="grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-12"
         >
-          <PrismicRichText
-            class="prismic-text-dark lg:order-first lg:row-span-2"
-            :field="bio.data.bio_text"
+          <ContentRendererMarkdown
+            :value="data"
+            class="prose dark:prose-invert prose-headings:text-5xl lg:order-first lg:row-span-2"
           />
           <div
             class="order-first aspect-square max-w-xs rotate-3 px-2.5 lg:max-w-none lg:pl-20"
           >
-            <PrismicImage
-              :imgix-params="{ fit: 'crop', h: 800, w: 800 }"
-              :pixel-densities="[1, 2]"
-              :field="bio.data.profile_image"
+            <NuxtImg
+              :src="data.image"
+              :width="800"
+              :height="800"
               class="self-start rounded-xl object-contain"
+              :modifiers="{ tint: '#08121a' }"
             />
             <AppSocialLinks class="mt-2" />
           </div>
         </div>
       </div>
-      <div v-if="pending">
+      <div v-if="status === 'pending'">
         <div
           class="grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-12"
         >

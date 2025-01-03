@@ -1,8 +1,8 @@
 <script lang="ts" setup>
-import type { ProjectDocument } from '~/prismicio-types'
+import type { Project } from '~/types/content'
 
 defineProps<{
-  project: ProjectDocument<string>
+  project: Project
 }>()
 </script>
 
@@ -15,17 +15,21 @@ defineProps<{
         <div
           class="absolute -inset-y-3 -inset-x-4 z-0 scale-95 bg-slate-3 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 dark:bg-slate-dark-2 sm:-inset-x-6 sm:rounded-xl"
         />
-        <PrismicLink :field="project.data.link">
+        <a
+          :href="project.link"
+          _blank="true"
+          rel="noopener noreferrer"
+        >
           <span
             class="absolute -inset-y-6 -inset-x-4 z-20 sm:-inset-x-6 sm:rounded-2xl"
           />
           <span class="relative z-10">
-            {{ project.data.title }}
+            {{ project.title }}
           </span>
-        </PrismicLink>
+        </a>
       </h2>
       <p class="relative z-10 mt-2 text-sm text-slate-11 dark:text-slate-dark-11">
-        {{ project.data.description }}
+        {{ project.description }}
       </p>
     </div>
     <p
@@ -35,7 +39,7 @@ defineProps<{
         name="ph:link"
         class="h-5 w-5 flex-none"
       />
-      <span class="ml-2">{{ project.data.readable_url }}</span>
+      <span class="ml-2">{{ project.readable_url }}</span>
     </p>
   </li>
 </template>

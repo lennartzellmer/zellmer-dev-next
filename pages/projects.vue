@@ -1,13 +1,11 @@
 <script lang="ts" setup>
+import type { Project } from '~/types/content'
+
 useHead({
   title: 'Projects',
 })
 
-const { client } = usePrismic()
-
-const { data: projects, pending } = useAsyncData('projects', () =>
-  client.getAllByType('project', { lang: 'en-eu' }),
-)
+const { data: projects, status } = await useAsyncData('all-projects', () => queryContent<Project>('projects').find())
 </script>
 
 <template>
@@ -34,7 +32,7 @@ const { data: projects, pending } = useAsyncData('projects', () =>
             :project="project"
           />
         </template>
-        <template v-if="pending">
+        <template v-if="status === 'pending'">
           <SkeletonsProjectCard
             v-for="index in 6"
             :key="index"

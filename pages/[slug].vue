@@ -2,9 +2,9 @@
 import type { Post } from '~/types/content'
 
 const { slug } = useRoute().params
-const { data: page } = await useAsyncData(slug.toString(), () => queryContent<Post>('/').where({ slug }).findOne())
+const { data: page, error } = await useAsyncData(slug.toString(), () => queryContent<Post>('/pages').where({ slug }).findOne())
 
-if (!page.value) {
+if (error) {
   throw createError({ statusCode: 404, statusMessage: 'Meh, this page might used to exists... but now it is gone. Nothing is forever.' })
 }
 
@@ -21,7 +21,7 @@ useHead({
     >
       <ContentRendererMarkdown
         :value="page"
-        class="prismic-text col-span-7 pb-12 prose"
+        class="prose dark:prose-invert prismic-text col-span-7 pb-12"
       />
     </section>
   </main>
@@ -42,7 +42,7 @@ useHead({
   }
 
   a {
-    @apply font-mono leading-relaxed text-slate-8 underline hover:text-slate-5 dark:text-slate-dark-8;
+    @apply font-mono leading-relaxed text-slate-10 underline hover:text-slate-11 dark:hover:text-slate-dark-11 dark:text-slate-dark-10;
   }
 }
 </style>

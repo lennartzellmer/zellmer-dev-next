@@ -28,7 +28,12 @@ const { data: posts, status } = await useAsyncData('all-blog-posts', () => query
           :key="post._id"
           class="border-b border-slate-4 last:border-0 dark:border-slate-dark-2"
         >
-          <AppArticlePreview :post="post" />
+          <AppArticlePreview
+            :title="post.title"
+            :description="post.description"
+            :slug="post.slug"
+            :thumbnail="post.thumbnail"
+          />
         </li>
       </template>
       <template v-if="status === 'pending'">

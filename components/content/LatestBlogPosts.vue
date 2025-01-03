@@ -2,32 +2,51 @@
 <script setup lang="ts">
 import type { Post } from '~/types/content'
 
-const { data: posts } = await useAsyncData('latest-blog-posts', () => queryContent<Post>('posts').find())
+const postsQuery = queryContent<Post>().where({
+  _path: { $contains: '/posts' },
+}).limit(3)
+const postsQueryTeaser = queryContent<Post>().where({
+  _path: { $contains: '/posts' },
+}).limit(3).skip(3)
 </script>
 
 <template>
   <section
     class="mx-auto mt-4 max-w-5xl px-4 sm:mt-8 md:mt-28"
   >
-    <ul
-      v-if="posts"
-      class=""
-    >
-      <li
-        v-for="post in posts"
-        :key="post._id"
-        class="border-b border-slate-4 last:border-0 dark:border-slate-dark-2"
+    <ul>
+      <ContentNavigation
+        v-slot="{ navigation }"
+        :query="postsQuery"
       >
-        <AppArticlePreview :post="post" />
-      </li>
-      <li>
+        <li
+          v-for="entry in navigation"
+          :key="entry._id"
+          class="border-b border-slate-4 last:border-0 dark:border-slate-dark-2"
+        >
+          <AppArticlePreview
+            v-for="post in entry.children"
+            :key="post._id"
+            :title="post.title"
+            :description="post.description"
+            :slug="post.slug"
+            :thumbnail="post.thumbnail"
+          />
+        </li>
+      </ContentNavigation>
+      <ContentNavigation
+        v-slot="{ navigation }"
+        :query="postsQueryTeaser"
+      >
         <NuxtLink
+          v-for="entry in navigation"
+          :key="entry._id"
           class="group flex cursor-pointer flex-row items-center py-8 focus:outline-none"
           to="/articles"
         >
           <div
-            v-for="post in posts.slice(3, posts.length)"
-            :key="post.id"
+            v-for="post in entry.children"
+            :key="post._id"
             class="relative z-20 -mr-6 flex h-auto w-12 shrink-0 overflow-hidden rounded-xl bg-slate-6 shadow-md ring ring-slate-1 transition-all dark:bg-slate-dark-6 dark:ring-slate-dark-4 sm:-mr-8 sm:w-16 sm:group-hover:-mr-7"
           >
             <NuxtPicture
@@ -50,7 +69,7 @@ const { data: posts } = await useAsyncData('latest-blog-posts', () => queryConte
             />
           </span>
         </NuxtLink>
-      </li>
+      </ContentNavigation>
     </ul>
   </section>
 </template>

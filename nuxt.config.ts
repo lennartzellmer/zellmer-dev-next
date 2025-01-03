@@ -26,6 +26,12 @@ export default defineNuxtConfig({
   },
 
   content: {
+    markdown: {
+      anchorLinks: false,
+    },
+    navigation: {
+      fields: ['title', 'description', 'thumbnail'],
+    },
     highlight: {
       // Theme used in all color schemes.
       theme: {

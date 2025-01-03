@@ -73,7 +73,17 @@ const blocks = computed(() => {
             {{ post.title }}
           </h1>
           <ContentRendererMarkdown
-            class="col-span-12 md:col-span-10 lg:col-span-8 prose dark:prose-invert dark:prose-pre:bg-gray-dark-3 prose-pre:bg-gray-3"
+            class="col-span-12
+            md:col-span-10
+            lg:col-span-8
+            prose
+            dark:prose-invert
+            dark:prose-pre:bg-gray-dark-3
+            dark:prose-pre:text-gray-dark-12
+            prose-pre:bg-gray-3
+            prose-pre:text-gray-12
+            dark:prose-code:bg-gray-dark-3
+            prose-code:bg-gray-3"
             :value="post"
           />
         </template>
