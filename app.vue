@@ -2,7 +2,7 @@
 import { MetaTagKeys } from '~/types/metaTagKeys'
 
 useHead({
-  titleTemplate: (titleChunk: string) => {
+  titleTemplate: (titleChunk: unknown) => {
     return titleChunk ? `${titleChunk} - Zellmer.dev` : 'Zellmer.dev'
   },
   meta: [
