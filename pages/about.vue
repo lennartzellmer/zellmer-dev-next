@@ -24,8 +24,8 @@ useHead({
           >
             <NuxtImg
               :src="data.image"
-              :width="800"
-              :height="800"
+              width="800"
+              height="800"
               class="self-start rounded-xl object-contain"
               :modifiers="{ tint: '#08121a' }"
             />

@@ -30,7 +30,7 @@ export default defineNuxtConfig({
       anchorLinks: false,
     },
     navigation: {
-      fields: ['title', 'description', 'thumbnail'],
+      fields: ['title', 'description', 'thumbnail', 'slug'],
     },
     highlight: {
       // Theme used in all color schemes.
@@ -52,14 +52,14 @@ export default defineNuxtConfig({
   },
 
   image: {
-    provider: 'ipx',
+    provider: 'vercel',
     screens: {
       'xs': 345,
       'sm': 640,
-      'md': 768,
+      'md': 800,
       'lg': 1024,
       'xl': 1280,
-      'xxl': 1536,
+      'xxl': 1600,
       '2xl': 1536,
     },
   },
