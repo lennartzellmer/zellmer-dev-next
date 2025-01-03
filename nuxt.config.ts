@@ -3,7 +3,6 @@ export default defineNuxtConfig({
 
   modules: [
     'nuxt-icon',
-    '@nuxtjs/prismic',
     '@nuxt/image',
     '@nuxtjs/tailwindcss',
     '@nuxt/eslint',
@@ -52,7 +51,6 @@ export default defineNuxtConfig({
   },
 
   image: {
-    provider: 'vercel',
     screens: {
       'xs': 345,
       'sm': 640,
@@ -62,12 +60,6 @@ export default defineNuxtConfig({
       'xxl': 1600,
       '2xl': 1536,
     },
-  },
-
-  prismic: {
-    endpoint: 'zellmer-dev',
-    preview: false,
-    toolbar: false,
   },
 
   tailwindcss: {

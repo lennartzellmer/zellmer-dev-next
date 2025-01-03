@@ -1,37 +1,35 @@
 <script lang="ts" setup>
 import { MetaTagKeys } from '~/types/metaTagKeys'
 
-const settings = useSettings()
-
 useHead({
-  titleTemplate: (titleChunk) => {
+  titleTemplate: (titleChunk: string) => {
     return titleChunk ? `${titleChunk} - Zellmer.dev` : 'Zellmer.dev'
   },
   meta: [
     {
       hid: MetaTagKeys.DESCRIPTION,
       name: MetaTagKeys.DESCRIPTION,
-      content: computed(() => settings.value?.data.description),
+      content: 'Lennart here. Sharing thoughts and concepts around Product, Design and Development.',
     },
     {
       hid: MetaTagKeys.KEYWORDS,
       name: MetaTagKeys.KEYWORDS,
-      content: computed(() => settings.value?.data.keywords.map(keyword => keyword.keyword).join(', ')),
+      content: 'Product, Blog, Design, Development, Maker',
     },
     {
       hid: MetaTagKeys.OG_TITLE,
       property: MetaTagKeys.OG_TITLE,
-      content: computed(() => settings.value?.data.name),
+      content: 'Zellmer.dev',
     },
     {
       hid: MetaTagKeys.OG_DESCRIPTION,
       property: MetaTagKeys.OG_DESCRIPTION,
-      content: computed(() => settings.value?.data.description),
+      content: 'Lennart here. Sharing thoughts and concepts around Product, Design and Development.',
     },
     {
       hid: MetaTagKeys.OG_LOCALE,
       property: MetaTagKeys.OG_LOCALE,
-      content: computed(() => settings.value?.lang),
+      content: 'de-de',
     },
     {
       hid: MetaTagKeys.OG_TYPE,
@@ -64,8 +62,8 @@ useHead({
 })
 
 defineOgImageComponent('DefaultPage', {
-  title: computed(() => settings.value?.data.name),
-  description: computed(() => settings.value?.data.description),
+  title: 'Zellmer.dev',
+  description: 'Lennart here. Sharing thoughts and concepts around Product, Design and Development.',
 })
 </script>
 

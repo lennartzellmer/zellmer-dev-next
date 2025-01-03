@@ -1,22 +1,17 @@
 <script setup lang="ts">
-const prismic = usePrismic()
-const { data: page } = useAsyncData('home', () =>
-  prismic.client.getSingle('home'),
-)
-
 useHead({
-  title: page.value?.data.meta_title,
+  title: 'Hi, Lennart here!',
   meta: [
     {
       name: 'description',
-      content: page.value?.data.meta_description,
+      content: 'Sharing thoughts and concepts around Product, Design and Development.',
     },
   ],
 })
 
 defineOgImageComponent('DefaultPage', {
-  title: computed(() => page.value?.data.meta_title),
-  description: computed(() => page.value?.data.meta_description),
+  title: 'Hi, Lennart here!',
+  description: 'Sharing thoughts and concepts around Product, Design and Development.',
 })
 </script>
 

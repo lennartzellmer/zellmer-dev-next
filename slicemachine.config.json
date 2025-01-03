@@ -1,9 +1,0 @@
-{
-  "repositoryName": "zellmer-dev",
-  "adapter": "@slicemachine/adapter-nuxt",
-  "libraries": ["./slices"],
-  "localSliceSimulatorURL": "http://localhost:3000/slice-simulator",
-  "labs": {
-    "legacySliceUpgrader": true
-  }
-}
