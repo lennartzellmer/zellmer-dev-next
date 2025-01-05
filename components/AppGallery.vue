@@ -239,7 +239,6 @@ const onClickThumb = (index: number) => {
                       width="300"
                       height="300"
                       class="h-20 object-cover transition-all hover:opacity-100"
-                      :modifiers="{ w: 300, h: 300 }"
                       :src="img.url!"
                       :class="[
                         i === imgIndex ? 'w-20 opacity-100' : 'w-10 opacity-80',
