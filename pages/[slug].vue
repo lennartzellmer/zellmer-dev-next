@@ -2,9 +2,10 @@
 import type { Post } from '~/types/content'
 
 const { slug } = useRoute().params
-const { data: page, error } = await useAsyncData(slug.toString(), () => queryContent<Post>('/pages').where({ slug }).findOne())
+const { data: page, status, error } = await useAsyncData(slug.toString(), () => queryContent<Post>('posts').where({ slug }).findOne())
 
 if (error) {
+  console.error('Error fetching page:', error)
   throw createError({ statusCode: 404, statusMessage: 'Meh, this page might used to exists... but now it is gone. Nothing is forever.' })
 }
 

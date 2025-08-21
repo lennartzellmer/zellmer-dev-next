@@ -43,7 +43,7 @@ const images = [
           Product Builder and Tinkerer
         </h1>
         <h2
-          class="mt-6 leading-7 text-slate-11 dark:text-slate-dark-11"
+          class="mt-6 text-base leading-7 text-slate-11 dark:text-slate-dark-11"
         >
           I am Lennart. A product owner, father of three, master of science, geek, tech enthusiast, programmer, tinkerer and creator. I have been working at elvah for {{ getYearsAtElvah() }} years now making EV charging effortless.
         </h2>
