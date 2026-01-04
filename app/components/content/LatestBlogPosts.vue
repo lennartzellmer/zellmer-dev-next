@@ -4,7 +4,7 @@ const { data: posts } = await useAsyncData(() => queryCollection('posts')
   .select(
     'title',
     'id',
-    'path',
+    'slug',
     'description',
     'thumbnail',
   )
@@ -36,7 +36,7 @@ const { data: postsMore } = await useAsyncData(() => queryCollection('posts')
         <AppArticlePreview
           :title="post.title"
           :description="post.description"
-          :slug="post.path"
+          :slug="post.slug"
           :thumbnail="post.thumbnail"
         />
       </li>

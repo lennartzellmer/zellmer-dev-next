@@ -1,5 +1,5 @@
 <template>
-  <footer class="mx-auto mt-3 flex max-w-5xl flex-row items-center justify-between py-4 sm:mt-8">
+  <footer class="mx-auto my-12 flex max-w-5xl flex-row items-center justify-between py-4 sm:mt-8">
     <nav class="mr-auto flex items-center rounded-full text-sm font-medium sm:ml-3 sm:text-base">
       <a
         href="https://github.com/lennartzellmer"
@@ -16,5 +16,6 @@
         <span class="text-base">Imprint</span>
       </nuxtlink>
     </nav>
+    <span class=" text-slate-11 font-mono px-3 py-2">lennart.zellmer.dev</span>
   </footer>
 </template>

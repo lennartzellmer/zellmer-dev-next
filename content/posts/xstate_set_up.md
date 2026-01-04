@@ -4,7 +4,7 @@ description: Building state machines is exciting, and with `xstate/vue`, you can
 seo_title: Get the gears clicking - XState & Vue
 seo_description: Building state machines is exciting, and with `xstate/vue`, you can bring them to life as reactive objects in Vue. It’s a powerful combination, but beginners might encounter a few quirks and challenges along the way.  This guide will walk you through the basics, help you avoid common pitfalls, and show you how to make your state machines truly shine in your Vue applications!
 thumbnail: /posts/blogpost_xstate_2.jpeg
-slug: mesh-like-grears---combining-xstate-and-vue
+slug: mesh-like-grears-combining-xstate-and-vue
 ---
 
 Working with state machines can feel mind-boggling at first. All the complexity and implicit states that suddenly become explicit can be overwhelming—it certainly was for me. But this complexity wasn’t new; it was always there, just hidden behind cryptic variables, unstructured code, and undocumented logic.

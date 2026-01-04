@@ -27,7 +27,7 @@ useHead({
               width="800"
               height="800"
               class="self-start rounded-xl object-contain"
-              :modifiers="{ tint: '#1B3151' }"
+              :modifiers="{ tint: 'hsl(216 50% 21%)' }"
             />
             <AppSocialLinks class="mt-2" />
           </div>
