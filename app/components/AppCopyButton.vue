@@ -1,6 +1,4 @@
 <script lang="ts" setup>
-import { useClipboard } from '@vueuse/core'
-
 interface Props {
   textToCopy: string
 }

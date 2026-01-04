@@ -6,21 +6,20 @@ seo_description: "Legal info."
 slug: imprint
 ---
 
-
 # Impressum
 
 ## Angaben gemäß § 5 TMG
 
-Lennart Zellmer
-Im Erlengrund 29
+Lennart Zellmer  
+Im Erlengrund 29  
 53757 Sankt Augustin
 
 ## Kontakt
 
-E-Mail: lennart+blog@zellmer.dev
+<lennart+blog@zellmer.dev>
 
 ## Redaktionell verantwortlich
 
-Lennart Zellmer
-Im Erlengrund 29
+Lennart Zellmer  
+Im Erlengrund 29  
 53757 Sankt Augustin

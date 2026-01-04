@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import AppSocialLinks from '~/components/AppSocialLinks.vue'
 
-const { data, status } = await useAsyncData('about_data', () => queryContent('/').where({ _file: 'bio.md' }).findOne())
+const { data, status } = await useAsyncData('about_data', () => queryCollection('root').first())
 
 useHead({
   title: computed(() => `${data.value?.title || ''}`),
@@ -15,7 +15,7 @@ useHead({
         <div
           class="grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-12"
         >
-          <ContentRendererMarkdown
+          <ContentRenderer
             :value="data"
             class="prose dark:prose-invert prose-headings:text-5xl lg:order-first lg:row-span-2"
           />
@@ -27,7 +27,7 @@ useHead({
               width="800"
               height="800"
               class="self-start rounded-xl object-contain"
-              :modifiers="{ tint: parseInt('1B3151', 16) }"
+              :modifiers="{ tint: '#1B3151' }"
             />
             <AppSocialLinks class="mt-2" />
           </div>

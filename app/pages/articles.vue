@@ -1,11 +1,9 @@
 <script lang="ts" setup>
-import type { Post } from '~/types/content'
-
 useHead({
   title: 'Articles',
 })
 
-const { data: posts, status } = await useAsyncData('all-blog-posts', () => queryContent<Post>('posts').find())
+const { data: posts, status } = await useAsyncData('all-blog-posts', () => queryCollection('posts').all())
 </script>
 
 <template>
@@ -25,7 +23,7 @@ const { data: posts, status } = await useAsyncData('all-blog-posts', () => query
       <template v-if="posts">
         <li
           v-for="post in posts"
-          :key="post._id"
+          :key="post.id"
           class="border-b border-slate-4 last:border-0 dark:border-slate-dark-2"
         >
           <AppArticlePreview

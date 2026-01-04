@@ -1,8 +1,11 @@
 <script lang="ts" setup>
-import type { Project } from '~/types/content'
-
 defineProps<{
-  project: Project
+  project: {
+    title: string
+    description: string
+    link: string
+    readable_url: string
+  }
 }>()
 </script>
 

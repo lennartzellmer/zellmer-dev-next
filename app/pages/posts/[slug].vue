@@ -1,11 +1,11 @@
 <script lang="ts" setup>
-import AppSkeleton from '~/components/AppSkeleton.vue'
 import { MetaTagKeys } from '~/types/metaTagKeys'
-import type { Post } from '~/types/content'
 
 const { slug } = useRoute().params
 
-const { data: post, status } = await useAsyncData(slug.toString(), () => queryContent<Post>('posts').where({ slug }).findOne())
+const { data: post, status } = await useAsyncData(slug!.toString(), () => queryCollection('posts')
+  .where('slug', '=', slug)
+  .first())
 
 useHead({
   title: computed(() => post.value!.seo_title || post.value!.title),
@@ -15,12 +15,10 @@ useHead({
       content: computed(() => post.value!.seo_description || post.value!.description),
     },
     {
-      hid: MetaTagKeys.OG_TYPE,
       property: MetaTagKeys.OG_TYPE,
       content: 'article',
     },
     {
-      hid: MetaTagKeys.OG_DESCRIPTION,
       property: MetaTagKeys.OG_DESCRIPTION,
       content: computed(() => post.value!.seo_description || post.value!.description),
     },
@@ -72,7 +70,7 @@ const blocks = computed(() => {
           >
             {{ post.title }}
           </h1>
-          <ContentRendererMarkdown
+          <ContentRenderer
             class="col-span-12
             md:col-span-10
             lg:col-span-8

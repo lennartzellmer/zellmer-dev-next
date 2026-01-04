@@ -1,11 +1,9 @@
 <script lang="ts" setup>
-import type { Project } from '~/types/content'
-
 useHead({
   title: 'Projects',
 })
 
-const { data: projects, status } = await useAsyncData('all-projects', () => queryContent<Project>('projects').find())
+const { data: projects, status } = await useAsyncData('all-projects', () => queryCollection('projects').all())
 </script>
 
 <template>

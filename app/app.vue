@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { MetaTagKeys } from '~/types/metaTagKeys'
+import { MetaTagKeys } from './types/metaTagKeys'
 
 useHead({
   titleTemplate: (titleChunk: unknown) => {
@@ -7,32 +7,26 @@ useHead({
   },
   meta: [
     {
-      hid: MetaTagKeys.DESCRIPTION,
       name: MetaTagKeys.DESCRIPTION,
       content: 'Lennart here. Sharing thoughts and concepts around Product, Design and Development.',
     },
     {
-      hid: MetaTagKeys.KEYWORDS,
       name: MetaTagKeys.KEYWORDS,
       content: 'Product, Blog, Design, Development, Maker',
     },
     {
-      hid: MetaTagKeys.OG_TITLE,
       property: MetaTagKeys.OG_TITLE,
       content: 'Zellmer.dev',
     },
     {
-      hid: MetaTagKeys.OG_DESCRIPTION,
       property: MetaTagKeys.OG_DESCRIPTION,
       content: 'Lennart here. Sharing thoughts and concepts around Product, Design and Development.',
     },
     {
-      hid: MetaTagKeys.OG_LOCALE,
       property: MetaTagKeys.OG_LOCALE,
       content: 'de-de',
     },
     {
-      hid: MetaTagKeys.OG_TYPE,
       property: MetaTagKeys.OG_TYPE,
       content: 'website',
     },

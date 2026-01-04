@@ -70,7 +70,7 @@ const images = [
             :img-attrs="{ class: 'object-cover' }"
             class="flex w-full object-cover"
             sizes="xs:150px sm:300px xl:500px"
-            :modifiers="{ tint: parseInt('1B3151', 16) }"
+            :modifiers="{ tint: '#1B3151' }"
           />
         </div>
       </div>

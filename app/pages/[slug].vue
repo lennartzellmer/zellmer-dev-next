@@ -1,10 +1,10 @@
 <script lang="ts" setup>
-import type { Post } from '~/types/content'
-
 const { slug } = useRoute().params
-const { data: page, error } = await useAsyncData(slug.toString(), () => queryContent<Post>('posts').where({ slug }).findOne())
+const { data: page, error } = await useAsyncData(slug!.toString(), () => queryCollection('pages')
+  .where('slug', '=', slug)
+  .first())
 
-if (error) {
+if (error.value) {
   console.error('Error fetching page:', error)
   throw createError({ statusCode: 404, statusMessage: 'Meh, this page might used to exists... but now it is gone. Nothing is forever.' })
 }
@@ -20,7 +20,7 @@ useHead({
       v-if="page"
       class="mx-auto max-w-5xl grid-cols-12 gap-8 px-4 pt-12 sm:grid sm:px-6 lg:px-4"
     >
-      <ContentRendererMarkdown
+      <ContentRenderer
         :value="page"
         class="prose dark:prose-invert prismic-text col-span-7 pb-12"
       />
