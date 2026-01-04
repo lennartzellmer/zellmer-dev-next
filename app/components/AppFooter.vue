@@ -5,13 +5,16 @@
         href="https://github.com/lennartzellmer"
         target="_blank"
         rel="noopener noreferrer"
+        class="flex items-center px-3 py-2 text-slate-11 transition hover:text-green-500 dark:text-slate-dark-11"
       >
-        <span>GitHub</span>
-        <Icon
-          class="size-8"
-          name="ph:github-logo"
-        />
+        <span class="text-base">Source</span>
       </a>
+      <NuxtLink
+        to="/imprint"
+        class="flex items-center px-3 py-2 text-slate-11 transition hover:text-green-500 dark:text-slate-dark-11"
+      >
+        <span class="text-base">Imprint</span>
+      </nuxtlink>
     </nav>
   </footer>
 </template>
