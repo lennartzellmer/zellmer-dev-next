@@ -7,9 +7,7 @@ const options = [
 </script>
 
 <template>
-  <ColorScheme
-    tag="span"
-  >
+  <ColorScheme tag="span">
     <ToggleGroupRoot
       v-model="$colorMode.preference"
       class="flex text-slate-11 dark:text-slate-dark-11 border-slate-5 dark:border-slate-dark-6 border-2 rounded-full overflow-hidden"

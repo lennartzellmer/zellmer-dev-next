@@ -9,9 +9,7 @@ const { data: projects, status } = await useAsyncData('all-projects', () => quer
 <template>
   <section class="mx-auto mt-8 w-full max-w-5xl px-4 sm:mt-32 lg:px-0">
     <header class="max-w-2xl">
-      <h1
-        class="text-4xl font-bold tracking-tight text-slate-12 dark:text-slate-dark-12 sm:text-5xl"
-      >
+      <h1 class="text-4xl font-bold tracking-tight text-slate-12 dark:text-slate-dark-12 sm:text-5xl">
         A few achievements I’m truly proud of.
       </h1>
       <p class="mt-6 text-base text-slate-11 dark:text-slate-dark-11">
@@ -19,9 +17,7 @@ const { data: projects, status } = await useAsyncData('all-projects', () => quer
       </p>
     </header>
     <div class="mt-16 mb-28 sm:mt-20">
-      <ul
-        class="grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2 lg:grid-cols-3"
-      >
+      <ul class="grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2 lg:grid-cols-3">
         <template v-if="projects">
           <AppProjectCard
             v-for="project in projects"

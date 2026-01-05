@@ -38,9 +38,7 @@ const blocks = computed(() => {
 <template>
   <div>
     <main class="bg-slate-2 dark:bg-transparent">
-      <section
-        class="mx-auto w-full max-w-5xl gap-8 px-4 pb-12 md:grid md:auto-rows-max md:grid-cols-12 md:px-6"
-      >
+      <section class="mx-auto w-full max-w-5xl gap-8 px-4 pb-12 md:grid md:auto-rows-max md:grid-cols-12 md:px-6">
         <div
           v-if="status === 'pending'"
           class="col-span-12 pt-16 md:col-span-10 lg:col-span-10"
@@ -65,9 +63,7 @@ const blocks = computed(() => {
           </div>
         </div>
         <template v-if="post">
-          <h1
-            class="col-span-12 pt-16 text-4xl font-bold leading-tight text-black dark:text-slate-dark-12 sm:text-6xl md:col-span-10 lg:col-span-8"
-          >
+          <h1 class="col-span-12 pt-16 text-4xl font-bold leading-tight text-black dark:text-slate-dark-12 sm:text-6xl md:col-span-10 lg:col-span-8">
             {{ post.title }}
           </h1>
           <ContentRenderer

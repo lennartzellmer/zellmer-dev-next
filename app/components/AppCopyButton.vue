@@ -15,15 +15,11 @@ const { copy, copied, isSupported } = useClipboard()
       @click="copy(textToCopy)"
     >
       <span v-if="!copied">
-        <Icon
-          name="ph:copy"
-        />
+        <Icon name="ph:copy" />
         <span class="sr-only">Copy</span>
       </span>
       <span v-else>
-        <Icon
-          name="ph:check-square-offset"
-        />
+        <Icon name="ph:check-square-offset" />
         <span class="sr-only">Copied</span>
       </span>
     </button>

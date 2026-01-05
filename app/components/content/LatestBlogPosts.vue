@@ -24,9 +24,7 @@ const { data: postsMore } = await useAsyncData(() => queryCollection('posts')
 </script>
 
 <template>
-  <section
-    class="mx-auto mt-4 max-w-5xl px-4 sm:mt-8 md:mt-28"
-  >
+  <section class="mx-auto mt-4 max-w-5xl px-4 sm:mt-8 md:mt-28">
     <ul>
       <li
         v-for="post in posts"
@@ -61,9 +59,7 @@ const { data: postsMore } = await useAsyncData(() => queryCollection('posts')
             width="64"
           />
         </div>
-        <span
-          class="ml-8 flex items-center space-x-1 rounded-lg px-3 py-3 text-green-500 group-hover:bg-slate-3 dark:group-hover:bg-slate-dark-1 sm:ml-12 sm:px-4"
-        >
+        <span class="ml-8 flex items-center space-x-1 rounded-lg px-3 py-3 text-green-500 group-hover:bg-slate-3 dark:group-hover:bg-slate-dark-1 sm:ml-12 sm:px-4">
           <p>See more posts</p>
           <Icon
             name="ph:caret-right-bold"

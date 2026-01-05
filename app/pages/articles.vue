@@ -9,9 +9,7 @@ const { data: posts, status } = await useAsyncData('all-blog-posts', () => query
 <template>
   <section class="mx-auto mt-16 max-w-5xl px-4 sm:mt-32 lg:px-0">
     <header class="max-w-2xl">
-      <h1
-        class="text-4xl font-bold tracking-tight text-slate-12 dark:text-slate-dark-12 sm:text-5xl"
-      >
+      <h1 class="text-4xl font-bold tracking-tight text-slate-12 dark:text-slate-dark-12 sm:text-5xl">
         Sharing thoughts and concepts around Product, Design and Development.
       </h1>
       <p class="mt-6 text-base text-slate-11 dark:text-slate-dark-11">

@@ -9,12 +9,8 @@ withDefaults(defineProps<{
 </script>
 
 <template>
-  <div
-    class="w-full h-full flex justify-between relative py-[60px] pt-[30px] px-[60px] bg-slate-1"
-  >
-    <div
-      class="flex absolute bottom-[-40%] right-[-10%] text-green-500"
-    >
+  <div class="w-full h-full flex justify-between relative py-[60px] pt-[30px] px-[60px] bg-slate-1">
+    <div class="flex absolute bottom-[-40%] right-[-10%] text-green-500">
       <svg
         fill="none"
         xmlns="http://www.w3.org/2000/svg"

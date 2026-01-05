@@ -62,9 +62,7 @@ defineOgImageComponent('DefaultPage', {
 </script>
 
 <template>
-  <div
-    class="flex min-h-screen w-screen flex-col overflow-x-hidden bg-slate-2 antialiased dark:bg-slate-dark-1/50"
-  >
+  <div class="flex min-h-screen w-screen flex-col overflow-x-hidden bg-slate-2 antialiased dark:bg-slate-dark-1/50">
     <NuxtLayout>
       <NuxtPage />
     </NuxtLayout>
