@@ -35,11 +35,6 @@ export default defineNuxtConfig({
       },
     },
   },
-  eslint: {
-    config: {
-      stylistic: true,
-    },
-  },
   image: {
     provider: 'ipx',
     screens: {

@@ -1,14 +1,15 @@
 // @ts-check
-import withNuxt from './.nuxt/eslint.config.mjs'
+import { createConfigForNuxt } from '@nuxt/eslint-config'
 
-export default withNuxt(
-  {
-    files: ['**/*.vue'],
-    rules: {
-      'vue/first-attribute-linebreak': ['error', {
-        singleline: 'beside',
-        multiline: 'below',
-      }],
-    },
+export default createConfigForNuxt({
+  features: {
+    stylistic: true,
   },
-)
+}).override('nuxt/stylistic', {
+  rules: {
+    'vue/first-attribute-linebreak': ['error', {
+      singleline: 'beside',
+      multiline: 'below',
+    }],
+  },
+})
