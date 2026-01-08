@@ -34,12 +34,11 @@ function formatRadixColors() {
 export default <Partial<Config>>{
   darkMode: 'class',
   safelist: ['line-through'],
-  content: ['./error.vue', './slices/**/*.vue'],
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Inter'],
-        mono: ['JetBrains Mono'],
+        sans: ['Geist'],
+        mono: ['Lilex'],
       },
       screens: {
         xs: '345px',

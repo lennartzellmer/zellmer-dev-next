@@ -35,6 +35,12 @@ export default defineNuxtConfig({
       },
     },
   },
+  fonts: {
+    families: [
+      { name: 'Geist', provider: 'google', weights: ['100 900'] },
+      { name: 'Lilex', provider: 'google' },
+    ],
+  },
   image: {
     provider: 'ipx',
     screens: {
